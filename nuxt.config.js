@@ -44,6 +44,9 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/moment',
+    '@nuxtjs/redirect-module',
+    '@nuxtjs/i18n',
     [
       'nuxt-fontawesome',
       {
@@ -60,6 +63,34 @@ export default {
       },
     ],
   ],
+
+  i18n: {
+    locales: [
+      {
+        code: 'en',
+        iso: 'en',
+        file: 'en.js',
+        name: 'English',
+        dir: 'ltr',
+      },
+      {
+        code: 'ar',
+        iso: 'ar',
+        file: 'ar.js',
+        name: 'العربية',
+        dir: 'rtl',
+      },
+    ],
+    defaultLocale: 'en',
+    vueI18n: {
+      fallbackLocale: 'en',
+    },
+    lazy: true,
+    langDir: 'lang/',
+    detectBrowserLanguage: false,
+    baseUrl: 'https://josa.ngo',
+    seo: true,
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
