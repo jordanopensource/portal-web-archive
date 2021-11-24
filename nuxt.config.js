@@ -41,6 +41,13 @@ export default {
     proxy: true,
   },
 
+  proxy: {
+    '/api': {
+      target: process.env.API_BASE_URL,
+      pathRewrite: { '^/api/': '' },
+    },
+  },
+
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
