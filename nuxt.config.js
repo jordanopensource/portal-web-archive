@@ -96,6 +96,13 @@ export default {
     defaultLocale: 'en',
     locales: ['ar'],
   },
+
+  redirect: [
+    {
+      from: '^/opendata',
+      to: 'https://www.mynaparrot.com/en/my-classrooms/rooms?layout=login&roomId=1964&clientId=josa',
+    },
+  ],
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     proxy: true,
