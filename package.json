@@ -21,8 +21,10 @@
     "@nuxtjs/sitemap": "^2.4.0",
     "@smartweb/vue-flash-message": "^0.6.10",
     "core-js": "^3.15.1",
+    "leaflet": "^1.7.1",
     "nuxt": "^2.15.7",
-    "nuxt-fontawesome": "^0.4.0"
+    "nuxt-fontawesome": "^0.4.0",
+    "vue2-leaflet": "^2.7.1"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.7",
