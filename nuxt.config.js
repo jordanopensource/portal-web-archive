@@ -48,6 +48,12 @@ export default {
     },
   },
 
+  publicRuntimeConfig: {
+    bucketUrl: process.env.BUCKET_URL,
+    bbbAPIUrl: process.env.BBB_API_URL,
+    bbbAPISecret: process.env.BBB_API_SECRET,
+  },
+
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
