@@ -92,6 +92,10 @@ export default {
     seo: true,
   },
 
+  moment: {
+    defaultLocale: 'en',
+    locales: ['ar'],
+  },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     proxy: true,
