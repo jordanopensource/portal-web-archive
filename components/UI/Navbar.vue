@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import menuItems from '@/components/Menu/MenuItems'
+import menuItems from '~/components/Menu/MenuItems'
 import languageSwitcher from '@/components/UI/LanguageSwitcher'
 export default {
   name: 'Navbar',
@@ -20,9 +20,14 @@ export default {
     menuItems,
     languageSwitcher,
   },
+  async fetch() {
+    const response = await this.$axios.get('/api/menus')
+    const menuArray = response.data
+    this.$store.commit('menu/setMenus', menuArray)
+  },
   computed: {
     mainMenu() {
-      return this.$store.getters.loadedMenus.mainMenu
+      return this.$store.state.menu.loadedMenus
     },
   },
 }
