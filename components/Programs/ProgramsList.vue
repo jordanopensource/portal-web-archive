@@ -14,7 +14,7 @@
 export default {
   name: 'ProgramsList',
   components: {
-    programPreview: () => import('~/components/Programs/ProgramPrevie'),
+    programPreview: () => import('~/components/Programs/ProgramPreview'),
   },
   props: {
     programs: {
