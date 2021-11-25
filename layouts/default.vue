@@ -13,7 +13,7 @@ export default {
   components: {
     mainHeader: () => import('~/components/UI/Header'),
     mainFooter: () => import('~/components/UI/Footer'),
-    BackToTop: () => import('~/components/UI/BackToTop.vu'),
+    BackToTop: () => import('~/components/UI/BackToTop'),
   },
   head() {
     return {
