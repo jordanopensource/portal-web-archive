@@ -25,14 +25,14 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [ 
+  plugins: [
     { src: '~/plugins/datetime-filter' },
     { src: '~/plugins/vue2-filters' },
-    { src: '~/plugins/string-filters' }, 
+    { src: '~/plugins/string-filters' },
     { src: '~/plugins/i18n' },
     { src: '~/plugins/og-tags' },
     { src: '~/plugins/flash-message.js', mode: 'client' },
-    { src: '~/plugins/leaflet', mode: 'client' }, 
+    { src: '~/plugins/leaflet', mode: 'client' },
     { src: '~/plugins/copy' },
   ],
 
@@ -125,6 +125,7 @@ export default {
   },
 
   publicRuntimeConfig: {
+    baseUrl: process.env.API_BASE_URL,
     bucketUrl: process.env.BUCKET_URL,
     bbbAPIUrl: process.env.BBB_API_URL,
     bbbAPISecret: process.env.BBB_API_SECRET,
