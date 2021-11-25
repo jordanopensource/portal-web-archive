@@ -127,7 +127,7 @@ export default {
 
   computed: {
     menus() {
-      return this.$store.getters.loadedMenus
+      return this.$store.state.menu.loadedMenus
     },
   },
 }
