@@ -25,7 +25,16 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [ 
+    { src: '~/plugins/datetime-filter' },
+    { src: '~/plugins/vue2-filters' },
+    { src: '~/plugins/string-filters' }, 
+    { src: '~/plugins/i18n' },
+    { src: '~/plugins/og-tags' },
+    { src: '~/plugins/flash-message.js', mode: 'client' },
+    { src: '~/plugins/leaflet', mode: 'client' }, 
+    { src: '~/plugins/copy' },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
