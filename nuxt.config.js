@@ -120,6 +120,10 @@ export default {
       target: process.env.API_BASE_URL,
       pathRewrite: { '^/api/': '' },
     },
+    '/bucket': {
+      target: process.env.BUCKET_URL,
+      pathRewrite: { '^/bucket/': '' },
+    },
   },
 
   publicRuntimeConfig: {
