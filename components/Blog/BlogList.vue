@@ -72,7 +72,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import { mapGetters } from 'vuex'
 export default {
   name: 'BlogList',
   components: {
@@ -111,17 +111,17 @@ export default {
       numberPerPage: 5,
     }
   },
+  async fetch() {
+    await this.fetchArticles()
+    await this.countArticles()
+  },
   computed: {
+    ...mapGetters({
+      featuredBlogs: 'blog/getFeaturedBlogs',
+    }),
     pageCount() {
       return Math.ceil(this.count / this.numberPerPage)
     },
-    featuredBlogs() {
-      return this.$store.getters.getFeaturedBlogs
-    },
-  },
-  created() {
-    this.fetchArticles()
-    this.countArticles()
   },
   methods: {
     fetchCurrentPage(i) {
@@ -161,18 +161,16 @@ export default {
     },
     async fetchArticles() {
       const query = this.query()
-      await axios
-        .get(process.env.baseUrl + '/blogs?' + query)
-        .then((res) => {
-          const articlesArray = []
-          for (const key in res.data) {
-            articlesArray.push({
-              ...res.data[key],
-            })
-          }
-          this.loadedArticles = articlesArray
+      const response = await this.$axios.get(`/api/blogs?${query}`)
+
+      const articlesArray = []
+      for (const key in response.data) {
+        articlesArray.push({
+          ...response.data[key],
         })
-        .catch((e) => this.context.error(e))
+
+        this.loadedArticles = articlesArray
+      }
     },
     async countArticles() {
       const args = []
@@ -186,9 +184,8 @@ export default {
         args.push(q)
       }
       query = args.join('&')
-      await axios.get(process.env.baseUrl + '/blogs?' + query).then((res) => {
-        this.count = res.data.length
-      })
+      const response = await this.$axios.get(`/api/blogs?${query}`)
+      this.count = response.data.length
     },
     ifNotEmpty() {
       if (Array.isArray(this.loadedArticles) && this.loadedArticles.length)
