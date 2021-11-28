@@ -2,7 +2,7 @@
   <nav>
     <!-- Main Menu -->
     <menuItems
-      :menu="mainMenu"
+      :menu="loadedMenus.mainMenu"
       menu-item-class="nav-link"
       class="inline-block"
     />
@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import menuItems from '~/components/Menu/MenuItems'
 import languageSwitcher from '@/components/UI/LanguageSwitcher'
 export default {
@@ -26,9 +27,9 @@ export default {
     this.$store.commit('menu/setMenus', menuArray)
   },
   computed: {
-    mainMenu() {
-      return this.$store.state.menu.loadedMenus.mainMenu
-    },
+    ...mapGetters({
+      loadedMenus: 'menu/loadedMenus',
+    }),
   },
 }
 </script>
