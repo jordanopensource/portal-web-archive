@@ -35,11 +35,10 @@
 </template>
 
 <script>
-import appImage from '~/components/UI/appImage'
 export default {
   name: 'PageBanner',
   components: {
-    appImage,
+    appImage: () => import('~/components/UI/appImage'),
   },
   props: {
     pageMeta: {
