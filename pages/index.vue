@@ -42,7 +42,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   components: {
     ourWork: () => import('~/components/Programs/OurWork'),
@@ -53,11 +52,9 @@ export default {
     joinUs: () => import('~/components/JoinUs/JoinUs'),
   },
   layout: 'general',
-  async asyncData(context) {
-    const pageMeta = await axios.get(
-      process.env.baseUrl + '/page-metas?pageId=home'
-    )
-    const programs = await axios.get(process.env.baseUrl + '/programs')
+  async asyncData({ $axios }) {
+    const pageMeta = await $axios.get('/api/page-metas?pageId=home')
+    const programs = await $axios.get('/api/programs')
     return {
       homeMeta: pageMeta.data[0],
       programs: programs.data,
