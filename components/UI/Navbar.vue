@@ -27,7 +27,7 @@ export default {
   },
   computed: {
     mainMenu() {
-      return this.$store.state.menu.loadedMenus
+      return this.$store.state.menu.loadedMenus.mainMenu
     },
   },
 }
