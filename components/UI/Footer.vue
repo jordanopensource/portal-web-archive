@@ -92,6 +92,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import menuItems from '~/components/Menu/MenuItems'
 export default {
   name: 'Footer',
@@ -124,11 +125,10 @@ export default {
       ],
     }
   },
-
   computed: {
-    menus() {
-      return this.$store.state.menu.loadedMenus
-    },
+    ...mapGetters({
+      menus: 'menu/loadedMenus',
+    }),
   },
 }
 </script>
