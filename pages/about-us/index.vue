@@ -1,3 +1,4 @@
+/* eslint-disable vue/no-v-html */
 <template>
   <div :id="meta.pageId">
     <pageBanner :page-meta="meta" />
@@ -7,9 +8,10 @@
       id="content"
       class="container py-20"
     >
-      <div class="px-6 md:px-12">
-        {{ meta.htmlContent['content_' + $i18n.locale] }}
-      </div>
+      <div
+        class="px-6 md:px-12"
+        v-html="meta.htmlContent['content_' + $i18n.locale]"
+      ></div>
     </div>
     <!-- Know More -->
     <list />
