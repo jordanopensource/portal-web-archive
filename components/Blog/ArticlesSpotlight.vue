@@ -26,7 +26,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   name: 'ArticlesSpotLight',
   components: {
@@ -50,12 +49,22 @@ export default {
       required: true,
     },
   },
-
   data() {
     return {
       sortBy: 'publishDate:DESC',
       loadedArticles: [],
     }
+  },
+  async fetch() {
+    const query = this.query()
+    const response = await this.$axios.get(`/api/blogs?${query}`)
+    const articlesArray = []
+    for (const key in response.data) {
+      articlesArray.push({
+        ...response.data[key],
+      })
+    }
+    this.loadedArticles = articlesArray
   },
   computed: {
     arrowIcon() {
@@ -65,9 +74,6 @@ export default {
         return 'long-arrow-alt-right'
       }
     },
-  },
-  created() {
-    this.fetchArticles()
   },
   methods: {
     query() {
@@ -91,21 +97,6 @@ export default {
       }
       query = args.join('&')
       return query
-    },
-    async fetchArticles() {
-      const query = this.query()
-      await axios
-        .get(process.env.baseUrl + '/blogs?' + query)
-        .then((res) => {
-          const articlesArray = []
-          for (const key in res.data) {
-            articlesArray.push({
-              ...res.data[key],
-            })
-          }
-          this.loadedArticles = articlesArray
-        })
-        .catch((e) => this.context.error(e))
     },
     ifNotEmpty() {
       if (Array.isArray(this.loadedArticles) && this.loadedArticles.length)
