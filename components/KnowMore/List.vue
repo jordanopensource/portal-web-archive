@@ -31,7 +31,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   name: 'KnowMore',
   components: {
@@ -42,28 +41,23 @@ export default {
       loadedPages: [],
     }
   },
-  created() {
-    this.fetchPages()
-  },
-  methods: {
-    async fetchPages() {
-      const pageArray1 = await axios.get(
-        process.env.baseUrl + '/page-metas?pageId=boardandstaff&pageId=partners'
-      )
-      const pageArray2 = await axios.get(
-        process.env.baseUrl + '/info-pages?pageId=code-of-conduct'
-      )
-      const pagesArray = []
-      for (const key in pageArray1.data) {
-        pagesArray.push({
-          ...pageArray1.data[key],
-        })
-      }
+  async fetch() {
+    const pageArray1 = await this.$axios.get(
+      '/api/page-metas?pageId=boardandstaff&pageId=partners'
+    )
+    const pageArray2 = await this.$axios.get(
+      '/api/info-pages?pageId=code-of-conduct'
+    )
+    const pagesArray = []
+    for (const key in pageArray1.data) {
       pagesArray.push({
-        ...pageArray2.data[0],
+        ...pageArray1.data[key],
       })
-      this.loadedPages = pagesArray
-    },
+    }
+    pagesArray.push({
+      ...pageArray2.data[0],
+    })
+    this.loadedPages = pagesArray
   },
 }
 </script>
