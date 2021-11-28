@@ -1,5 +1,11 @@
 <template>
-  <img width="500" height="500" :src="imageUrl" :alt="image.alternativeText" />
+  <img
+    loading="lazy"
+    width="500"
+    height="500"
+    :src="imageUrl"
+    :alt="image.alternativeText"
+  />
 </template>
 
 <script>
