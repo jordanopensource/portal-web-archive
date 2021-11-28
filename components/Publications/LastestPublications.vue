@@ -26,7 +26,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   components: {
     publicationCompact: () =>
@@ -52,6 +51,18 @@ export default {
       loadedPublications: [],
     }
   },
+  async fetch() {
+    const query = this.query()
+    const response = await this.$axios.get(`/api/publications?${query}`)
+
+    const publicationsArray = []
+    for (const key in response.data) {
+      publicationsArray.push({
+        ...response.data[key],
+      })
+    }
+    this.loadedPublications = publicationsArray
+  },
   computed: {
     arrowIcon() {
       if (this.$i18n.locale === 'ar') {
@@ -60,9 +71,6 @@ export default {
         return 'long-arrow-alt-right'
       }
     },
-  },
-  created() {
-    this.fetchPublications()
   },
   methods: {
     query() {
@@ -83,28 +91,15 @@ export default {
       query = args.join('&')
       return query
     },
-    async fetchPublications() {
-      const query = this.query()
-      await axios
-        .get(process.env.baseUrl + '/publications?' + query)
-        .then((res) => {
-          const publicationsArray = []
-          for (const key in res.data) {
-            publicationsArray.push({
-              ...res.data[key],
-            })
-          }
-          this.loadedPublications = publicationsArray
-        })
-        .catch((e) => this.context.error(e))
-    },
     ifNotEmpty() {
       if (
         Array.isArray(this.loadedPublications) &&
         this.loadedPublications.length
-      )
+      ) {
         return true
-      else return false
+      } else {
+        return false
+      }
     },
   },
 }
