@@ -20,7 +20,6 @@
     "@nuxtjs/pwa": "^3.3.5",
     "@nuxtjs/redirect-module": "^0.3.1",
     "@nuxtjs/sitemap": "^2.4.0",
-    "@smartweb/vue-flash-message": "^0.6.10",
     "core-js": "^3.15.1",
     "leaflet": "^1.7.1",
     "leaflet-gesture-handling": "^1.2.2",
