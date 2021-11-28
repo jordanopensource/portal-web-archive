@@ -97,7 +97,6 @@ export default {
     langDir: 'lang/',
     detectBrowserLanguage: false,
     baseUrl: 'https://josa.ngo',
-    seo: true,
   },
 
   moment: {
