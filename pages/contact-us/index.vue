@@ -14,7 +14,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   components: {
     pageBanner: () => import('~/components/UI/PageBanner'),
@@ -23,11 +22,9 @@ export default {
     locationMap: () => import('~/components/Map/LocationMap'),
   },
   layout: 'default',
-  async asyncData(context) {
-    const pageMeta = await axios.get(
-      process.env.baseUrl + '/page-metas?pageId=contact-us'
-    )
-    const contactData = await axios.get(process.env.baseUrl + '/contact-info')
+  async asyncData({ $axios }) {
+    const pageMeta = await $axios.get('/api/page-metas?pageId=contact-us')
+    const contactData = await $axios.get('/api/contact-info')
     return {
       contactUsMeta: pageMeta.data[0],
       contactInfo: contactData.data,
