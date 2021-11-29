@@ -1,6 +1,6 @@
 <template>
   <div class="preview mt-8">
-    <nuxt-link tag="a" :to="articleLink" class="thumbnail">
+    <nuxt-link :to="articleLink" class="thumbnail">
       <appImage
         v-if="article.thumbnail"
         :image="article.thumbnail"
