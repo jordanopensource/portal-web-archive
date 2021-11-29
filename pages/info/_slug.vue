@@ -51,10 +51,9 @@
 </template>
 
 <script>
-import pageBanner from '~/components/UI/PageBanner'
 export default {
   components: {
-    pageBanner,
+    pageBanner: () => import('~/components/UI/PageBanner'),
   },
   layout: 'default',
   asyncData({ params, error }) {
