@@ -8,7 +8,7 @@
         id="content"
         class="px-6 md:px-12"
       >
-        <div>{{ program['content_' + $i18n.locale] }}</div>
+        <div v-html="program['content_' + $i18n.locale]"></div>
         <div class="block py-8 my-4 border-josa-warm-grey-dark">
           <hr />
         </div>

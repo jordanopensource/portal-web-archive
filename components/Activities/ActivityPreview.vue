@@ -10,7 +10,7 @@
     <div class="my-auto">
       <h5 class="display-faded uppercase">{{ date }}</h5>
       <h3 class="mb-4 mt-2">{{ activity['title_' + $i18n.locale] }}</h3>
-      <div>{{ activity['description_' + $i18n.locale] }}</div>
+      <div v-html="activity['description_' + $i18n.locale]"></div>
     </div>
   </div>
 </template>
