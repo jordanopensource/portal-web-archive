@@ -19,7 +19,9 @@ export default {
   props: {
     programs: {
       type: Array,
-      required: true,
+      default() {
+        return []
+      },
     },
   },
 }
