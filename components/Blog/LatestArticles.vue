@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   name: 'LatestArticles',
   components: {
@@ -45,8 +44,16 @@ export default {
       loadedArticles: [],
     }
   },
-  created() {
-    this.fetchArticles()
+  async fetch() {
+    const query = this.query()
+    const response = await this.$axios.get(`/api/blogs?${query}`)
+    const articlesArray = []
+    for (const key in response.data) {
+      articlesArray.push({
+        ...response.data[key],
+      })
+    }
+    this.loadedArticles = articlesArray
   },
   methods: {
     query() {
@@ -66,21 +73,6 @@ export default {
       }
       query = args.join('&')
       return query
-    },
-    async fetchArticles() {
-      const query = this.query()
-      await axios
-        .get(process.env.baseUrl + '/blogs?' + query)
-        .then((res) => {
-          const articlesArray = []
-          for (const key in res.data) {
-            articlesArray.push({
-              ...res.data[key],
-            })
-          }
-          this.loadedArticles = articlesArray
-        })
-        .catch((e) => this.context.error(e))
     },
     ifNotEmpty() {
       if (Array.isArray(this.loadedArticles) && this.loadedArticles.length)
