@@ -20,7 +20,10 @@ export default {
       .catch((e) => context.error(e))
   },
   head() {
-    const i18nSeo = this.$nuxtI18nSeo()
+    const i18nSeo = this.$nuxtI18nHead({
+      addDirAttribute: true,
+      addSeoAttributes: true,
+    })
     return {
       title:
         this.pageTitle +
