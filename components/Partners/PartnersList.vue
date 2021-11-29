@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   components: {
     partnerPreview: () => import('@/components/Partners/PartnerPreview'),
@@ -29,8 +28,8 @@ export default {
       loadedPartners: [],
     }
   },
-  created() {
-    this.fetchPartners()
+  async fetch() {
+    await this.fetchPartners()
   },
   methods: {
     query() {
@@ -45,18 +44,14 @@ export default {
     },
     async fetchPartners() {
       const query = this.query()
-      await axios
-        .get(process.env.baseUrl + '/partners?' + query)
-        .then((res) => {
-          const partnersArray = []
-          for (const key in res.data) {
-            partnersArray.push({
-              ...res.data[key],
-            })
-          }
-          this.loadedPartners = partnersArray
+      const response = await this.$axios.get(`/api/partners?${query}`)
+      const partnersArray = []
+      for (const key in response.data) {
+        partnersArray.push({
+          ...response.data[key],
         })
-        .catch((e) => this.context.error(e))
+      }
+      this.loadedPartners = partnersArray
     },
     ifNotEmpty() {
       if (Array.isArray(this.loadedPartners) && this.loadedPartners.length)
