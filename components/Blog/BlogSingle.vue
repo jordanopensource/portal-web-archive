@@ -84,9 +84,8 @@
         class="article-body"
         :dir="article.language == 'ar' ? 'rtl' : 'ltr'"
         :lang="article.language"
-      >
-        {{ article.body }}
-      </div>
+        v-html="article.body"
+      ></div>
       <hr class="mt-12 mb-6 border-solid border-josa-warm-grey-dark" />
       <!-- share buttons  -->
       <shareButtons v-if="url" class="mb-4 w-full justify-end" :url="url" />
