@@ -27,9 +27,8 @@
             <div
               v-if="career['description_' + $i18n.locale]"
               class="description py-8"
-            >
-              {{ career['description_' + $i18n.locale] }}
-            </div>
+              v-html="career['description_' + $i18n.locale]"
+            ></div>
           </div>
           <div class="w-full md:w-2/5 mb-8">
             <infoCard class="mb-8" :career="career" />
