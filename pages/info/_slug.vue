@@ -56,33 +56,24 @@ export default {
     pageBanner: () => import('~/components/UI/PageBanner'),
   },
   layout: 'default',
-  asyncData({ params, error }) {
-    return axios
-      .get(process.env.baseUrl + '/info-pages?pageId=' + params.slug)
-      .then((res) => {
-        if (res.data[0].id) {
-          const ifSections =
-            Array.isArray(res.data[0].section) && res.data[0].section.length
-              ? true
-              : false
-          const activeSec = ifSections ? res.data[0].section[0].sectionId : ''
-          return {
-            pageContent: res.data[0],
-            activeSection: activeSec,
-          }
-        } else {
-          return error({
-            statusCode: 404,
-            message: 'This page could not be found',
-          })
-        }
+  async asyncData({ params, error, $axios }) {
+    const response = await $axios.get(`/api/info-pages?pageId=${params.slug}`)
+    if (response.data[0].id) {
+      const ifSections = !!(
+        Array.isArray(response.data[0].section) &&
+        response.data[0].section.length
+      )
+      const activeSec = ifSections ? response.data[0].section[0].sectionId : ''
+      return {
+        pageContent: response.data[0],
+        activeSection: activeSec,
+      }
+    } else {
+      return error({
+        statusCode: 404,
+        message: 'This page could not be found',
       })
-      .catch((e) => {
-        error({
-          statusCode: 404,
-          message: 'This page could not be found',
-        })
-      })
+    }
   },
   head() {
     const i18nSeo = this.$nuxtI18nHead({
