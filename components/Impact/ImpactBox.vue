@@ -2,7 +2,7 @@
   <div class="">
     <div class="display-lead pb-8">{{ $t('impactBox.text1') }}</div>
     <p>{{ $t('impactBox.text2') }}</p>
-    <nuxt-link to="/" tag="a" class="button button-blue">{{
+    <nuxt-link to="/" class="button button-blue">{{
       $t('button.knowMoreImpact')
     }}</nuxt-link>
   </div>

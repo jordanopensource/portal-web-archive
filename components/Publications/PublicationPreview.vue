@@ -1,6 +1,6 @@
 <template>
   <div class="preview my-8 flex flex-wrap md:flex-nowrap">
-    <nuxt-link tag="a" :to="publicationLink" class="thumbnail hidden md:block">
+    <nuxt-link :to="publicationLink" class="thumbnail hidden md:block">
       <appImage
         v-if="publication.thumbnail"
         :image="publication.thumbnail"

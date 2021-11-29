@@ -37,7 +37,6 @@
             </p>
             <nuxt-link
               to="#our-work"
-              tag="a"
               class="
                 button-sharp button-dark-blue-full
                 inline-block

@@ -17,10 +17,10 @@
       <p>{{ $t('ourCommunity.text2') }}</p>
     </div>
     <div class="flex flex-wrap justify-between">
-      <nuxt-link class="mb-4 button button-blue-full" to="#" tag="a">{{
+      <nuxt-link class="mb-4 button button-blue-full" to="#">{{
         $t('button.membersHub')
       }}</nuxt-link>
-      <nuxt-link class="mb-4 button button-blue" to="#" tag="a">{{
+      <nuxt-link class="mb-4 button button-blue" to="#">{{
         $t('button.login')
       }}</nuxt-link>
     </div>
