@@ -3,21 +3,17 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   components: {
     careerSingle: () => import('~/components/Careers/CareerSingle'),
   },
   layout: 'default',
-  asyncData(context) {
-    return axios
-      .get(process.env.baseUrl + '/careers/' + context.params.id)
-      .then((res) => {
-        return {
-          career: res.data,
-        }
-      })
-      .catch((e) => context.error(e))
+  async asyncData({ params, $axios }) {
+    const response = await $axios.get(`/api/careers/${params.id}`)
+
+    return {
+      career: response.data,
+    }
   },
   head() {
     const i18nSeo = this.$nuxtI18nHead({
