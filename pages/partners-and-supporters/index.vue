@@ -12,13 +12,10 @@
 
 <script>
 import axios from 'axios'
-import pageBanner from '@/components/UI/PageBanner'
-import partnersList from '@/components/Partners/PartnersList'
-
 export default {
   components: {
-    pageBanner,
-    partnersList,
+    pageBanner: () => import('@/components/UI/PageBanner'),
+    partnersList: () => import('@/components/Partners/PartnersList'),
   },
   layout: 'default',
   async asyncData(context) {
