@@ -10,17 +10,14 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   components: {
     pageBanner: () => import('~/components/UI/PageBanner'),
     programsList: () => import('~/components/Programs/ProgramsList'),
   },
   layout: 'default',
-  async asyncData(context) {
-    const pageMeta = await axios.get(
-      process.env.baseUrl + '/page-metas?pageId=programs'
-    )
+  async asyncData({ $axios }) {
+    const pageMeta = await $axios.get('/api/page-metas?pageId=programs')
     return {
       programsMeta: pageMeta.data[0],
     }

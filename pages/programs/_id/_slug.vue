@@ -3,21 +3,16 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   components: {
     programSingle: () => import('~/components/Programs/ProgramSingle'),
   },
   layout: 'default',
-  asyncData(context) {
-    return axios
-      .get(process.env.baseUrl + '/programs/' + context.params.id)
-      .then((res) => {
-        return {
-          program: res.data,
-        }
-      })
-      .catch((e) => context.error(e))
+  async asyncData({ params, $axios }) {
+    const response = await $axios.get(`/api/programs/${params.id}`)
+    return {
+      program: response.data,
+    }
   },
   head() {
     const i18nSeo = this.$nuxtI18nHead({
