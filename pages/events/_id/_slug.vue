@@ -4,10 +4,9 @@
 
 <script>
 import axios from 'axios'
-import EventSingle from '~/components/Events/EventSingle'
 export default {
   components: {
-    EventSingle,
+    EventSingle: () => import('~/components/Events/EventSingle'),
   },
   layout: 'default',
   asyncData(context) {

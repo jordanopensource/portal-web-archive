@@ -56,14 +56,11 @@
 
 <script>
 import axios from 'axios'
-import eventListUpcoming from '@/components/Events/EventList'
-import eventListPrevious from '@/components/Events/EventListPrevious'
-import pageBanner from '@/components/UI/PageBanner'
 export default {
   components: {
-    eventListUpcoming,
-    eventListPrevious,
-    pageBanner,
+    eventListUpcoming: () => import('@/components/Events/EventList'),
+    eventListPrevious: () => import('@/components/Events/EventListPrevious'),
+    pageBanner: () => import('@/components/UI/PageBanner'),
   },
   layout: 'default',
   async asyncData(context) {
