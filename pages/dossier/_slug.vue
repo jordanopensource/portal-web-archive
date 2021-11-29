@@ -60,7 +60,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import Vue2Filters from 'vue2-filters'
 export default {
   components: {
@@ -69,27 +68,18 @@ export default {
   },
   mixins: [Vue2Filters.mixin],
   layout: 'default',
-  asyncData({ params, error }) {
-    return axios
-      .get(process.env.baseUrl + '/dossiers?pageId=' + params.slug)
-      .then((res) => {
-        if (res.data[0].id) {
-          return {
-            dossier: res.data[0],
-          }
-        } else {
-          return error({
-            statusCode: 404,
-            message: 'This page could not be found',
-          })
-        }
+  async asyncData({ params, error, $axios }) {
+    const response = await $axios.get(`/api/dossiers?pageId=${params.slug}`)
+    if (response.data[0].id) {
+      return {
+        dossier: response.data[0],
+      }
+    } else {
+      return error({
+        statusCode: 404,
+        message: 'This page could not be found',
       })
-      .catch((e) => {
-        error({
-          statusCode: 404,
-          message: 'This page could not be found',
-        })
-      })
+    }
   },
   data() {
     return {
