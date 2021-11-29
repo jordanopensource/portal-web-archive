@@ -16,14 +16,16 @@
         {{ publication['excerpt_' + $i18n.locale] }}
       </p>
     </div>
-    <nuxt-link tag="div" :to="publicationLink">
-      <appImage
-        v-if="publication.thumbnail"
-        :image="publication.thumbnail"
-        size="medium"
-        class="preview-image"
-      />
-      <img v-else :src="placeholderImage" class="preview-image" />
+    <nuxt-link :to="publicationLink">
+      <div role="link">
+        <appImage
+          v-if="publication.thumbnail"
+          :image="publication.thumbnail"
+          size="medium"
+          class="preview-image"
+        />
+        <img v-else :src="placeholderImage" class="preview-image" />
+      </div>
     </nuxt-link>
   </div>
 </template>
