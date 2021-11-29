@@ -134,15 +134,12 @@
 </template>
 
 <script>
-import appImage from '~/components/UI/appImage'
-import author from '~/components/Blog/Author'
-import shareButtons from '~/components/ShareButtons/ShareButtons'
 export default {
   name: 'BlogSingle',
   components: {
-    appImage,
-    author,
-    shareButtons,
+    appImage: () => import('~/components/UI/appImage'),
+    author: () => import('~/components/Blog/Author'),
+    shareButtons: () => import('~/components/ShareButtons/ShareButtons'),
   },
   props: {
     article: {
