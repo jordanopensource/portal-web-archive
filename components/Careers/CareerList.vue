@@ -38,8 +38,8 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
+  name: 'CareerList',
   components: {
     careerPreview: () => import('@/components/Careers/CareerPreview'),
   },
@@ -66,20 +66,20 @@ export default {
       count: 0,
     }
   },
+  async fetch() {
+    await this.fetchCareers()
+    await this.countCareers()
+  },
   computed: {
     pageCount() {
       return Math.ceil(this.count / this.limit)
     },
   },
-  created() {
-    this.fetchCareers()
-    this.countCareers()
-  },
   methods: {
-    fetchCurrentPage(i) {
+    async fetchCurrentPage(i) {
       this.currentPage = i
       this.start = this.limit * (this.currentPage - 1)
-      this.fetchCareers()
+      await this.fetchCareers()
     },
     query() {
       const args = []
@@ -105,18 +105,15 @@ export default {
     },
     async fetchCareers() {
       const query = this.query()
-      await axios
-        .get(process.env.baseUrl + '/careers?' + query)
-        .then((res) => {
-          const careersArray = []
-          for (const key in res.data) {
-            careersArray.push({
-              ...res.data[key],
-            })
-          }
-          this.loadedCareers = careersArray
+      const response = await this.$axios.get(`/api//careers?${query}`)
+
+      const careersArray = []
+      for (const key in response.data) {
+        careersArray.push({
+          ...response.data[key],
         })
-        .catch((e) => this.context.error(e))
+      }
+      this.loadedCareers = careersArray
     },
     async countCareers() {
       const args = []
@@ -126,9 +123,9 @@ export default {
         args.push(q)
       }
       query = args.join('&')
-      await axios.get(process.env.baseUrl + '/careers?' + query).then((res) => {
-        this.count = res.data.length
-      })
+      const response = await this.$axios.get(`/api/careers?${query}`)
+
+      this.count = response.data.length
     },
     ifNotEmpty() {
       if (Array.isArray(this.loadedCareers) && this.loadedCareers.length)
