@@ -15,17 +15,12 @@
 
 <script>
 import axios from 'axios'
-import pageBanner from '~/components/UI/PageBanner'
-import addressCard from '~/components/Contact/AddressCard'
-import feedback from '~/components/Contact/Feedback'
-import locationMap from '~/components/Map/LocationMap'
-
 export default {
   components: {
-    pageBanner,
-    addressCard,
-    feedback,
-    locationMap,
+    pageBanner: () => import('~/components/UI/PageBanner'),
+    addressCard: () => import('~/components/Contact/AddressCard'),
+    feedback: () => import('~/components/Contact/Feedbac'),
+    locationMap: () => import('~/components/Map/LocationMap'),
   },
   layout: 'default',
   async asyncData(context) {
