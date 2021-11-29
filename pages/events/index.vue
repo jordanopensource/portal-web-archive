@@ -55,7 +55,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   components: {
     eventListUpcoming: () => import('@/components/Events/EventList'),
@@ -63,11 +62,9 @@ export default {
     pageBanner: () => import('@/components/UI/PageBanner'),
   },
   layout: 'default',
-  async asyncData(context) {
-    const pageMeta = await axios.get(
-      process.env.baseUrl + '/page-metas?pageId=event'
-    )
-    const cats = await axios.get(process.env.baseUrl + '/event-categories')
+  async asyncData({ $axios }) {
+    const pageMeta = await $axios.get('/api/page-metas?pageId=event')
+    const cats = await $axios.get('/api/event-categories')
     return {
       eventMeta: pageMeta.data[0],
       eventCategories: cats.data,

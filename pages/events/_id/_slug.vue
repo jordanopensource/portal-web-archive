@@ -3,21 +3,17 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   components: {
     EventSingle: () => import('~/components/Events/EventSingle'),
   },
   layout: 'default',
-  asyncData(context) {
-    return axios
-      .get(process.env.baseUrl + '/events/' + context.params.id)
-      .then((res) => {
-        return {
-          event: res.data,
-        }
-      })
-      .catch((e) => context.error(e))
+  async asyncData({ params, $axios }) {
+    const response = await $axios.get(`/api/events/${params.id}`)
+
+    return {
+      event: response.data,
+    }
   },
   head() {
     const i18nSeo = this.$nuxtI18nHead({
