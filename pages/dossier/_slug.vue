@@ -62,12 +62,10 @@
 <script>
 import axios from 'axios'
 import Vue2Filters from 'vue2-filters'
-import articlePreviewAlt from '~/components/Blog/ArticlePreviewAlt'
-import shareButtons from '~/components/ShareButtons/ShareButtons'
 export default {
   components: {
-    articlePreviewAlt,
-    shareButtons,
+    articlePreviewAlt: () => import('~/components/Blog/ArticlePreviewAlt'),
+    shareButtons: () => import('~/components/ShareButtons/ShareButtons'),
   },
   mixins: [Vue2Filters.mixin],
   layout: 'default',
