@@ -8,8 +8,8 @@ export default {
     BlogSingle: () => import('~/components/Blog/BlogSingle'),
   },
   layout: 'default',
-  async asyncData({ $axios, context }) {
-    const response = await $axios.get(`/api/blogs/${context.params.id}`)
+  async asyncData({ params, $axios }) {
+    const response = await $axios.get(`/api/blogs/${params.id}`)
 
     return {
       blog: response.data,
