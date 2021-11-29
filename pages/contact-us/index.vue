@@ -18,7 +18,7 @@ export default {
   components: {
     pageBanner: () => import('~/components/UI/PageBanner'),
     addressCard: () => import('~/components/Contact/AddressCard'),
-    feedback: () => import('~/components/Contact/Feedbac'),
+    feedback: () => import('~/components/Contact/Feedback'),
     locationMap: () => import('~/components/Map/LocationMap'),
   },
   layout: 'default',
