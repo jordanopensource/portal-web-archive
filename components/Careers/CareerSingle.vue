@@ -52,9 +52,9 @@ export default {
       required: true,
     },
   },
-  data() {
+  data({ $config: { bucketUrl } }) {
     return {
-      placeholderImage: `${process.env.bucketUrl}/josabots_88f0a93786.jpeg`,
+      placeholderImage: `${bucketUrl}/josabots_88f0a93786.jpeg`,
     }
   },
 }
