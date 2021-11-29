@@ -38,18 +38,16 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
+  name: 'CareerPage',
   components: {
     careerList: () => import('@/components/Careers/CareerList'),
     pageBanner: () => import('@/components/UI/PageBanner'),
   },
   layout: 'default',
-  async asyncData(context) {
-    const pageMeta = await axios.get(
-      process.env.baseUrl + '/page-metas?pageId=careers'
-    )
-    const cats = await axios.get(process.env.baseUrl + '/career-types')
+  async asyncData({ $axios }) {
+    const pageMeta = await $axios.get('/api/page-metas?pageId=careers')
+    const cats = await $axios.get('/api/career-types')
     return {
       careerMeta: pageMeta.data[0],
       careerCategories: cats.data,
