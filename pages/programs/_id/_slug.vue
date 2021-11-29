@@ -4,11 +4,9 @@
 
 <script>
 import axios from 'axios'
-import programSingle from '~/components/Programs/ProgramSingle'
-
 export default {
   components: {
-    programSingle,
+    programSingle: () => import('~/components/Programs/ProgramSingle'),
   },
   layout: 'default',
   asyncData(context) {

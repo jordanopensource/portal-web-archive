@@ -2,7 +2,6 @@
   <div class="programs-page">
     <!-- Banner -->
     <pageBanner :page-meta="programsMeta" />
-
     <!-- Lists -->
     <div class="container pb-20">
       <programsList class="programs-list" />
@@ -12,13 +11,10 @@
 
 <script>
 import axios from 'axios'
-import pageBanner from '~/components/UI/PageBanner'
-import programsList from '~/components/Programs/ProgramsList'
-
 export default {
   components: {
-    pageBanner,
-    programsList,
+    pageBanner: () => import('~/components/UI/PageBanner'),
+    programsList: () => import('~/components/Programs/ProgramsList'),
   },
   layout: 'default',
   async asyncData(context) {
