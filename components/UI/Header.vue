@@ -15,24 +15,22 @@
         <div class="flex items-center flex-shrink-0">
           <nuxt-link id="brand" :to="localePath('index')">
             <div role="link">
-              <a>
-                <img
-                  v-if="$i18n.locale == 'ar'"
-                  class="w-175 sm:w-240"
-                  src="~/static/logo/logo-colored-ar.svg"
-                  alt="الجمعية الأردنية للمصدر المفتوح"
-                  width="400"
-                  height="400"
-                />
-                <img
-                  v-else
-                  class="w-175 sm:w-240"
-                  src="~/static/logo/logo-colored-en.svg"
-                  alt="Jordan Open Source Association Logo"
-                  width="400"
-                  height="400"
-                />
-              </a>
+              <img
+                v-if="$i18n.locale == 'ar'"
+                class="w-175 sm:w-240"
+                src="~/static/logo/logo-colored-ar.svg"
+                alt="الجمعية الأردنية للمصدر المفتوح"
+                width="400"
+                height="400"
+              />
+              <img
+                v-else
+                class="w-175 sm:w-240"
+                src="~/static/logo/logo-colored-en.svg"
+                alt="Jordan Open Source Association Logo"
+                width="400"
+                height="400"
+              />
             </div>
           </nuxt-link>
         </div>
