@@ -66,10 +66,9 @@ export default {
   },
   data() {
     return {
-      placeholderImage: process.env.bucketUrl + '/josabots_88f0a93786.jpeg',
+      placeholderImage: `${process.env.bucketUrl}/josabots_88f0a93786.jpeg`,
     }
   },
-
   computed: {
     articleLink() {
       const slug = this.$options.filters.stringToSlug(this.article.title)
@@ -77,7 +76,7 @@ export default {
     },
   },
   mounted() {
-    this.$store.commit('setFeaturedBlogs', this.article.id)
+    this.$store.commit('blog/setFeaturedBlogs', this.article.id)
   },
 }
 </script>
