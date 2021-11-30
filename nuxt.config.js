@@ -11,6 +11,12 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
+  server: {
+    port: process.env.PORT || 3000, // default: 3000
+    host: process.env.HOST, // default: localhost,
+    timing: false,
+  },
+
   /*
    ** the loading progress-bar color
    */
