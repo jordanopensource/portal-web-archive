@@ -24,9 +24,8 @@
             <div
               v-if="publication['description_' + $i18n.locale]"
               class="description pb-8"
-            >
-              {{ publication['description_' + $i18n.locale] }}
-            </div>
+              v-html="publication['description_' + $i18n.locale]"
+            ></div>
           </div>
           <div class="w-full md:w-2/5 mb-8">
             <publishDateCard class="mb-8" :date="publication.publishDate" />
