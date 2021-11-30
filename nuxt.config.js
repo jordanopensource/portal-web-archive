@@ -58,6 +58,7 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    'nuxt-ssr-cache',
     '@nuxtjs/moment',
     'nuxt-healthcheck',
     '@nuxtjs/redirect-module',
@@ -152,6 +153,18 @@ export default {
     contentType: 'application/json',
     healthy: () => {
       return JSON.stringify({ result: `I'm alive!!!` })
+    },
+  },
+
+  cache: {
+    useHostPrefix: false,
+    pages: ['/'],
+    store: {
+      type: 'memory',
+      // maximum number of pages to store in memory
+      max: 10,
+      // number of seconds to store this page in cache
+      ttl: 120,
     },
   },
 
