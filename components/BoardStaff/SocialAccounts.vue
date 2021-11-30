@@ -20,7 +20,7 @@ export default {
   name: 'SocialAccounts',
   props: {
     accounts: {
-      type: Object,
+      type: Array,
       required: true,
     },
   },
