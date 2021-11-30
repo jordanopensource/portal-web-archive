@@ -16,11 +16,10 @@
 </template>
 
 <script>
-import appImage from '~/components/UI/appImage'
 export default {
   name: 'ActivityPreview',
   components: {
-    appImage,
+    appImage: () => import('~/components/UI/appImage'),
   },
   props: {
     activity: {
