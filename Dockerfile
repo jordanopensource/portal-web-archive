@@ -1,7 +1,7 @@
 FROM node:16.13-alpine3.13
 
-RUN mkdir -p /var/www/dockerize-nuxt/nuxt-app
-WORKDIR /var/www/dockerize-nuxt/nuxt-app
+RUN mkdir -p /var/www/dockerize-nuxt/portal-web
+WORKDIR /var/www/dockerize-nuxt/portal-web
 
 COPY package*.json ./
 RUN npm install
