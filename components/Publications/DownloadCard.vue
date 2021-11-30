@@ -16,7 +16,7 @@ export default {
   name: 'DownloadCard',
   props: {
     fileLink: {
-      type: Boolean,
+      type: String,
       required: true,
     },
   },

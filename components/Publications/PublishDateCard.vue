@@ -16,7 +16,7 @@ export default {
   name: 'PublishDateCard',
   props: {
     date: {
-      type: Boolean,
+      type: String,
       required: true,
     },
   },
