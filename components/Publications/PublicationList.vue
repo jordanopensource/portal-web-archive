@@ -50,13 +50,13 @@
 
 <script>
 import axios from 'axios'
-import publicationPreview from '@/components/Publications/PublicationPreview'
-import publicationFeatured from '@/components/Publications/PublicationFeatured'
 export default {
   name: 'PublicationList',
   components: {
-    publicationPreview,
-    publicationFeatured,
+    publicationPreview: () =>
+      import('@/components/Publications/PublicationPreview'),
+    publicationFeatured: () =>
+      import('@/components/Publications/PublicationFeatured'),
   },
   props: {
     title: {
