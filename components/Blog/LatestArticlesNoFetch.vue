@@ -1,7 +1,7 @@
 <template>
   <div v-if="ifNotEmpty()">
     <h2>{{ title }}</h2>
-    <div class="md:grid md:grid-cols-2 col-gap-8 row-gap-0">
+    <div class="md:grid md:grid-cols-2 gap-x-8 gap-y-0">
       <articleLatest
         v-for="article in limitBy(
           orderBy(articles, 'publishDate', -1),
