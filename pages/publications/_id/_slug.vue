@@ -3,22 +3,18 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   components: {
     publicationSingle: () =>
       import('~/components/Publications/PublicationSingle'),
   },
   layout: 'default',
-  asyncData(context) {
-    return axios
-      .get(process.env.baseUrl + '/publications/' + context.params.id)
-      .then((res) => {
-        return {
-          publication: res.data,
-        }
-      })
-      .catch((e) => context.error(e))
+  async asyncData({ params, $axios }) {
+    const response = await $axios.get(`/api/publications/${params.id}`)
+
+    return {
+      publication: response.data,
+    }
   },
   head() {
     const i18nSeo = this.$nuxtI18nSeo()

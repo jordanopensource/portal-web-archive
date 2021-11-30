@@ -38,20 +38,15 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   components: {
     publicationList: () => import('@/components/Publications/PublicationList'),
     pageBanner: () => import('@/components/UI/PageBanner'),
   },
   layout: 'default',
-  async asyncData(context) {
-    const pageMeta = await axios.get(
-      process.env.baseUrl + '/page-metas?pageId=publications'
-    )
-    const cats = await axios.get(
-      process.env.baseUrl + '/publication-categories'
-    )
+  async asyncData({ $axios }) {
+    const pageMeta = await $axios.get('/api/page-metas?pageId=publications')
+    const cats = await $axios.get('/api/publication-categories')
     return {
       publicationMeta: pageMeta.data[0],
       publicationCategories: cats.data,
