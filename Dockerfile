@@ -14,6 +14,10 @@ ENV HOST=0.0.0.0
 
 ENV PORT=3000
 
+ENV API_BASE_URL http://example.com/api
+
+ENV BUCKET_URL http://example.com/bucket
+
 RUN npm run build
 
 CMD [ "npm", "run", "start" ]
