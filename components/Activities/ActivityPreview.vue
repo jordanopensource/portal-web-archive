@@ -1,5 +1,5 @@
 <template>
-  <div class="preview mt-8 md:grid md:grid-cols-2 gap-x-8 row-gap-0">
+  <div class="preview mt-8 md:grid md:grid-cols-2 gap-x-8 gap-y-0">
     <appImage
       v-if="activity.image"
       :image="activity.image"
