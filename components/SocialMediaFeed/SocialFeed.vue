@@ -3,13 +3,13 @@
     <img
       v-if="src == 'fb'"
       class="block max-w-full ltr:mr-4 rtl:ml-4 w-20 h-auto flex-shrink-0"
-      src="@/static/images/icons/fb.svg"
+      src="@/static/images/icons/fb.webp"
       alt="icon"
     />
     <img
       v-if="src == 'tw'"
       class="block max-w-full ltr:mr-4 rtl:ml-4 w-20 h-auto flex-shrink-0"
-      src="@/static/images/icons/tw.svg"
+      src="@/static/images/icons/tw.webp"
       alt="icon"
     />
     <div class="mb-6 flex-grow">

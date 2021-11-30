@@ -8,7 +8,7 @@
     <div v-if="opened" class="list">
       <div class="py-1">
         <div class="flex">
-          <img class="icon" src="~/static/images/icons/apple.svg" />
+          <img class="icon" src="~/static/images/icons/apple.webp" />
           <a
             id="download"
             class="list-text"
@@ -18,25 +18,25 @@
           >
         </div>
         <div class="flex">
-          <img class="icon" src="~/static/images/icons/outlook.svg" />
+          <img class="icon" src="~/static/images/icons/outlook.webp" />
           <a class="list-text" @click="outlookEncode(outlookLink)">{{
             $t('addToCalendar.outlook')
           }}</a>
         </div>
         <div class="flex">
-          <img class="icon" src="~/static/images/icons/search.svg" />
+          <img class="icon" src="~/static/images/icons/search.webp" />
           <a class="list-text" @click="googleEncode(googleLink)">{{
             $t('addToCalendar.google')
           }}</a>
         </div>
         <div class="flex">
-          <img class="icon" src="~/static/images/icons/office.svg" />
+          <img class="icon" src="~/static/images/icons/office.webp" />
           <a class="list-text" @click="outlookEncode(officeLink)">{{
             $t('addToCalendar.office')
           }}</a>
         </div>
         <div class="flex">
-          <img class="icon" src="~/static/images/icons/android.svg" />
+          <img class="icon" src="~/static/images/icons/android.webp" />
           <a
             id="download2"
             download="JOSAEvent.ics"
@@ -46,7 +46,7 @@
           >
         </div>
         <div class="flex">
-          <img class="icon" src="~/static/images/icons/download.svg" />
+          <img class="icon" src="~/static/images/icons/download.webp" />
           <a
             id="download1"
             download="JOSAEvent.ics"

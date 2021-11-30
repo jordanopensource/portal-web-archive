@@ -39,7 +39,7 @@ export default {
 <style lang="postcss" scoped>
 .picture-background {
   display: block;
-  background-image: url('/images/icons/drop.svg');
+  background-image: url('/images/icons/drop.webp');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: bottom;

@@ -10,7 +10,7 @@
       v-else
       size="small"
       class="profilePicture"
-      src="~/static/images/icons/authorimage_default.png"
+      src="~/static/images/icons/authorimage_default.webp"
     />
     <div class="opacity-90">
       <p v-if="writtenBy" class="block ltr:text-xs rtl:text-sm uppercase">

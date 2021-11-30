@@ -10,7 +10,7 @@
       v-else
       size="small"
       class="profilePicture"
-      src="/images/icons/authorimage_default.png"
+      src="/images/icons/authorimage_default.webp"
     />
     <div class="flex items-center opacity-80">
       <p v-if="translatedBy" class="ltr:mr-1 rtl:ml-1 text-xs uppercase">

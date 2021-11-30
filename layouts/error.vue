@@ -27,7 +27,7 @@
         </div>
 
         <img
-          src="/images/icons/lost.svg"
+          src="/images/icons/lost.webp"
           alt="lost"
           class="bot mt-8 md:ltr:pl-8 md:rtl:pr-8 md:py-8"
         />
