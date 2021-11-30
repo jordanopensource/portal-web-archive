@@ -21,10 +21,9 @@
 </template>
 
 <script>
-import appImage from '~/components/UI/appImage'
 export default {
   components: {
-    appImage,
+    appImage: () => import('~/components/UI/appImage'),
   },
   props: {
     info: {
