@@ -58,7 +58,10 @@ export default {
     }
   },
   head() {
-    const i18nSeo = this.$nuxtI18nSeo()
+    const i18nSeo = this.$nuxtI18nHead({
+      addDirAttribute: true,
+      addSeoAttributes: true,
+    })
     return {
       title:
         this.publicationMeta['title_' + this.$i18n.locale] +
