@@ -26,22 +26,22 @@ export default {
 <style lang="postcss">
 .banner {
   @apply bg-josa-blue-light bg-right bg-no-repeat bg-contain;
-  background-image: url('/images/bg/background2.svg');
+  background-image: url('/images/bg/background2.webp');
 }
 
 [dir='rtl'] .banner {
   @apply bg-left;
-  background-image: url('/images/bg/background2-flipped.svg');
+  background-image: url('/images/bg/background2-flipped.webp');
 }
 
 @screen sm {
   .banner {
-    background-image: url('/images/bg/background1.svg');
+    background-image: url('/images/bg/background1.webp');
   }
 
   [dir='rtl'] .banner {
     @apply bg-left;
-    background-image: url('/images/bg/background1-flipped.svg');
+    background-image: url('/images/bg/background1-flipped.webp');
   }
 }
 </style>
