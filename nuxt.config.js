@@ -53,6 +53,7 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxtjs/moment',
+    'nuxt-healthcheck',
     '@nuxtjs/redirect-module',
     '@nuxtjs/i18n',
     [
@@ -137,6 +138,14 @@ export default {
   pwa: {
     manifest: {
       lang: 'en',
+    },
+  },
+
+  healthcheck: {
+    path: '/healthcheck',
+    contentType: 'application/json',
+    healthy: () => {
+      return JSON.stringify({ result: `I'm alive!!!` })
     },
   },
 
