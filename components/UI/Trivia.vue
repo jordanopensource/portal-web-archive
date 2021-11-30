@@ -2,9 +2,7 @@
   <div v-if="info['content_' + $i18n.locale]">
     <div
       class="px-6 md:px-12 preview"
-      :class="
-        alt ? 'text-center' : 'md:grid md:grid-cols-2 col-gap-8 row-gap-0'
-      "
+      :class="alt ? 'text-center' : 'md:grid md:grid-cols-2 gap-x-8 gap-y-0'"
     >
       <appImage
         v-if="info.image"
@@ -23,10 +21,9 @@
 </template>
 
 <script>
-import appImage from '~/components/UI/appImage'
 export default {
   components: {
-    appImage,
+    appImage: () => import('~/components/UI/appImage'),
   },
   props: {
     info: {
