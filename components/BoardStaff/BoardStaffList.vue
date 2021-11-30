@@ -23,7 +23,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   name: 'BoardStaffList',
   components: {
@@ -50,8 +49,8 @@ export default {
     }
   },
 
-  created() {
-    this.fetchPersonnels()
+  async fetch() {
+    await this.fetchPersonnels()
   },
   methods: {
     query() {
@@ -70,18 +69,15 @@ export default {
     },
     async fetchPersonnels() {
       const query = this.query()
-      await axios
-        .get(process.env.baseUrl + '/board-and-staffs?' + query)
-        .then((res) => {
-          const personnelsArray = []
-          for (const key in res.data) {
-            personnelsArray.push({
-              ...res.data[key],
-            })
-          }
-          this.loadedPersonnels = personnelsArray
+      const response = await this.$axios.get(`/api/board-and-staffs?${query}`)
+
+      const personnelsArray = []
+      for (const key in response.data) {
+        personnelsArray.push({
+          ...response.data[key],
         })
-        .catch((e) => this.context.error(e))
+      }
+      this.loadedPersonnels = personnelsArray
     },
   },
 }
