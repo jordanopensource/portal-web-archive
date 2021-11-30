@@ -25,3 +25,7 @@ SECURITY.md
 
 # Drone
 .drone.yml
+
+# Node Modules
+node_modules
+.nuxt
