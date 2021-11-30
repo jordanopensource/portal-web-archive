@@ -4,10 +4,10 @@
 
 <script>
 import axios from 'axios'
-import publicationSingle from '~/components/Publications/PublicationSingle'
 export default {
   components: {
-    publicationSingle,
+    publicationSingle: () =>
+      import('~/components/Publications/PublicationSingle'),
   },
   layout: 'default',
   asyncData(context) {

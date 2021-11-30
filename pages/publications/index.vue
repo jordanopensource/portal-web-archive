@@ -39,13 +39,10 @@
 
 <script>
 import axios from 'axios'
-import publicationList from '@/components/Publications/PublicationList'
-import pageBanner from '@/components/UI/PageBanner'
-
 export default {
   components: {
-    publicationList,
-    pageBanner,
+    publicationList: () => import('@/components/Publications/PublicationList'),
+    pageBanner: () => import('@/components/UI/PageBanner'),
   },
   layout: 'default',
   async asyncData(context) {
