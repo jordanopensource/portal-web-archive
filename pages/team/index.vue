@@ -32,13 +32,10 @@
 
 <script>
 import axios from 'axios'
-import pageBanner from '@/components/UI/PageBanner'
-import boardStaffList from '@/components/BoardStaff/BoardStaffList'
-
 export default {
   components: {
-    pageBanner,
-    boardStaffList,
+    pageBanner: () => import('@/components/UI/PageBanner'),
+    boardStaffList: () => import('@/components/BoardStaff/BoardStaffList'),
   },
   layout: 'default',
   async asyncData(context) {

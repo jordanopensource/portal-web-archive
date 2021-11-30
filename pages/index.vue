@@ -43,6 +43,7 @@
 
 <script>
 export default {
+  name: 'HomePage',
   components: {
     ourWork: () => import('~/components/Programs/OurWork'),
     homeBanner: () => import('~/components/UI/HomeBanner'),
