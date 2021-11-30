@@ -17,11 +17,9 @@
 
 <script>
 import Vue2Filters from 'vue2-filters'
-import articleLatest from '~/components/Blog/ArticleLatestWithExcerpt'
-
 export default {
   components: {
-    articleLatest,
+    articleLatest: () => import('~/components/Blog/ArticleLatestWithExcerpt'),
   },
   mixins: [Vue2Filters.mixin],
   props: {
