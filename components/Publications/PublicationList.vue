@@ -49,14 +49,13 @@
 </template>
 
 <script>
-import axios from 'axios'
-import publicationPreview from '@/components/Publications/PublicationPreview'
-import publicationFeatured from '@/components/Publications/PublicationFeatured'
 export default {
   name: 'PublicationList',
   components: {
-    publicationPreview,
-    publicationFeatured,
+    publicationPreview: () =>
+      import('@/components/Publications/PublicationPreview'),
+    publicationFeatured: () =>
+      import('@/components/Publications/PublicationFeatured'),
   },
   props: {
     title: {
@@ -85,20 +84,20 @@ export default {
       count: 0,
     }
   },
+  async fetch() {
+    await this.fetchPublications()
+    await this.countPublications()
+  },
   computed: {
     pageCount() {
       return Math.ceil(this.count / this.limit)
     },
   },
-  created() {
-    this.fetchPublications()
-    this.countPublications()
-  },
   methods: {
-    fetchCurrentPage(i) {
+    async fetchCurrentPage(i) {
       this.currentPage = i
       this.start = this.limit * (this.currentPage - 1)
-      this.fetchPublications()
+      await this.fetchPublications()
     },
     query() {
       const args = []
@@ -128,18 +127,14 @@ export default {
     },
     async fetchPublications() {
       const query = this.query()
-      await axios
-        .get(process.env.baseUrl + '/publications?' + query)
-        .then((res) => {
-          const publicationsArray = []
-          for (const key in res.data) {
-            publicationsArray.push({
-              ...res.data[key],
-            })
-          }
-          this.loadedPublications = publicationsArray
+      const response = await this.$axios(`/api/publications?${query}`)
+      const publicationsArray = []
+      for (const key in response.data) {
+        publicationsArray.push({
+          ...response.data[key],
         })
-        .catch((e) => this.context.error(e))
+      }
+      this.loadedPublications = publicationsArray
     },
     async countPublications() {
       const args = []
@@ -149,11 +144,8 @@ export default {
         args.push(q)
       }
       query = args.join('&')
-      await axios
-        .get(process.env.baseUrl + '/publications?' + query)
-        .then((res) => {
-          this.count = res.data.length
-        })
+      const response = await this.$axios.get(`/api/publications?${query}`)
+      this.count = response.data.length
     },
     ifNotEmpty() {
       if (
