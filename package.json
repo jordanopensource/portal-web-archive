@@ -25,6 +25,7 @@
     "leaflet-gesture-handling": "^1.2.2",
     "nuxt": "^2.15.7",
     "nuxt-fontawesome": "^0.4.0",
+    "nuxt-healthcheck": "^1.0.1",
     "vue2-filters": "^0.13.0",
     "vue2-leaflet": "^2.7.1"
   },
