@@ -19,6 +19,10 @@ export default {
       type: String,
       default: '',
     },
+    lazyLoad: {
+      type: Boolean,
+      default: true,
+    },
   },
   computed: {
     imageUrl() {
