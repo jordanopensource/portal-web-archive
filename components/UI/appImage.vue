@@ -1,6 +1,14 @@
 <template>
   <img
+    v-if="lazyLoad"
     loading="lazy"
+    width="500"
+    height="500"
+    :src="imageUrl"
+    :alt="image.alternativeText"
+  />
+  <img
+    v-else
     width="500"
     height="500"
     :src="imageUrl"
@@ -18,6 +26,10 @@ export default {
     size: {
       type: String,
       default: '',
+    },
+    lazyLoad: {
+      type: Boolean,
+      default: true,
     },
   },
   computed: {

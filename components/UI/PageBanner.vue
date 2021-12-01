@@ -28,6 +28,7 @@
           v-if="pageMeta.image"
           :image="pageMeta.image"
           class="bot mt-8 md:ltr:pl-8 md:rtl:pr-8 md:py-8"
+          :lazy-load="false"
         />
       </div>
     </div>
