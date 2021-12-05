@@ -72,6 +72,7 @@
             v-if="$i18n.locale == 'ar'"
             src="~/static/logo/logo-white-ar.svg"
             alt="جوسا"
+            loading="lazy"
           />
           <img v-else src="~/static/logo/logo-white-en.svg" alt="JOSA Logo" />
         </div>
@@ -83,6 +84,7 @@
             class="cc-logo ltr:pr-4 rtl:pl-4"
             src="~/static/logo/cc.svg"
             alt="cc-logo"
+            loading="lazy"
           />
           <p>{{ $t('copyright.info') }}</p>
         </div>
