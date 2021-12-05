@@ -13,6 +13,7 @@
               :image="event.thumbnail"
               size="large"
               class="thumbnail"
+              :lazyLoad="false"
             />
             <img
               v-else
