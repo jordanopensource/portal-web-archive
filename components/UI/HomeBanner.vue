@@ -50,6 +50,7 @@
           <appImage
             :image="pageMeta.image"
             class="bot w-full h-full inline object-contain"
+            :lazy-load="false"
           />
         </div>
       </div>
