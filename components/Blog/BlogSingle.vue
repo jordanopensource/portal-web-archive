@@ -149,6 +149,7 @@ export default {
   },
   data({ $config: { bucketUrl } }) {
     return {
+      url: '',
       placeholderImage: `${bucketUrl}/josabots_88f0a93786.jpeg`,
     }
   },
