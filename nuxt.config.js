@@ -154,7 +154,10 @@ export default {
       name: 'Jordan Open Source Association',
     },
     manifest: {
-      lang: 'en',
+      name: 'Jordan Open Source Association',
+      short_name: 'JOSA',
+      lang: 'en,ar',
+      dir: 'ltr,rtl',
     },
   },
 
