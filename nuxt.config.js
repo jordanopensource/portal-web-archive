@@ -148,6 +148,11 @@ export default {
       source: './static/josa-icon.png',
       fileName: 'josa-icon.png',
     },
+    meta: {
+      mobileAppIOS: true,
+      lang: 'en,ar',
+      name: 'Jordan Open Source Association',
+    },
     manifest: {
       lang: 'en',
     },
