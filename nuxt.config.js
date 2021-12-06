@@ -50,14 +50,14 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    // https://go.nuxtjs.dev/pwa
+    '@nuxtjs/pwa',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa',
     'nuxt-ssr-cache',
     '@nuxtjs/moment',
     'nuxt-healthcheck',
@@ -143,8 +143,21 @@ export default {
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
+    icon: {
+      /* icon options */
+      source: './static/josa-icon.png',
+      fileName: 'josa-icon.png',
+    },
+    meta: {
+      mobileAppIOS: true,
+      lang: 'en,ar',
+      name: 'Jordan Open Source Association',
+    },
     manifest: {
-      lang: 'en',
+      name: 'Jordan Open Source Association',
+      short_name: 'JOSA',
+      lang: 'en,ar',
+      dir: 'ltr,rtl',
     },
   },
 
