@@ -11,13 +11,13 @@ node_selector:
   doks.digitalocean.com/node-pool: josa-cloud-np
 
 steps:
-  - name: build and release portal-web-beta
+  - name: build and release portal-web
     image: plugins/docker
     settings:
       repo: josaorg/portal-web-beta
       tags:
         - ${DRONE_COMMIT_SHA}
-        - latest
+        - stable
       username:
         from_secret: docker_username
       password:
@@ -30,4 +30,4 @@ steps:
         from_secret: slack_webhook
       channel: heartbeat
     depends_on:
-      - build and release portal-web-beta
+      - build and release portal-web
