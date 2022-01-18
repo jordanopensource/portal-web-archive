@@ -14,7 +14,7 @@ steps:
   - name: build and release portal-web
     image: plugins/docker
     settings:
-      repo: josaorg/portal-web-beta
+      repo: josaorg/portal-web
       tags:
         - ${DRONE_COMMIT_SHA}
         - latest
