@@ -29,7 +29,7 @@
         {{ $t('events.notRegistered') }}
         <span
           class="text-josa-blue cursor-pointer"
-          @click="$store.dispatch('setShowModal', false)"
+          @click="$store.dispatch('modal/setShowModal', false)"
         >
           {{ $t('events.here') }}</span
         >.
@@ -147,15 +147,15 @@ export default {
       required: true,
     },
     running: {
-      type: Boolean,
+      type: String,
       required: true,
     },
     from: {
-      type: Boolean,
+      type: String,
       required: true,
     },
     to: {
-      type: Boolean,
+      type: String,
       required: true,
     },
   },
