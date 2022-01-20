@@ -3,7 +3,7 @@
     <div class="modal-mask">
       <div
         class="modal-wrapper"
-        @click.self="$store.dispatch('setShowModal', false)"
+        @click.self="$store.dispatch('modal/setShowModal', false)"
       >
         <div class="container">
           <div class="md:px-12 py-12">

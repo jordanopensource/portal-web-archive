@@ -104,9 +104,9 @@ export default {
       running: 'true',
     }
   },
-  async fetch({ $config }) {
-    const url = $config.bbbAPIUrl
-    const secret = $config.bbbAPISecret
+  async fetch() {
+    const url = this.$config.bbbAPIUrl
+    const secret = this.$config.bbbAPISecret
     const meetingID = this.event.onlineMeeting.meetingID
     const data = `isMeetingRunningmeetingID=${meetingID}${secret}`
     const encoded = encodeURI(data)
