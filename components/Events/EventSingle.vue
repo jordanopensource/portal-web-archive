@@ -77,12 +77,12 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import speakers from '~/components/Events/Speakers.vue'
 export default {
   name: 'EventSingle',
   components: {
     appImage: () => import('~/components/UI/appImage'),
     timeCard: () => import('~/components/Events/TimeCard.vue'),
-    speakers: () => () => import('~/components/Events/Speakers.vue'),
     locationCard: () => import('~/components/Events/LocationCard.vue'),
     registerationForm: () => import('~/components/Events/RegisterationForm'),
     joinForm: () => import('~/components/Events/JoinForm'),
@@ -90,6 +90,7 @@ export default {
     onlineEventCard: () => import('~/components/Events/OnlineEventCard'),
     shareButtons: () => import('~/components/ShareButtons/ShareButtons'),
     joinFormCard: () => import('~/components/Events/JoinFormCard'),
+    speakers,
   },
   props: {
     event: {
