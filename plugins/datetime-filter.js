@@ -52,8 +52,13 @@ const dayFullDate = (dt, lang) => {
   )
 }
 
-const dayFullDateAmman = (dt, lang) => {
-  return moment(dt).utcOffset('+03:00').locale(lang).format('dddd, D MMMM Y')
+const fullDateTz = (date, tzString, locale) => {
+  return new Date(
+    typeof date === 'string' ? new Date(date) : date
+  ).toLocaleString(locale, {
+    dateStyle: 'full',
+    timeZone: tzString,
+  })
 }
 
 const monthYearDate = (dt, lang) => {
@@ -89,10 +94,10 @@ const timezone = (dt, lang) => {
 Vue.filter('fullDate', fullDate)
 Vue.filter('dayDate', dayDate)
 Vue.filter('dayFullDate', dayFullDate)
-Vue.filter('dayFullDateAmman', dayFullDateAmman)
 Vue.filter('monthYearDate', monthYearDate)
 Vue.filter('monthDate', monthDate)
 Vue.filter('time', time)
 Vue.filter('day', day)
 Vue.filter('timezone', timezone)
 Vue.filter('convertTZ', convertTZ)
+Vue.filter('fullDateTz', fullDateTz)
