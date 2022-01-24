@@ -5,6 +5,18 @@ function lang2locale(lang) {
   return lang === 'ar' ? 'ar-JO' : 'en-UK'
 }
 
+// Convert a date to the desired time zone
+const convertTZ = (date, tzString, locale) => {
+  return new Date(
+    typeof date === 'string' ? new Date(date) : date
+  ).toLocaleString(locale, {
+    hour12: false,
+    minute: '2-digit',
+    hour: 'numeric',
+    timeZone: tzString,
+  })
+}
+
 const fullDate = (dt, lang) => {
   // 25 May 2021
   const options = {
@@ -83,3 +95,4 @@ Vue.filter('monthDate', monthDate)
 Vue.filter('time', time)
 Vue.filter('day', day)
 Vue.filter('timezone', timezone)
+Vue.filter('convertTZ', convertTZ)
