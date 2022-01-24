@@ -66,10 +66,6 @@ const time = (dt, lang) => {
   return moment(dt).locale(lang).format('HH:mm')
 }
 
-const timeAmman = (dt, lang) => {
-  return moment(dt).utcOffset('+03:00').locale(lang).format('HH:mm')
-}
-
 const day = (dt, lang) => {
   return moment(dt).locale(lang).format('dddd')
 }
@@ -85,6 +81,5 @@ Vue.filter('dayFullDateAmman', dayFullDateAmman)
 Vue.filter('monthYearDate', monthYearDate)
 Vue.filter('monthDate', monthDate)
 Vue.filter('time', time)
-Vue.filter('timeAmman', timeAmman)
 Vue.filter('day', day)
 Vue.filter('timezone', timezone)
