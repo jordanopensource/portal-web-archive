@@ -1,10 +1,8 @@
-import Vue from 'vue';
-import moment from 'moment';
+import Vue from 'vue'
+import moment from 'moment'
 
 function lang2locale(lang) {
-  return lang === 'ar'
-    ? 'ar-JO'
-    : 'en-UK'
+  return lang === 'ar' ? 'ar-JO' : 'en-UK'
 }
 
 const fullDate = (dt, lang) => {
@@ -14,13 +12,18 @@ const fullDate = (dt, lang) => {
     month: 'long',
     year: 'numeric',
   }
-  return new Intl.DateTimeFormat(lang2locale(lang), options).format(new Date(dt))
+  return new Intl.DateTimeFormat(lang2locale(lang), options).format(
+    new Date(dt)
+  )
 }
 
 const dayDate = (dt, lang) => {
   // Tuesday - 5 May
-  const weekday =  moment(dt).locale(lang).format("dddd");
-  const dayMonth = new Intl.DateTimeFormat(lang2locale(lang), { day: 'numeric', month: 'long'}).format(new Date(dt))
+  const weekday = moment(dt).locale(lang).format('dddd')
+  const dayMonth = new Intl.DateTimeFormat(lang2locale(lang), {
+    day: 'numeric',
+    month: 'long',
+  }).format(new Date(dt))
   return `${weekday} - ${dayMonth}`
 }
 
@@ -32,11 +35,13 @@ const dayFullDate = (dt, lang) => {
     month: 'long',
     year: 'numeric',
   }
-  return new Intl.DateTimeFormat(lang2locale(lang), options).format(new Date(dt))
+  return new Intl.DateTimeFormat(lang2locale(lang), options).format(
+    new Date(dt)
+  )
 }
 
 const dayFullDateAmman = (dt, lang) => {
-  return moment(dt).utcOffset("+03:00").locale(lang).format("dddd, D MMMM Y");
+  return moment(dt).utcOffset('+03:00').locale(lang).format('dddd, D MMMM Y')
 }
 
 const monthYearDate = (dt, lang) => {
@@ -45,28 +50,32 @@ const monthYearDate = (dt, lang) => {
     month: 'long',
     year: 'numeric',
   }
-  return new Intl.DateTimeFormat(lang2locale(lang), options).format(new Date(dt))
+  return new Intl.DateTimeFormat(lang2locale(lang), options).format(
+    new Date(dt)
+  )
 }
 
 const monthDate = (dt, lang) => {
   // May
-  return new Intl.DateTimeFormat(lang2locale(lang), { month: 'long' }).format(new Date(dt))
+  return new Intl.DateTimeFormat(lang2locale(lang), { month: 'long' }).format(
+    new Date(dt)
+  )
 }
 
 const time = (dt, lang) => {
-  return moment(dt).locale(lang).format("HH:mm");
+  return moment(dt).locale(lang).format('HH:mm')
 }
 
 const timeAmman = (dt, lang) => {
-  return moment(dt).utcOffset("+03:00").locale(lang).format("HH:mm");
+  return moment(dt).utcOffset('+03:00').locale(lang).format('HH:mm')
 }
 
 const day = (dt, lang) => {
-  return moment(dt).locale(lang).format("dddd");
+  return moment(dt).locale(lang).format('dddd')
 }
 
 const timezone = (dt, lang) => {
-  return moment(dt).locale(lang).format("Z");
+  return moment(dt).locale(lang).format('Z')
 }
 
 Vue.filter('fullDate', fullDate)
