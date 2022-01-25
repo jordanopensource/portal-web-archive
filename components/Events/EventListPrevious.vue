@@ -124,9 +124,8 @@ export default {
       const args = []
       let query = ''
 
-      const fromDateTime = new Date().getTime()
-      const fromDateString = new Date(fromDateTime).toISOString()
-      const q = 'startDate_lt=' + fromDateString
+      const currentDateTime = new Date().toISOString()
+      const q = 'startDate_lt=' + currentDateTime
       args.push(q)
 
       if (this.numberOfEvents > 0) {
