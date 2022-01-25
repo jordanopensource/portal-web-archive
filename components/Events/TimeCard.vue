@@ -6,12 +6,12 @@
     />
     <div>
       <h5>{{ $t('timeCard.title') }}</h5>
-      <p>{{ from | fullDateTz('Asia/Amman', $i18n.locale) }}</p>
+      <p>{{ from | fullDateWithTimeZone('Asia/Amman', $i18n.locale) }}</p>
       <p>
         {{ $t('timeCard.from') }}
-        {{ from | convertTZ('Asia/Amman', $i18n.locale) }}
+        {{ from | timeWithTimeZone('Asia/Amman', $i18n.locale) }}
         {{ $t('timeCard.to') }}
-        {{ to | convertTZ('Asia/Amman', $i18n.locale) }} ({{
+        {{ to | timeWithTimeZone('Asia/Amman', $i18n.locale) }} ({{
           $t('timeString.time')
         }})
       </p>
