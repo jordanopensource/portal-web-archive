@@ -5,15 +5,21 @@ function lang2locale(lang) {
   return lang === 'ar' ? 'ar-JO' : 'en-UK'
 }
 
-// Convert a date to the desired time zone
-const convertTZ = (date, tzString, locale) => {
+/**
+ * @param Date date
+ * @param String 'Asia/Amman' timeZoneString
+ * @param String 'en-UK' locale
+ * @returns the time locale string based on the timeZoneString and locale
+ * E.g. for locale 'en-UK' returns '10:30'
+ */
+const timeWithTimeZone = (date, timeZoneString, locale) => {
   return new Date(
     typeof date === 'string' ? new Date(date) : date
   ).toLocaleString(locale, {
     hour12: false,
     minute: '2-digit',
     hour: 'numeric',
-    timeZone: tzString,
+    timeZone: timeZoneString,
   })
 }
 
@@ -52,12 +58,19 @@ const dayFullDate = (dt, lang) => {
   )
 }
 
-const fullDateTz = (date, tzString, locale) => {
+/**
+ * @param Date date
+ * @param String 'Asia/Amman' timeZoneString
+ * @param String 'en-UK' locale
+ * @returns date locale string based on the timeZoneString and locale
+ * E.g. for locale 'en-UK' returns 'Saturday, 5 February 2022'
+ */
+const fullDateWithTimeZone = (date, timeZoneString, locale) => {
   return new Date(
     typeof date === 'string' ? new Date(date) : date
   ).toLocaleString(locale, {
     dateStyle: 'full',
-    timeZone: tzString,
+    timeZone: timeZoneString,
   })
 }
 
@@ -99,5 +112,5 @@ Vue.filter('monthDate', monthDate)
 Vue.filter('time', time)
 Vue.filter('day', day)
 Vue.filter('timezone', timezone)
-Vue.filter('convertTZ', convertTZ)
-Vue.filter('fullDateTz', fullDateTz)
+Vue.filter('timeWithTimeZone', timeWithTimeZone)
+Vue.filter('fullDateWithTimeZone', fullDateWithTimeZone)
