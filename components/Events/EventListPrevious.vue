@@ -63,7 +63,6 @@
 </template>
 
 <script>
-import moment from 'moment'
 export default {
   components: {
     eventPreview: () => import('@/components/Events/EventPreview'),
@@ -125,9 +124,8 @@ export default {
       const args = []
       let query = ''
 
-      let from = moment().subtract(24, 'hours')
-      from = from.format(moment.HTML5_FMT.DATETIME_LOCAL_MS)
-      const q = 'startDate_lt=' + from
+      const currentDateTime = new Date().toISOString()
+      const q = 'startDate_lt=' + currentDateTime
       args.push(q)
 
       if (this.numberOfEvents > 0) {

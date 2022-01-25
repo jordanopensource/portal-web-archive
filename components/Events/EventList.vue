@@ -44,7 +44,6 @@
 </template>
 
 <script>
-import moment from 'moment'
 export default {
   components: {
     eventPreview: () => import('@/components/Events/EventPreview'),
@@ -112,9 +111,9 @@ export default {
       const args = []
       let query = ''
 
-      let from = moment().subtract(24, 'hours')
-      from = from.format(moment.HTML5_FMT.DATETIME_LOCAL_MS)
-      const q = 'startDate_gte=' + from
+      const fromDateTime = new Date().getTime()
+      const fromDateString = new Date(fromDateTime).toISOString()
+      const q = 'startDate_gte=' + fromDateString
       args.push(q)
       if (this.start) {
         const q = '_start=' + this.start
@@ -149,9 +148,9 @@ export default {
     async countEvents() {
       const args = []
       let query = ''
-      let from = moment().subtract(24, 'hours')
-      from = from.format(moment.HTML5_FMT.DATETIME_LOCAL_MS)
-      const q = 'startDate_gte=' + from
+
+      const currentDateTime = new Date().toISOString()
+      const q = 'startDate_gte=' + currentDateTime
       args.push(q)
       if (this.category && this.category !== 'all') {
         const q = 'category.name=' + this.category
