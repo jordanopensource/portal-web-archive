@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import moment from 'moment'
 
-function lang2locale(lang) {
+function languageToLocale(lang) {
   return lang === 'ar' ? 'ar-JO' : 'en-UK'
 }
 
@@ -30,7 +30,7 @@ const fullDate = (dt, lang) => {
     month: 'long',
     year: 'numeric',
   }
-  return new Intl.DateTimeFormat(lang2locale(lang), options).format(
+  return new Intl.DateTimeFormat(languageToLocale(lang), options).format(
     new Date(dt)
   )
 }
@@ -38,7 +38,7 @@ const fullDate = (dt, lang) => {
 const dayDate = (dt, lang) => {
   // Tuesday - 5 May
   const weekday = moment(dt).locale(lang).format('dddd')
-  const dayMonth = new Intl.DateTimeFormat(lang2locale(lang), {
+  const dayMonth = new Intl.DateTimeFormat(languageToLocale(lang), {
     day: 'numeric',
     month: 'long',
   }).format(new Date(dt))
@@ -53,7 +53,7 @@ const dayFullDate = (dt, lang) => {
     month: 'long',
     year: 'numeric',
   }
-  return new Intl.DateTimeFormat(lang2locale(lang), options).format(
+  return new Intl.DateTimeFormat(languageToLocale(lang), options).format(
     new Date(dt)
   )
 }
@@ -80,16 +80,16 @@ const monthYearDate = (dt, lang) => {
     month: 'long',
     year: 'numeric',
   }
-  return new Intl.DateTimeFormat(lang2locale(lang), options).format(
+  return new Intl.DateTimeFormat(languageToLocale(lang), options).format(
     new Date(dt)
   )
 }
 
 const monthDate = (dt, lang) => {
   // May
-  return new Intl.DateTimeFormat(lang2locale(lang), { month: 'long' }).format(
-    new Date(dt)
-  )
+  return new Intl.DateTimeFormat(languageToLocale(lang), {
+    month: 'long',
+  }).format(new Date(dt))
 }
 
 const time = (dt, lang) => {
