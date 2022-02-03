@@ -214,10 +214,10 @@ export default {
 }
 
 [dir='ltr'] .icon {
-  @apply w-5 ml-2 mr-0;
+  @apply object-contain w-6 ml-2 mr-0;
 }
 
 [dir='rtl'] .icon {
-  @apply w-5 mr-2 ml-0;
+  @apply object-contain w-6 mr-2 ml-0;
 }
 </style>
