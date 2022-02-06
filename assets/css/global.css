@@ -312,8 +312,9 @@ ul {
 }
 
 [dir='rtl'] .copy-tooltip-text {
-  left: -75px;
-  right: unset;
+  right: -37px;
+  left: unset;
+  bottom: -37px;
 }
 
 /*****/
