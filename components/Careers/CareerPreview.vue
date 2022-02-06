@@ -25,7 +25,7 @@
       <div class="career-info flex flex-wrap lg:flex-nowrap">
         <span class="ltr:mr-4 rtl:ml-4">
           <font-awesome-icon class="icon" :icon="['fas', 'clock']" />
-          {{ career['period_' + $i18n.locale] }}
+          {{ career.publishDate | fullDate($i18n.locale) }}
         </span>
 
         <span>
