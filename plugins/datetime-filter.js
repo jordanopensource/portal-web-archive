@@ -66,9 +66,10 @@ const dayFullDate = (dt, lang) => {
  * E.g. for locale 'en-UK' returns 'Saturday, 5 February 2022'
  */
 const fullDateWithTimeZone = (date, timeZoneString, locale) => {
+  const langLocale = languageToLocale(locale)
   return new Date(
     typeof date === 'string' ? new Date(date) : date
-  ).toLocaleString(locale, {
+  ).toLocaleString(langLocale, {
     dateStyle: 'full',
     timeZone: timeZoneString,
   })
