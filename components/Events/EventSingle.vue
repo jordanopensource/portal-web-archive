@@ -51,7 +51,7 @@
               </slot>
             </modal>
             <registerationForm
-              v-if="event.showRegisterationForm"
+              v-if="!isEventFinished && event.showRegisterationForm"
               class="mb-8"
               :event-id="event.id"
               :registrants="event.registrants"
