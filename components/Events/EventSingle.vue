@@ -143,6 +143,12 @@ export default {
       hash.update(data)
       return hash.digest('hex')
     },
+    isEventFinished() {
+      const startDate = new Date(this.event.startDate)
+      const endDate = new Date(this.event.endDate)
+
+      return startDate >= endDate
+    },
   },
   fetchOnServer: false,
 }
