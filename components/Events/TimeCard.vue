@@ -15,8 +15,8 @@
           $t('timeString.time')
         }})
       </p>
-      <br />
-      <div v-if="new Date().getTimezoneOffset() !== -180">
+      <div v-if="!isTheSameTimezone()">
+        <br />
         <p>{{ from | dayFullDate($i18n.locale) }}</p>
         <p>
           {{ $t('timeCard.from') }} {{ from | time($i18n.locale) }}
@@ -55,6 +55,12 @@ export default {
       const endDate = new Date(this.to).getTime()
       const currentDate = new Date().getTime()
       return currentDate < endDate
+    },
+    isTheSameTimezone() {
+      const LocalTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone
+      const ammanTimezone = 'Asia/Amman'
+
+      return LocalTimezone === ammanTimezone
     },
   },
 }
