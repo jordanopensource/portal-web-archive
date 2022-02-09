@@ -16,7 +16,7 @@
             $t('timeString.time')
           }})
         </p>
-        <div v-if="!isTheSameTimeZone()">
+        <div v-if="!isTheSameTimeZone(localTimeZone, 'Asia/Amman')">
           <br />
           <p>{{ from | dayFullDate($i18n.locale) }}</p>
           <p>
@@ -52,17 +52,19 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      localTimeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+    }
+  },
   methods: {
     isOngoingEvent() {
       const endDate = new Date(this.to).getTime()
       const currentDate = new Date().getTime()
       return currentDate < endDate
     },
-    isTheSameTimeZone() {
-      const localTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
-      const ammanTimeZone = 'Asia/Amman'
-
-      return localTimeZone === ammanTimeZone
+    isTheSameTimeZone(timeZoneOne, timeZoneTwo) {
+      return timeZoneOne === timeZoneTwo
     },
   },
 }
