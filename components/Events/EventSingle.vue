@@ -51,7 +51,7 @@
               </slot>
             </modal>
             <registerationForm
-              v-if="event.showRegisterationForm"
+              v-if="!isEventFinished && event.showRegisterationForm"
               class="mb-8"
               :event-id="event.id"
               :registrants="event.registrants"
@@ -142,6 +142,12 @@ export default {
       const hash = crypto.createHash('sha1')
       hash.update(data)
       return hash.digest('hex')
+    },
+    isEventFinished() {
+      const currentDate = new Date()
+      const endDate = new Date(this.event.endDate)
+
+      return currentDate >= endDate
     },
   },
   fetchOnServer: false,
