@@ -144,10 +144,10 @@ export default {
       return hash.digest('hex')
     },
     isEventFinished() {
-      const startDate = new Date(this.event.startDate)
+      const currentDate = new Date()
       const endDate = new Date(this.event.endDate)
 
-      return startDate >= endDate
+      return currentDate >= endDate
     },
   },
   fetchOnServer: false,
