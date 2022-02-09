@@ -1,33 +1,35 @@
 <template>
-  <div class="time-card">
-    <font-awesome-icon
-      class="icon ltr:mr-3 rtl:ml-3"
-      :icon="['fas', 'clock']"
-    />
-    <div>
-      <h5>{{ $t('timeCard.title') }}</h5>
-      <p>{{ from | fullDateWithTimeZone('Asia/Amman', $i18n.locale) }}</p>
-      <p>
-        {{ $t('timeCard.from') }}
-        {{ from | timeWithTimeZone('Asia/Amman', $i18n.locale) }}
-        {{ $t('timeCard.to') }}
-        {{ to | timeWithTimeZone('Asia/Amman', $i18n.locale) }} ({{
-          $t('timeString.time')
-        }})
-      </p>
-      <div v-if="!isTheSameTimezone()">
-        <br />
-        <p>{{ from | dayFullDate($i18n.locale) }}</p>
+  <client-only>
+    <div class="time-card">
+      <font-awesome-icon
+        class="icon ltr:mr-3 rtl:ml-3"
+        :icon="['fas', 'clock']"
+      />
+      <div>
+        <h5>{{ $t('timeCard.title') }}</h5>
+        <p>{{ from | fullDateWithTimeZone('Asia/Amman', $i18n.locale) }}</p>
         <p>
-          {{ $t('timeCard.from') }} {{ from | time($i18n.locale) }}
-          {{ $t('timeCard.to') }} {{ to | time($i18n.locale) }} ({{
-            $t('timeCard.gmt')
-          }}{{ to | timezone($i18n.locale) }})
+          {{ $t('timeCard.from') }}
+          {{ from | timeWithTimeZone('Asia/Amman', $i18n.locale) }}
+          {{ $t('timeCard.to') }}
+          {{ to | timeWithTimeZone('Asia/Amman', $i18n.locale) }} ({{
+            $t('timeString.time')
+          }})
         </p>
+        <div v-if="!isTheSameTimezone()">
+          <br />
+          <p>{{ from | dayFullDate($i18n.locale) }}</p>
+          <p>
+            {{ $t('timeCard.from') }} {{ from | time($i18n.locale) }}
+            {{ $t('timeCard.to') }} {{ to | time($i18n.locale) }} ({{
+              $t('timeCard.gmt')
+            }}{{ to | timezone($i18n.locale) }})
+          </p>
+        </div>
+        <addToCalendar v-if="isOngoingEvent()" class="mt-4" :event="event" />
       </div>
-      <addToCalendar v-if="isOngoingEvent()" class="mt-4" :event="event" />
     </div>
-  </div>
+  </client-only>
 </template>
 
 <script>
