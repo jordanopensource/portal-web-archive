@@ -16,7 +16,7 @@
             $t('timeString.time')
           }})
         </p>
-        <div v-if="!isTheSameTimezone()">
+        <div v-if="!isTheSameTimeZone()">
           <br />
           <p>{{ from | dayFullDate($i18n.locale) }}</p>
           <p>
@@ -58,11 +58,11 @@ export default {
       const currentDate = new Date().getTime()
       return currentDate < endDate
     },
-    isTheSameTimezone() {
-      const LocalTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone
-      const ammanTimezone = 'Asia/Amman'
+    isTheSameTimeZone() {
+      const localTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
+      const ammanTimeZone = 'Asia/Amman'
 
-      return LocalTimezone === ammanTimezone
+      return localTimeZone === ammanTimeZone
     },
   },
 }
