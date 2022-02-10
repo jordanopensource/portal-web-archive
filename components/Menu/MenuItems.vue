@@ -1,9 +1,6 @@
 <template>
   <div class="links">
-    <span
-      v-for="(item, index) in orderBy(menu.menuItems, 'weight')"
-      :key="index"
-    >
+    <span v-for="item in menu.menuItems" :key="item.id">
       <a
         v-if="external(item.path)"
         :href="item.path"

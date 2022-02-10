@@ -51,7 +51,7 @@
               </slot>
             </modal>
             <registerationForm
-              v-if="event.showRegisterationForm"
+              v-if="!isEventFinished() && event.showRegisterationForm"
               class="mb-8"
               :event-id="event.id"
               :registrants="event.registrants"
@@ -106,21 +106,23 @@ export default {
     }
   },
   async fetch() {
-    const url = this.$config.bbbAPIUrl
-    const secret = this.$config.bbbAPISecret
-    const meetingID = this.event.onlineMeeting.meetingID
-    const data = `isMeetingRunningmeetingID=${meetingID}${secret}`
-    const encoded = encodeURI(data)
-    const checksum = this.createHash(encoded)
-    const redirect = `${url}isMeetingRunning?meetingID=${meetingID}&checksum=${checksum}`
-    const response = await this.$axios.get(redirect)
-    const parser = new DOMParser()
-    const xmlDOM = parser.parseFromString(response.data, 'text/xml')
-    const value = xmlDOM.getElementsByTagName('running')[0]
-    if (value.childNodes[0].nodeValue === 'false') {
-      this.running = false
-    } else {
-      this.running = true
+    if (this.event.onlineMeeting.meetingID) {
+      const url = this.$config.bbbAPIUrl
+      const secret = this.$config.bbbAPISecret
+      const meetingID = this.event.onlineMeeting.meetingID
+      const data = `isMeetingRunningmeetingID=${meetingID}${secret}`
+      const encoded = encodeURI(data)
+      const checksum = this.createHash(encoded)
+      const redirect = `${url}isMeetingRunning?meetingID=${meetingID}&checksum=${checksum}`
+      const response = await this.$axios.get(redirect)
+      const parser = new DOMParser()
+      const xmlDOM = parser.parseFromString(response.data, 'text/xml')
+      const value = xmlDOM.getElementsByTagName('running')[0]
+      if (value.childNodes[0].nodeValue === 'false') {
+        this.running = false
+      } else {
+        this.running = true
+      }
     }
   },
   computed: {
@@ -142,6 +144,12 @@ export default {
       const hash = crypto.createHash('sha1')
       hash.update(data)
       return hash.digest('hex')
+    },
+    isEventFinished() {
+      const currentDate = new Date()
+      const endDate = new Date(this.event.endDate)
+
+      return currentDate >= endDate
     },
   },
   fetchOnServer: false,
