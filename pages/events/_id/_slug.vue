@@ -30,8 +30,8 @@ export default {
       meta: [
         {
           name: 'description',
-          content: this.event['metaDescription_' + this.$i18n.locale]
-            ? this.event['metaDescription_' + this.$i18n.locale]
+          content: this.event['description_' + this.$i18n.locale]
+            ? this.event['description_' + this.$i18n.locale]
             : '',
         },
         ...this.$options.filters.ogTags(
