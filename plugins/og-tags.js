@@ -37,7 +37,9 @@ function ogData(type, content, path, lang) {
   } else if (content['excerpt_' + lang]) {
     description = content['excerpt_' + lang]
   } else {
-    description = title
+    const originalString = content['description_' + lang]
+    const strippedString = originalString.replace(/(<([^>]+)>)/gi, '')
+    description = strippedString
   }
   // Set data
   const data = {
