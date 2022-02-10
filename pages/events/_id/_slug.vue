@@ -25,6 +25,11 @@ export default {
     ]
       ? this.event['metaDescription_' + this.$i18n.locale]
       : this.event['description_' + this.$i18n.locale]
+
+    const htmlStrippedDescriptionContent = descriptionContent.replace(
+      /(<([^>]+)>)/gi,
+      ''
+    )
     return {
       title:
         this.pageTitle +
@@ -35,7 +40,7 @@ export default {
       meta: [
         {
           name: 'description',
-          content: descriptionContent,
+          content: htmlStrippedDescriptionContent,
         },
         ...this.$options.filters.ogTags(
           'event',
