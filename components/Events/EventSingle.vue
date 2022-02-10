@@ -106,21 +106,23 @@ export default {
     }
   },
   async fetch() {
-    const url = this.$config.bbbAPIUrl
-    const secret = this.$config.bbbAPISecret
-    const meetingID = this.event.onlineMeeting.meetingID
-    const data = `isMeetingRunningmeetingID=${meetingID}${secret}`
-    const encoded = encodeURI(data)
-    const checksum = this.createHash(encoded)
-    const redirect = `${url}isMeetingRunning?meetingID=${meetingID}&checksum=${checksum}`
-    const response = await this.$axios.get(redirect)
-    const parser = new DOMParser()
-    const xmlDOM = parser.parseFromString(response.data, 'text/xml')
-    const value = xmlDOM.getElementsByTagName('running')[0]
-    if (value.childNodes[0].nodeValue === 'false') {
-      this.running = false
-    } else {
-      this.running = true
+    if (this.event.onlineMeeting.meetingID) {
+      const url = this.$config.bbbAPIUrl
+      const secret = this.$config.bbbAPISecret
+      const meetingID = this.event.onlineMeeting.meetingID
+      const data = `isMeetingRunningmeetingID=${meetingID}${secret}`
+      const encoded = encodeURI(data)
+      const checksum = this.createHash(encoded)
+      const redirect = `${url}isMeetingRunning?meetingID=${meetingID}&checksum=${checksum}`
+      const response = await this.$axios.get(redirect)
+      const parser = new DOMParser()
+      const xmlDOM = parser.parseFromString(response.data, 'text/xml')
+      const value = xmlDOM.getElementsByTagName('running')[0]
+      if (value.childNodes[0].nodeValue === 'false') {
+        this.running = false
+      } else {
+        this.running = true
+      }
     }
   },
   computed: {
