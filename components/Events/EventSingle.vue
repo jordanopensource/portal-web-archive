@@ -106,7 +106,7 @@ export default {
     }
   },
   async fetch() {
-    if (this.event.onlineEvent) {
+    if (this.event.onlineMeeting.meetingID) {
       const url = this.$config.bbbAPIUrl
       const secret = this.$config.bbbAPISecret
       const meetingID = this.event.onlineMeeting.meetingID
