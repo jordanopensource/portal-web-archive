@@ -7,7 +7,7 @@ _paq.push(['enableLinkTracking'])
 ;(function () {
   let u = '//analytics.jordanopensource.org/'
   _paq.push(['setTrackerUrl', u + 'matomo.php'])
-  _paq.push(['setSiteId', '2'])
+  _paq.push(['setSiteId', '7'])
   let d = document
   let g = d.createElement('script')
   let s = d.getElementsByTagName('script')[0]
