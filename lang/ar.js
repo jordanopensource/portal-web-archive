@@ -12,7 +12,8 @@ export default {
     more: 'المزيد من المقالات',
     featured: 'مقالات مختارة',
     spotlight: 'آخر المقالات',
-    disclaimer: 'الآراء المنشورة تعبر عن رأي صاحبها ولا تعبر بالضرورة عن رأي الجمعية الأردنية للمصدر المفتوح (جوسا)'
+    disclaimer:
+      'الآراء المنشورة تعبر عن رأي صاحبها ولا تعبر بالضرورة عن رأي الجمعية الأردنية للمصدر المفتوح (جوسا)',
   },
   // Time Card
   timeCard: {
@@ -23,7 +24,7 @@ export default {
   },
   // Location Card
   locationCard: {
-    title: 'الموقع'
+    title: 'الموقع',
   },
   // Event
   events: {
@@ -38,15 +39,16 @@ export default {
     registerFail: 'هنالك خطأ, الرجاء المحاولة لاحقًا!',
     registerExist: 'لقد سجلت مسبقًا لهذه الفعالية!',
     join: 'انضم إلى هذه الفعالية',
-    hostedBy: 'بتنظيم من الجمعية الأردنية للمصدر المفتوح',
+    hostedBy: 'بتنظيم من',
     happening: 'يحدث الآن',
-    joinCall: 'هذه الفعالبة تحدث عبر الإنترنت. يمكنك المشاركة عن طريق تعبئة النموذج التالي',
+    joinCall:
+      'هذه الفعالبة تحدث عبر الإنترنت. يمكنك المشاركة عن طريق تعبئة النموذج التالي',
     notRegistered: 'إذا لم تسجل في هذه الفالية, الرجاء التسجيل',
     here: 'هنا',
-    onlineEvent: 'عبر الإنترنت'
+    onlineEvent: 'عبر الإنترنت',
   },
   eventCats: {
-    all: 'جميع الفعاليات'
+    all: 'جميع الفعاليات',
   },
   // Contact Us
   contact: {
@@ -55,63 +57,65 @@ export default {
     voice: 'هاتف',
     email: 'البريد الإلكتروني',
     connect: 'تواصل معنا',
-    comma: '،'
+    comma: '،',
   },
   // Feedback
   feedback: {
     title: 'الاقتراحات والاستفسارات',
-    description: 'سواء أكنت راضيًا أم غير راضٍ عن عملنا أو نشاطاتنا، فإننا نضع دومًا اقتراحاتك وتعليقاتك محل التقدير والاهتمام.',
-    fillForm: 'إذا كان لديك أي تعليق أو شكوى، فإننا ندعوك إلى تعبئة النموذج أدناه.',
+    description:
+      'سواء أكنت راضيًا أم غير راضٍ عن عملنا أو نشاطاتنا، فإننا نضع دومًا اقتراحاتك وتعليقاتك محل التقدير والاهتمام.',
+    fillForm:
+      'إذا كان لديك أي تعليق أو شكوى، فإننا ندعوك إلى تعبئة النموذج أدناه.',
     form: {
       subject: 'ما موضوع اقتراحك أو استفسارك؟',
       inquiry: 'نرجو إضافة أي تفاصيل عنه',
       name: 'اسمك',
       email: 'بريدك الإلكتروني',
-      submit: 'إرسال'
-    }
+      submit: 'إرسال',
+    },
   },
   // Publications
   publication: {
     title: 'الأبحاث والمنشورات',
     publishDate: 'تاريخ النشر:',
     featured: 'منشور مختار',
-    all: 'جميع الأبحاث والمنشورات'
+    all: 'جميع الأبحاث والمنشورات',
   },
   publicationCats: {
     title: {
-      all: 'جميع الأبحاث والمنشورات'
-    }
+      all: 'جميع الأبحاث والمنشورات',
+    },
   },
   // Board & Staff
   boardStaff: {
     board: 'هيئة الإدارة',
     staff: 'الفريق العامل',
     previousBoard: 'أعضاء هيئة الإدارة السابقون',
-    previousStaff: 'أعضاء الفريق السابقون'
+    previousStaff: 'أعضاء الفريق السابقون',
   },
   // Auth
   auth: {
-    login: "تسجيل الدخول",
-    logout: "تسجيل الخروج",
+    login: 'تسجيل الدخول',
+    logout: 'تسجيل الخروج',
     email: 'البريد الإلكتروني او اسم المستخدم',
-    password: 'كلمة المرور'
+    password: 'كلمة المرور',
   },
   // Speakers
   speakers: 'المتحدثون',
   // Footer
   copyright: {
-    info: 'محتوى هذا الموقع مُرخّص برخصة المشاع الإبداعي Creative Commons نسب المصنف - الترخيص بالمثل 4.0 دولي (CC BY-SA 4.0),  إلا اذا ورد خلاف ذلك. '
+    info: 'محتوى هذا الموقع مُرخّص برخصة المشاع الإبداعي Creative Commons نسب المصنف - الترخيص بالمثل 4.0 دولي (CC BY-SA 4.0),  إلا اذا ورد خلاف ذلك. ',
   },
   careers: {
     all: 'جميع الوظائف',
     publishDate: 'تاريخ النشر',
     type: 'نوع الوظيفة',
-    team: 'الفريق'
+    team: 'الفريق',
   },
   // Meta
   meta: {
     writtenBy: 'بقلم',
-    readTheReport:'اقرأ التقرير',
+    readTheReport: 'اقرأ التقرير',
     readMore: 'اقرأ المزيد',
     knowMore: 'اعرف أكثر',
     knowMoreAboutUs: 'اعرف أكثر عنا',
@@ -132,11 +136,11 @@ export default {
   },
   // Partners
   partners: {
-    title: 'الشركاء والداعمون'
+    title: 'الشركاء والداعمون',
   },
   // Members
   members: {
-    members: 'عضو'
+    members: 'عضو',
   },
   // Sort
   sort: {
@@ -144,23 +148,23 @@ export default {
     memberSinceACS: 'تاريخ التسجيل: تصاعدي',
     memberSinceDESC: 'تاريخ التسجيل: تنازلي',
     fullNameASC: 'الاسم: تصاعدي',
-    fullNameDESC: 'الاسم: تنازلي'
+    fullNameDESC: 'الاسم: تنازلي',
   },
   // Pagination
   pagination: {
     next: 'التالي',
-    prev: 'السابق'
+    prev: 'السابق',
   },
   // Impact
   impact: {
-    title: "تأثير جوسا"
+    title: 'تأثير جوسا',
   },
   // Buttons
   button: {
     register: 'سجل',
     join: 'انضم',
     becomeAMember: 'اصبح عضوًا',
-    learnMoreWork: 'اعرف أكثر عن عملنا'
+    learnMoreWork: 'اعرف أكثر عن عملنا',
   },
   // Join Us
   joinUs: {
@@ -169,39 +173,39 @@ export default {
   },
   // Activities
   activities: {
-    highlighted: 'الأنشطة'
+    highlighted: 'الأنشطة',
   },
   // Dossier
   dossier: {
     dossier: 'ملف',
-    inDossier: 'في هذا الملف'
+    inDossier: 'في هذا الملف',
   },
   error: {
     ops: 'عفوًا!',
     lost: 'يبدو أننا لا نستطيع العثور على الصفحة التي تبحث عنها.',
     links: 'إليك بعض الروابط المفيدة بدلاً من ذلك:',
-    home: 'الصفحة الرئيسية'
+    home: 'الصفحة الرئيسية',
   },
   map: {
     text: {
-      touch: "استخدم اصبعين لتحريك الخريطة",
-      scroll: "استخدم ctrl + scroll لتصغير/تكبير الخريطة",
-      scrollMac: "استخدم ⌘ + scroll لتصغير/تكبير الخريطة"
+      touch: 'استخدم اصبعين لتحريك الخريطة',
+      scroll: 'استخدم ctrl + scroll لتصغير/تكبير الخريطة',
+      scrollMac: 'استخدم ⌘ + scroll لتصغير/تكبير الخريطة',
     },
   },
   tooltip: {
-    copied: 'تم النسخ!'
+    copied: 'تم النسخ!',
   },
-  timeString:{
-    time:'بتوقيت عمان'
+  timeString: {
+    time: 'بتوقيت عمان',
   },
-  addToCalendar:{
-    add:'أضف إلى التقويم',
-    google:'جوجل',
-    outlook:'أوتلوك',
-    office:'أوفيس 365',
-    apple:'آبل',
-    android:'أندرويد',
-    others:'تقويم آخر'
-  }
+  addToCalendar: {
+    add: 'أضف إلى التقويم',
+    google: 'جوجل',
+    outlook: 'أوتلوك',
+    office: 'أوفيس 365',
+    apple: 'آبل',
+    android: 'أندرويد',
+    others: 'تقويم آخر',
+  },
 }
