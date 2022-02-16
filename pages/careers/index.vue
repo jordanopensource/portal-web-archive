@@ -82,6 +82,12 @@ export default {
             ? this.careerMeta['metaDescription_' + this.$i18n.locale]
             : '',
         },
+        ...this.$options.filters.ogTags(
+          'page',
+          this.careerMeta,
+          this.$route.path,
+          this.$i18n.locale
+        ),
         ...i18nSeo.meta,
       ],
     }
