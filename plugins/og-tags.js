@@ -6,8 +6,8 @@ function ogData(type, content, path, lang) {
   let imageUrl = ''
   let description = ''
   // Set image url
-  if (content.ogData && content.ogData.image) {
-    imageUrl = content.ogData.image.url
+  if (content.ogData && content.ogData['image_' + lang]) {
+    imageUrl = content.ogData['image_' + lang].url
   } else if (content.thumbnail) {
     imageUrl = content.thumbnail.url
   } else {
