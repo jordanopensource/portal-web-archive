@@ -184,6 +184,7 @@ export default {
     registerExist: 'You are already registered for this event!',
     join: 'Join this event',
     hostedBy: 'Hosted by ',
+    hostedByJOSA: 'Hosted by Jordan Open Source Association',
     happening: 'Happening now',
     joinCall:
       "This event is happening online. You can join and participate by submitting the information in the form below then clicking on 'Join'.",
