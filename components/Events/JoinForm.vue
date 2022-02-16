@@ -5,7 +5,7 @@
       <p v-if="event['organizers_' + $i18n.locale]" class="">
         {{ $t('events.hostedBy') }}{{ event['organizers_' + $i18n.locale] }}
       </p>
-      <p class="">
+      <p v-else class="">
         {{ $t('events.hostedByJOSA') }}
       </p>
       <div class="flex flex-col lg:flex-row mt-8 mb-4">
@@ -78,7 +78,7 @@
       <p v-if="event['organizers_' + $i18n.locale]" class="">
         {{ $t('events.hostedBy') }}{{ event['organizers_' + $i18n.locale] }}
       </p>
-      <p class="">
+      <p v-else class="">
         {{ $t('events.hostedByJOSA') }}
       </p>
       <div class="flex flex-col lg:flex-row mt-8 mb-4">
