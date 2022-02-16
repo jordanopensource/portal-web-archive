@@ -10,6 +10,10 @@ function ogData(type, content, path, lang) {
     imageUrl = content.ogData['image_' + lang].url
   } else if (content.thumbnail) {
     imageUrl = content.thumbnail.url
+  } else if (content.image) {
+    imageUrl = content.image.url
+  } else if (content.picture) {
+    imageUrl = content.picture.url
   } else {
     imageUrl = ''
   }
