@@ -2,8 +2,11 @@
   <div class="flex flex-wrap">
     <div v-if="running == true" class="w-full md:w-3/5 p-8">
       <h3>{{ event['title_' + $i18n.locale] }}</h3>
-      <p class="">
+      <p v-if="event['organizers_' + $i18n.locale]" class="">
         {{ $t('events.hostedBy') }}{{ event['organizers_' + $i18n.locale] }}
+      </p>
+      <p class="">
+        {{ $t('events.hostedByJOSA') }}
       </p>
       <div class="flex flex-col lg:flex-row mt-8 mb-4">
         <appImage
@@ -72,8 +75,11 @@
     </div>
     <div v-else-if="isFinishedEvent()" class="w-full p-8">
       <h3>{{ event['title_' + $i18n.locale] }}</h3>
-      <p class="">
+      <p v-if="event['organizers_' + $i18n.locale]" class="">
         {{ $t('events.hostedBy') }}{{ event['organizers_' + $i18n.locale] }}
+      </p>
+      <p class="">
+        {{ $t('events.hostedByJOSA') }}
       </p>
       <div class="flex flex-col lg:flex-row mt-8 mb-4">
         <appImage
