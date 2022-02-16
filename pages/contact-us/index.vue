@@ -49,6 +49,12 @@ export default {
             ? this.contactUsMeta['metaDescription_' + this.$i18n.locale]
             : '',
         },
+        ...this.$options.filters.ogTags(
+          'page',
+          this.contactUsMeta,
+          this.$route.path,
+          this.$i18n.locale
+        ),
         ...i18nSeo.meta,
       ],
     }
