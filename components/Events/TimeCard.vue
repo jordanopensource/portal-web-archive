@@ -7,7 +7,8 @@
       />
       <div>
         <h5>{{ $t('timeCard.title') }}</h5>
-        <p>{{ from | fullDateWithTimeZone('Asia/Amman', $i18n.locale) }}</p>
+        <p v-if="isRecurringEvent()">{{ from | fullDateWithTimeZone('Asia/Amman', $i18n.locale) }} - {{ to | fullDateWithTimeZone('Asia/Amman', $i18n.locale) }}</p>
+        <p v-else>{{ from | fullDateWithTimeZone('Asia/Amman', $i18n.locale) }}</p>
         <p>
           {{ $t('timeCard.from') }}
           {{ from | timeWithTimeZone('Asia/Amman', $i18n.locale) }}
@@ -62,6 +63,11 @@ export default {
       const endDate = new Date(this.to).getTime()
       const currentDate = new Date().getTime()
       return currentDate < endDate
+    },
+    isRecurringEvent() {
+      const eventStartsOn = new Date(this.from).getDate();
+      const eventEndsOn = new Date(this.to).getDate();
+      return eventStartsOn !== eventEndsOn;
     },
     isTheSameTimeZone(timeZoneOne, timeZoneTwo) {
       return timeZoneOne === timeZoneTwo
