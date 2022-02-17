@@ -90,6 +90,12 @@ export default {
             ? this.blogMeta['metaDescription_' + this.$i18n.locale]
             : '',
         },
+        ...this.$options.filters.ogTags(
+          'page',
+          this.blogMeta,
+          this.$route.path,
+          this.$i18n.locale
+        ),
         ...i18nSeo.meta,
       ],
     }

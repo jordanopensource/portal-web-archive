@@ -76,6 +76,12 @@ export default {
             ? this.publicationMeta['metaDescription_' + this.$i18n.locale]
             : '',
         },
+        ...this.$options.filters.ogTags(
+          'page',
+          this.publicationMeta,
+          this.$route.path,
+          this.$i18n.locale
+        ),
         ...i18nSeo.meta,
       ],
     }

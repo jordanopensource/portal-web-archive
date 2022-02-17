@@ -8,15 +8,7 @@
       >
         <!-- Sections Menu -->
         <div
-          class="
-            sections-menu
-            md:ltr:pr-12 md:rtl:pl-12
-            pb-8
-            md:pb-0
-            w-full
-            md:w-1/4
-            flex-shrink-0
-          "
+          class="sections-menu md:ltr:pr-12 md:rtl:pl-12 pb-8 md:pb-0 w-full md:w-1/4 flex-shrink-0"
         >
           <div
             v-for="section in pageContent.section"
@@ -94,6 +86,12 @@ export default {
             ? this.pageContent['description_' + this.$i18n.locale]
             : '',
         },
+        ...this.$options.filters.ogTags(
+          'info',
+          this.pageContent,
+          this.$route.path,
+          this.$i18n.locale
+        ),
         ...i18nSeo.meta,
       ],
     }
