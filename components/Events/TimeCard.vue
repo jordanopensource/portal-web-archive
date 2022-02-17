@@ -7,7 +7,7 @@
       />
       <div>
         <h5>{{ $t('timeCard.title') }}</h5>
-        <p v-if="isRecurringEvent()">{{ from | fullDateWithTimeZone('Asia/Amman', $i18n.locale) }} - {{ to | fullDateWithTimeZone('Asia/Amman', $i18n.locale) }}</p>
+        <p v-if="isMultiDayEvent()">{{ from | fullDateWithTimeZone('Asia/Amman', $i18n.locale) }} - {{ to | fullDateWithTimeZone('Asia/Amman', $i18n.locale) }}</p>
         <p v-else>{{ from | fullDateWithTimeZone('Asia/Amman', $i18n.locale) }}</p>
         <p>
           {{ $t('timeCard.from') }}
@@ -19,7 +19,7 @@
         </p>
         <div v-if="!isTheSameTimeZone(localTimeZone, 'Asia/Amman')">
           <br />
-          <p v-if="isRecurringEvent()">{{ from | dayFullDate($i18n.locale) }} - {{ to | dayFullDate($i18n.locale) }}</p>
+          <p v-if="isMultiDayEvent()">{{ from | dayFullDate($i18n.locale) }} - {{ to | dayFullDate($i18n.locale) }}</p>
           <p v-else>{{ from | dayFullDate($i18n.locale) }}</p>
           <p>
             {{ $t('timeCard.from') }} {{ from | time($i18n.locale) }}
@@ -65,7 +65,7 @@ export default {
       const currentDate = new Date().getTime()
       return currentDate < endDate
     },
-    isRecurringEvent() {
+    isMultiDayEvent() {
       const eventStartsOn = new Date(this.from).getDate();
       const eventEndsOn = new Date(this.to).getDate();
       return eventStartsOn !== eventEndsOn;
