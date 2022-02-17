@@ -19,7 +19,10 @@
         </p>
         <div v-if="!isTheSameTimeZone(localTimeZone, 'Asia/Amman')">
           <br />
-          <p>{{ from | dayFullDate($i18n.locale) }}</p>
+          <div>
+            <p v-if="isRecurringEvent()">{{ from | dayFullDate($i18n.locale) }} - {{ to | dayFullDate($i18n.locale) }}</p>
+            <p v-else>{{ from | dayFullDate($i18n.locale) }}</p>
+          </div>
           <p>
             {{ $t('timeCard.from') }} {{ from | time($i18n.locale) }}
             {{ $t('timeCard.to') }} {{ to | time($i18n.locale) }} ({{
