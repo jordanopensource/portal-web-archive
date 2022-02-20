@@ -50,6 +50,12 @@ export default {
             ? this.boardStaffMeta['metaDescription_' + this.$i18n.locale]
             : '',
         },
+        ...this.$options.filters.ogTags(
+          'page',
+          this.boardStaffMeta,
+          this.$route.path,
+          this.$i18n.locale
+        ),
         ...i18nSeo.meta,
       ],
     }

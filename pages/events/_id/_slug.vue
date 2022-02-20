@@ -20,6 +20,16 @@ export default {
       addDirAttribute: true,
       addSeoAttributes: true,
     })
+    const descriptionContent = this.event[
+      'metaDescription_' + this.$i18n.locale
+    ]
+      ? this.event['metaDescription_' + this.$i18n.locale]
+      : this.event['description_' + this.$i18n.locale]
+
+    if (descriptionContent) {
+      descriptionContent.replace(/(<([^>]+)>)/gi, '')
+    }
+
     return {
       title:
         this.pageTitle +
@@ -30,9 +40,7 @@ export default {
       meta: [
         {
           name: 'description',
-          content: this.event['metaDescription_' + this.$i18n.locale]
-            ? this.event['metaDescription_' + this.$i18n.locale]
-            : '',
+          content: descriptionContent,
         },
         ...this.$options.filters.ogTags(
           'event',

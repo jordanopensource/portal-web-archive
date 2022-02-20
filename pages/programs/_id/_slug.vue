@@ -33,6 +33,12 @@ export default {
             ? this.program['metaDescription_' + this.$i18n.locale]
             : this.program['description_' + this.$i18n.locale] || '',
         },
+        ...this.$options.filters.ogTags(
+          'page',
+          this.program,
+          this.$route.path,
+          this.$i18n.locale
+        ),
         ...i18nSeo.meta,
       ],
     }
