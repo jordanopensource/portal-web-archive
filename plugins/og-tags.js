@@ -21,7 +21,12 @@ function ogData(type, content, path, lang) {
   if (type === 'article') {
     title = content.title
   } else {
-    title = content['title_' + lang]
+    title =
+      content['title_' + lang] +
+      ' - ' +
+      (lang === 'ar'
+        ? 'الجمعية الأردنية للمصدر المفتوح'
+        : 'Jordan Open Source Association')
   }
   // Set category
   if (type === 'career') {
