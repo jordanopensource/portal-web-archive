@@ -244,17 +244,6 @@ export default {
 
       return icsFile
     },
-    convertDate(date) {
-      let event = new Date(date).toISOString()
-      event = event.replaceAll(':', '')
-      event = event.replaceAll('-', '')
-      // Remove milliseconds in the time value
-      event = event.replace(
-        event.substring(event.length - 5, event.length - 1),
-        ''
-      )
-      return event
-    },
     makeIcsFile(id) {
       const div = document.createElement('div')
       div.innerHTML = this.event['description_' + this.$i18n.locale]
