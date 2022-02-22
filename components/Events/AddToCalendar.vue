@@ -12,7 +12,7 @@
           <a
             id="download"
             class="list-text"
-            download="JOSAEvent.ics"
+            :download="icsFileName"
             :href="createIcsFile()"
             >{{ $t('addToCalendar.apple') }}</a
           >
@@ -48,7 +48,7 @@
           <img class="icon" src="~/static/images/icons/android.webp" />
           <a
             id="download2"
-            download="JOSAEvent.ics"
+            :download="icsFileName"
             class="list-text"
             :href="createIcsFile()"
             >{{ $t('addToCalendar.android') }}</a
@@ -58,7 +58,7 @@
           <img class="icon" src="~/static/images/icons/download.webp" />
           <a
             id="download1"
-            download="JOSAEvent.ics"
+            :download="icsFileName"
             class="list-text"
             :href="createIcsFile()"
             >{{ $t('addToCalendar.others') }}</a
@@ -84,6 +84,7 @@ export default {
   data() {
     return {
       opened: false,
+      icsFileName: `${this.event.title_en}.ics`,
     }
   },
   mounted() {
