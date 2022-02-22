@@ -30,7 +30,7 @@
         <img
           src="/images/icons/lost.webp"
           alt="lost"
-          class="bot mt-8 md:ltr:pl-8 md:rtl:pr-8 md:py-8"
+          class="bot mt-8 mb-8 md:ltr:pl-8 md:rtl:pr-8 md:py-8 sm:max-w-1/2 lg:max-w-1/3"
         />
       </div>
     </div>
@@ -62,6 +62,8 @@ export default {
 .__nuxt-error-page {
   background-color: #fff;
   color: #2e3436;
+  margin-right: 2rem;
+  margin-left: 2rem;
 }
 
 .__nuxt-error-page h2 {
@@ -79,7 +81,7 @@ export default {
   font-size: 1.25rem;
   line-height: 1;
   margin-bottom: 2rem;
-  margin-top: 2rem;
+  margin-top: 5rem;
 }
 
 .__nuxt-error-page a {
