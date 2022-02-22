@@ -60,7 +60,7 @@
             id="download1"
             download="JOSAEvent.ics"
             class="list-text"
-            @click="makeIcsFile(otherId)"
+            :href="createIcsFile()"
             >{{ $t('addToCalendar.others') }}</a
           >
         </div>
