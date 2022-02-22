@@ -84,12 +84,6 @@ export default {
   data() {
     return {
       opened: false,
-      googleLink: 'https://calendar.google.com/calendar/render?',
-      outlookLink: 'https://outlook.live.com/calendar/0/deeplink/compose?',
-      officeLink: 'https://outlook.office.com/calendar/0/deeplink/compose?',
-      appleId: '#download',
-      otherId: '#download1',
-      androidId: '#download2',
     }
   },
   mounted() {
