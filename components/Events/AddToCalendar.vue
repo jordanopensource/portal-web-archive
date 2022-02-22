@@ -25,9 +25,12 @@
         </div>
         <div class="flex">
           <img class="icon" src="~/static/images/icons/search.webp" />
-          <a class="list-text" @click="googleEncode(googleLink)">{{
-            $t('addToCalendar.google')
-          }}</a>
+          <a
+            class="list-text"
+            target="_blank"
+            :href="createGoogleCalendarLink()"
+            >{{ $t('addToCalendar.google') }}</a
+          >
         </div>
         <div class="flex">
           <img class="icon" src="~/static/images/icons/office.webp" />
@@ -60,6 +63,7 @@
   </div>
 </template>
 <script>
+import { google } from 'calendar-link'
 export default {
   name: 'AddToCalender',
   components: {
@@ -93,6 +97,41 @@ export default {
       if (!this.$el.contains(e.target)) {
         this.opened = false
       }
+    },
+    createGoogleCalendarLink() {
+      /**
+       * creates a google calendar link based on the event object
+       */
+      const eventStartDate = this.event.startDate
+      const eventEndDate = this.event.endDate
+      const diffMs = eventEndDate - eventStartDate // return the difference in milliseconds between the dates
+      const eventDuration = Math.round(((diffMs % 86400000) % 3600000) / 60000) // return the event duration in minutes
+
+      /**
+       * create the event object
+       * @type {Object}
+       * @requires @property {String} title - the event title
+       * @requires @property {Date} start - the event Start time
+       * @property {String} description - the event description
+       * @property {Date} end - the event end time
+       * @property {Array} duration - the event duration with value (Number) and unit (String)
+       * @property {String} location - the event location
+       */
+      const event = {
+        title: this.event['title_' + this.$i18n.locale],
+        description: this.event['description_' + this.$i18n.locale]
+          ? this.event['description_' + this.$i18n.locale]
+          : '',
+        start: this.event.startDate,
+        end: this.event.endDate,
+        duration: [eventDuration, 'minutes'],
+        location: this.event.address
+          ? this.event.address['addressOne_' + this.$i18n.locale]
+          : '',
+      }
+      const googleCalendarLink = google(event)
+
+      return googleCalendarLink
     },
     convertDate(date) {
       let event = new Date(date).toISOString()
