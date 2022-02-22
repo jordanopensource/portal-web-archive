@@ -9,7 +9,7 @@
           justify-between
           align-middle
           flex-wrap
-          sm:flex-nowrap
+          sm:flex-no-wrap
           py-12
           md:py-6
           px-6
