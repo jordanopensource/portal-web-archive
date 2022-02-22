@@ -50,7 +50,7 @@
             id="download2"
             download="JOSAEvent.ics"
             class="list-text"
-            @click="makeIcsFile(androidId)"
+            :href="createIcsFile()"
             >{{ $t('addToCalendar.android') }}</a
           >
         </div>
