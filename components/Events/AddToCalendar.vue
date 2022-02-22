@@ -244,55 +244,6 @@ export default {
 
       return icsFile
     },
-    makeIcsFile(id) {
-      const div = document.createElement('div')
-      div.innerHTML = this.event['description_' + this.$i18n.locale]
-      let desc = div.textContent || div.innerText || ''
-      // Keep newlines by not escaping them
-      desc = desc.replaceAll('\n', '\\' + 'n')
-      // \u000D\u000A is Unicode for CRLF, split lines should start with a
-      // space
-      desc = desc.replace(/(.{62})/, '$1\u000D\u000A ')
-      desc = desc.replace(/(.{74})/g, '$1\u000D\u000A ')
-      let icsFile = null
-      const test =
-        'BEGIN:VCALENDAR\u000D\u000A' +
-        'CALSCALE:GREGORIAN\u000D\u000A' +
-        'METHOD:PUBLISH\u000D\u000A' +
-        'PRODID:JOSA\u000D\u000A' +
-        'VERSION:2.0\u000D\u000A' +
-        'BEGIN:VEVENT\u000D\u000A' +
-        'UID:event-' +
-        this.event.id +
-        '\u000D\u000A' +
-        'DTSTAMP:' +
-        this.convertDate(this.event.published_at) +
-        '\u000D\u000A' +
-        'DTSTART:' +
-        this.convertDate(this.event.startDate) +
-        '\u000D\u000A' +
-        'DTEND:' +
-        this.convertDate(this.event.endDate) +
-        '\u000D\u000A' +
-        'SUMMARY:' +
-        this.event['title_' + this.$i18n.locale] +
-        '\u000D\u000A' +
-        'DESCRIPTION:' +
-        desc +
-        '\u000D\u000A' +
-        'END:VEVENT\u000D\u000A' +
-        'END:VCALENDAR'
-      const data = new Blob([test], {
-        type: 'text/calendar',
-      })
-      if (icsFile !== null) {
-        window.URL.revokeObjectURL(icsFile)
-      }
-      icsFile = window.URL.createObjectURL(data)
-      const link = document.querySelector(id)
-      link.href = icsFile
-      link.download()
-    },
   },
 }
 </script>
