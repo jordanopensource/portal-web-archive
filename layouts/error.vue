@@ -1,8 +1,9 @@
 <template>
   <div>
-    <div class="__nuxt-error-page container">
+    <div class="__nuxt-error-page">
       <div
         class="
+          container
           flex flex-col-reverse
           md:flex-row
           justify-between
