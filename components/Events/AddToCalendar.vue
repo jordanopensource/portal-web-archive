@@ -144,43 +144,6 @@ export default {
       )
       return event
     },
-    googleEncode(Url) {
-      const div = document.createElement('div')
-      div.innerHTML = this.event['description_' + this.$i18n.locale]
-      let desc = div.textContent || div.innerText || ''
-      desc = desc.substring(0, 1200) + '...'
-      const URL =
-        `${Url}action=TEMPLATE&text=${
-          this.event['title_' + this.$i18n.locale]
-        }` +
-        `&dates=${this.convertDate(this.event.startDate)}/${this.convertDate(
-          this.event.endDate
-        )}` +
-        `&details=${desc}&sf=true&output=xml`
-      const encoded = encodeURI(URL)
-      window.open(encoded, '_blank')
-    },
-    outlookDate(date) {
-      let event = new Date(date)
-      event.setMinutes(event.getMinutes() - event.getTimezoneOffset())
-      event = event.toISOString()
-      event = event.replaceAll('Z', '')
-      return event
-    },
-    outlookEncode(Url) {
-      const div = document.createElement('div')
-      div.innerHTML = this.event['description_' + this.$i18n.locale]
-      let desc = div.textContent || div.innerText || ''
-      desc = desc.substring(0, 1200) + '...'
-      const title = this.event['title_' + this.$i18n.locale]
-      const URL =
-        `${Url}rru=addevent&subject=${title}&startdt=${this.outlookDate(
-          this.event.startDate
-        )}` + `&enddt=${this.outlookDate(this.event.endDate)}&body=${desc}`
-      let encoded = URL
-      encoded = encodeURI(encoded)
-      window.open(encoded, '_blank')
-    },
     makeIcsFile(id) {
       const div = document.createElement('div')
       div.innerHTML = this.event['description_' + this.$i18n.locale]
