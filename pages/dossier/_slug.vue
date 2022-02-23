@@ -72,7 +72,7 @@ export default {
     const response = await $axios.get(`/api/dossiers/${params.slug}`)
     if (response.data) {
       return {
-        dossier: response.data[0],
+        dossier: response.data,
       }
     } else {
       return error({
