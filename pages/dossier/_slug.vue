@@ -69,10 +69,10 @@ export default {
   mixins: [Vue2Filters.mixin],
   layout: 'default',
   async asyncData({ params, error, $axios }) {
-    const response = await $axios.get(`/api/dossiers?pageId=${params.slug}`)
-    if (response.data[0].id) {
+    const response = await $axios.get(`/api/dossiers/${params.slug}`)
+    if (response.data) {
       return {
-        dossier: response.data[0],
+        dossier: response.data,
       }
     } else {
       return error({
