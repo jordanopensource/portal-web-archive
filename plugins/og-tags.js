@@ -5,6 +5,10 @@ function ogData(type, content, path, lang) {
   let category = ''
   let imageUrl = ''
   let description = ''
+  const siteName =
+    lang === 'ar'
+      ? 'الجمعية الأردنية للمصدر المفتوح'
+      : 'Jordan Open Source Association'
   // Set image url
   if (content.ogData && content.ogData['image_' + lang]) {
     imageUrl = content.ogData['image_' + lang].url
@@ -21,12 +25,7 @@ function ogData(type, content, path, lang) {
   if (type === 'article') {
     title = content.title
   } else {
-    title =
-      content['title_' + lang] +
-      ' - ' +
-      (lang === 'ar'
-        ? 'الجمعية الأردنية للمصدر المفتوح'
-        : 'Jordan Open Source Association')
+    title = content['title_' + lang] + ' - ' + siteName
   }
   // Set category
   if (type === 'career') {
@@ -65,6 +64,7 @@ function ogData(type, content, path, lang) {
     category,
     image: imageUrl,
     description,
+    siteName,
   }
   return data
 }
@@ -75,7 +75,7 @@ const ogTags = (type, content, path, lang) => {
     // Facebook Open Graph
     {
       property: 'og:site_name',
-      content: 'Jordan Open Source Association',
+      content: data.siteName,
     },
     {
       property: 'og:title',
