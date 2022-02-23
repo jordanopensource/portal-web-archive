@@ -92,8 +92,14 @@ export default {
           name: 'description',
           content: this.eventMeta['metaDescription_' + this.$i18n.locale]
             ? this.eventMeta['metaDescription_' + this.$i18n.locale]
-            : '',
+            : this.eventMeta['description_' + this.$i18n.locale],
         },
+        ...this.$options.filters.ogTags(
+          'page',
+          this.eventMeta,
+          this.$route.path,
+          this.$i18n.locale
+        ),
         ...i18nSeo.meta,
       ],
     }

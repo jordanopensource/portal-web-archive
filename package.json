@@ -20,6 +20,7 @@
     "@nuxtjs/pwa": "^3.3.5",
     "@nuxtjs/redirect-module": "^0.3.1",
     "@nuxtjs/sitemap": "^2.4.0",
+    "calendar-link": "^2.1.1",
     "core-js": "^3.20.3",
     "leaflet": "^1.7.1",
     "leaflet-gesture-handling": "^1.2.2",

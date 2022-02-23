@@ -70,7 +70,7 @@ export default {
   layout: 'default',
   async asyncData({ params, error, $axios }) {
     const response = await $axios.get(`/api/dossiers?pageId=${params.slug}`)
-    if (response.data[0].id) {
+    if (response.data) {
       return {
         dossier: response.data[0],
       }
