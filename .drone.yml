@@ -15,14 +15,11 @@ steps:
     image: plugins/docker
     settings:
       repo: josaorg/portal-web
-      tags:
-        - ${DRONE_COMMIT_SHA}
-        - stable
+      auto_tag: true
       username:
         from_secret: docker_username
       password:
         from_secret: docker_password
-      auto_tag: false
   - name: notify on Slack
     image: plugins/slack
     settings:
