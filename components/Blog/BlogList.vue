@@ -123,6 +123,24 @@ export default {
       return Math.ceil(this.count / this.numberPerPage)
     },
   },
+  watch: {
+    currentPage(newVal) {
+      if(newVal !== undefined) {
+        this.$store.commit('setCurrentPage', newVal)
+      }
+    }
+  },
+  async created() {
+    this.currentPage = this.$store.getters.currentPage
+    await this.countArticles()
+    if(this.currentPage > 1) {
+      this.start = this.numberPerPage * (this.currentPage - 1)
+    }
+    this.fetchArticles()
+  },
+  mounted() {
+    this.currentPage = this.$store.getters.currentPage
+  },
   methods: {
     fetchCurrentPage(i) {
       this.currentPage = this.limitNumberWithinRange(i, 1, this.pageCount)
@@ -132,7 +150,7 @@ export default {
     query() {
       const args = []
       let query = ''
-      if (this.start) {
+      if (this.start && !this.featured) {
         const q = '_start=' + this.start
         args.push(q)
       }
