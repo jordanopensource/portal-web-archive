@@ -82,7 +82,7 @@
         <div id="copyright-info" class="">
           <img
             class="cc-logo ltr:pr-4 rtl:pl-4"
-            src="~/static/logo/cc.svg"
+            src="~/static/logo/cc-by-sa.png"
             alt="cc-logo"
             loading="lazy"
           />
