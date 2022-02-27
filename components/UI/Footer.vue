@@ -210,6 +210,11 @@ img {
   @apply w-full flex align-middle justify-center text-sm;
 }
 
+.cc-logo {
+  max-width: 120px;
+  max-height: 60px;
+}
+
 @screen md {
   .logo,
   #copyright-info {
