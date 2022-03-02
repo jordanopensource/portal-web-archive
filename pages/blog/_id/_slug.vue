@@ -8,11 +8,14 @@ export default {
     BlogSingle: () => import('~/components/Blog/BlogSingle'),
   },
   layout: 'default',
-  async asyncData({ params, $axios }) {
+  async asyncData({ params, $axios, error }) {
     const response = await $axios.get(`/api/blogs/${params.id}`)
-
-    return {
-      blog: response.data,
+    if (response.data) {
+      return {
+        blog: response.data,
+      }
+    } else {
+      error({ statusCode: 404, message: 'Not found' })
     }
   },
   head() {

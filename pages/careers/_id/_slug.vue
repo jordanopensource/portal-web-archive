@@ -8,11 +8,14 @@ export default {
     careerSingle: () => import('~/components/Careers/CareerSingle'),
   },
   layout: 'default',
-  async asyncData({ params, $axios }) {
+  async asyncData({ params, $axios, error }) {
     const response = await $axios.get(`/api/careers/${params.id}`)
-
-    return {
-      career: response.data,
+    if (response.data) {
+      return {
+        career: response.data,
+      }
+    } else {
+      error({ statusCode: 404, message: 'Not found' })
     }
   },
   head() {

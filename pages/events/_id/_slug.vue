@@ -8,11 +8,14 @@ export default {
     EventSingle: () => import('~/components/Events/EventSingle'),
   },
   layout: 'default',
-  async asyncData({ params, $axios }) {
+  async asyncData({ params, $axios, error }) {
     const response = await $axios.get(`/api/events/${params.id}`)
-
-    return {
-      event: response.data,
+    if (response.data) {
+      return {
+        event: response.data,
+      }
+    } else {
+      error({ statusCode: 404, message: 'Not found' })
     }
   },
   head() {
