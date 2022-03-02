@@ -3,7 +3,7 @@
   <section>
     <div v-if="ifNotEmpty()">
       <div v-for="month in months" :key="month" class="mb-20">
-        <h3>{{ month }}</h3>
+        <h3 v-show="showMonth">{{ month }}</h3>
         <eventPreview
           v-for="event in sortedEvents[month]"
           :id="event.id"
@@ -60,6 +60,10 @@ export default {
     limit: {
       type: Number,
       default: 10,
+    },
+    showMonth: {
+      type: Boolean,
+      default: true
     },
   },
   data() {
