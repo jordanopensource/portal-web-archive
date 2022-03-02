@@ -24,12 +24,12 @@
 
       <div class="career-info flex flex-wrap lg:flex-nowrap">
         <span class="ltr:mr-4 rtl:ml-4">
-          <font-awesome-icon class="icon" :icon="['fas', 'clock']" />
+          <font-awesome-icon class="icon" :icon="['fas', 'calendar-day']" />
           {{ career.publishDate | fullDate($i18n.locale) }}
         </span>
 
         <span>
-          <font-awesome-icon class="icon" :icon="['fas', 'map-marker-alt']" />
+          <font-awesome-icon class="icon" :icon="['fas', 'globe-europe']" />
           {{ career['location_' + $i18n.locale] }}
         </span>
       </div>
