@@ -121,7 +121,7 @@ export default {
         },
         {
           icon: 'github',
-          path: 'https://github.com/jordanopensource/portal-web',
+          path: 'https://github.com/jordanopensource',
           id: '/josa-portal-web',
         },
       ],
