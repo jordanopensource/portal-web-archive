@@ -58,12 +58,16 @@ export default {
     pageBanner: () => import('@/components/UI/PageBanner'),
   },
   layout: 'default',
-  async asyncData({ $axios }) {
+  async asyncData({ $axios, error }) {
     const pageMeta = await $axios.get('/api/page-metas?pageId=blog')
     const cats = await $axios.get('/api/blog-categories')
-    return {
-      blogMeta: pageMeta.data[0],
-      blogCategories: cats.data,
+    if (pageMeta.data && cats.data) {
+      return {
+        blogMeta: pageMeta.data[0],
+        blogCategories: cats.data,
+      }
+    } else {
+      error({ statusCode: 404, message: 'Not found' })
     }
   },
   data() {
@@ -102,7 +106,9 @@ export default {
   },
   methods: {
     setActiveCat(cat) {
-      this.activeCat = cat
+      if (cat) {
+        this.activeCat = cat
+      }
     },
   },
 }
