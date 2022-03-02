@@ -2,10 +2,6 @@
   <div>
     <!-- Banner -->
     <homeBanner :page-meta="homeMeta" :programs="programs" />
-    <!-- Upcoming Events -->
-    <div class="container mt-20">
-      <eventsSpotlight />
-    </div>
     <!-- Latest Articles -->
     <div class="container">
       <div class="row">
@@ -55,7 +51,6 @@ export default {
     lastestPublications: () =>
       import('~/components/Publications/LastestPublications'),
     joinUs: () => import('~/components/JoinUs/JoinUs'),
-    eventsSpotlight: () => import('~/components/Events/EventsSpotlight')
   },
   layout: 'general',
   async asyncData({ $axios }) {
