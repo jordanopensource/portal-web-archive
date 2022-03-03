@@ -50,7 +50,7 @@ export default {
   layout: 'default',
   async asyncData({ params, error, $axios }) {
     const response = await $axios.get(`/api/info-pages?pageId=${params.slug}`)
-    if (response.data[0].id) {
+    if (response.data[0]) {
       const ifSections = !!(
         Array.isArray(response.data[0].section) &&
         response.data[0].section.length
@@ -61,10 +61,7 @@ export default {
         activeSection: activeSec,
       }
     } else {
-      return error({
-        statusCode: 404,
-        message: 'This page could not be found',
-      })
+      error({ statusCode: 404, message: 'Not found' })
     }
   },
   head() {

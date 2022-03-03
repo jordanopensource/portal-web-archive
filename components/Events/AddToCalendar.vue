@@ -120,9 +120,9 @@ export default {
        */
       const event = {
         title: this.event['title_' + this.$i18n.locale],
-        description: this.event['description_' + this.$i18n.locale]
-          ? this.event['description_' + this.$i18n.locale]
-          : '',
+        description: this.removeTags(
+          this.event['description_' + this.$i18n.locale]
+        ),
         start: this.event.startDate,
         end: this.event.endDate,
         duration: [eventDuration, 'minutes'],
@@ -155,9 +155,9 @@ export default {
        */
       const event = {
         title: this.event['title_' + this.$i18n.locale],
-        description: this.event['description_' + this.$i18n.locale]
-          ? this.event['description_' + this.$i18n.locale]
-          : '',
+        description: this.removeTags(
+          this.event['description_' + this.$i18n.locale]
+        ),
         start: this.event.startDate,
         end: this.event.endDate,
         duration: [eventDuration, 'minutes'],
@@ -190,9 +190,9 @@ export default {
        */
       const event = {
         title: this.event['title_' + this.$i18n.locale],
-        description: this.event['description_' + this.$i18n.locale]
-          ? this.event['description_' + this.$i18n.locale]
-          : '',
+        description: this.removeTags(
+          this.event['description_' + this.$i18n.locale]
+        ),
         start: this.event.startDate,
         end: this.event.endDate,
         duration: [eventDuration, 'minutes'],
@@ -225,9 +225,9 @@ export default {
        */
       const event = {
         title: this.event['title_' + this.$i18n.locale],
-        description: this.event['description_' + this.$i18n.locale]
-          ? this.event['description_' + this.$i18n.locale]
-          : '',
+        description: this.removeTags(
+          this.event['description_' + this.$i18n.locale]
+        ),
         start: this.event.startDate,
         end: this.event.endDate,
         duration: [eventDuration, 'minutes'],
@@ -238,6 +238,15 @@ export default {
       const icsFile = ics(event)
 
       return icsFile
+    },
+    removeTags(str) {
+      if (str === null || str === '') return ''
+      else str = str.toString()
+
+      // Regular expression to identify HTML tags in
+      // the input string. Replacing the identified
+      // HTML tag with a null string.
+      return str.replace(/(<([^>]+)>)/gi, '')
     },
   },
 }

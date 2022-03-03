@@ -70,17 +70,15 @@ export default {
   layout: 'default',
   async asyncData({ params, error, $axios }) {
     const response = await $axios.get(`/api/dossiers?pageId=${params.slug}`)
-    if (response.data) {
+    if (response.data[0]) {
       return {
         dossier: response.data[0],
       }
     } else {
-      return error({
-        statusCode: 404,
-        message: 'This page could not be found',
-      })
+      error({ statusCode: 404, message: 'Not found' })
     }
   },
+
   data() {
     return {
       url: null,
