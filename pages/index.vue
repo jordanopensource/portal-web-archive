@@ -3,7 +3,7 @@
     <!-- Banner -->
     <homeBanner :page-meta="homeMeta" :programs="programs" />
     <!-- Upcoming Events -->
-    <div class=container mt-20>
+    <div class="container">
       <eventList
         :showMonth="false"
         :eventsSpotlight="true"
