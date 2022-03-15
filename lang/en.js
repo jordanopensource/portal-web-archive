@@ -197,6 +197,8 @@ export default {
       'The event you are trying to join has already been concluded.',
     waitMessage:
       'Please wait, this event has not started yet. The event is scheduled to start on:',
+    recordedEvent: 'Recorded Event',
+    watchRecording: 'Watch Recording',
   },
   eventCats: {
     all: 'All Events',

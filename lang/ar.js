@@ -47,6 +47,8 @@ export default {
     notRegistered: 'إذا لم تسجل في هذه الفالية, الرجاء التسجيل',
     here: 'هنا',
     onlineEvent: 'عبر الإنترنت',
+    recordedEvent: 'فعالية مسجلة',
+    watchRecording: 'شاهد التسجيل',
   },
   eventCats: {
     all: 'جميع الفعاليات',
