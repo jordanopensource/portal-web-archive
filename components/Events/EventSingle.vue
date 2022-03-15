@@ -68,6 +68,10 @@
             />
             <locationCard v-if="event.address" :address="event.address" />
             <onlineEventCard v-if="event.onlineEvent" />
+            <RecordedEvent
+              v-if="event.recordedEvent"
+              :video-u-r-l="event.recordedEvent.videoURL"
+            />
           </div>
         </div>
       </div>
@@ -90,6 +94,7 @@ export default {
     onlineEventCard: () => import('~/components/Events/OnlineEventCard'),
     shareButtons: () => import('~/components/ShareButtons/ShareButtons'),
     joinFormCard: () => import('~/components/Events/JoinFormCard'),
+    RecordedEvent: () => import('~/components/Events/RecordedEvent'),
     speakers,
   },
   props: {
