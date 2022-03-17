@@ -10,7 +10,7 @@
         :no-upcoming-events="false"
         :category="false"
         :upcoming-events-section="false"
-        :eventspreview="true"
+        :events-preview="true"
       />
     </div>
     <!-- Latest Articles -->

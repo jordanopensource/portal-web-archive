@@ -26,7 +26,7 @@
           :event="event"
         />
         <eventPreview
-          v-show="eventspreview"
+          v-show="eventsPreview"
           class="px-6 md:px-12"
           v-for="event in sortedEvents[month]"
           :id="event.id"
@@ -96,7 +96,7 @@ export default {
       type: Boolean,
       default: true
     },
-    eventspreview: {
+    eventsPreview: {
     type: Boolean,
     default: false,
     },
