@@ -4,7 +4,7 @@
       v-if="partner.logo"
       :image="partner.logo"
       size="medium"
-      class="thumbnail "
+      class="thumbnail"
     />
     <img v-else :src="placeholderImage" class="thumbnail" />
     <div class="flex-grow">
