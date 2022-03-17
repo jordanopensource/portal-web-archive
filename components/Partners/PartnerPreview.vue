@@ -4,9 +4,9 @@
       v-if="partner.logo"
       :image="partner.logo"
       size="medium"
-      class="thumbnail flex-none"
+      class="thumbnail "
     />
-    <img v-else :src="placeholderImage" class="thumbnail flex-none" />
+    <img v-else :src="placeholderImage" class="thumbnail" />
     <div class="flex-grow">
       <h3 class="mb-4">{{ partner['title_' + $i18n.locale] }}</h3>
       <p v-if="partner['description_' + $i18n.locale]">
@@ -58,10 +58,10 @@ export default {
   @apply object-contain bg-josa-warm-grey-light;
 }
 [dir='ltr'] .preview .thumbnail {
-  @apply pr-0 mr-6;
+  @apply pr-0 lg:mr-6;
 }
 
 [dir='rtl'] .preview .thumbnail {
-  @apply pl-0 ml-6;
+  @apply pl-0 lg:ml-6;
 }
 </style>
