@@ -12,7 +12,7 @@
           </p>
         </div>
         <div class="content flex flex-wrap md:flex-nowrap mt-12">
-          <div class="w-full md:w-3/5 lg:ltr:mr-8 lg:rtl:ml-8 mb-8">
+          <div class="w-full md:w-3/5 md:ltr:mr-8 md:rtl:ml-8 mb-8">
             <appImage
               v-if="career.thumbnail"
               :image="career.thumbnail"
