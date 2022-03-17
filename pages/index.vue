@@ -5,9 +5,12 @@
     <!-- Upcoming Events -->
     <div class="container">
       <eventList
-        :showMonth="false"
-        :eventsSpotlight="true"
-        :noUpcomingEvents="false"
+        :show-month="false"
+        :events-spotlight="true"
+        :no-upcoming-events="false"
+        :category="false"
+        :upcoming-events-section="false"
+        :eventspreview="true"
       />
     </div>
     <!-- Latest Articles -->

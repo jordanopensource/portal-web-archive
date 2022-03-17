@@ -19,6 +19,15 @@
       <div v-for="month in months" :key="month" class="mb-20">
         <h3 v-show="showMonth">{{ month }}</h3>
         <eventPreview
+          v-show="upcomingEventsSection"
+          v-for="event in sortedEvents[month]"
+          :id="event.id"
+          :key="event.id"
+          :event="event"
+        />
+        <eventPreview
+          v-show="eventspreview"
+          class="px-6 md:px-12"
           v-for="event in sortedEvents[month]"
           :id="event.id"
           :key="event.id"
@@ -86,6 +95,14 @@ export default {
     noUpcomingEvents: {
       type: Boolean,
       default: true
+    },
+    eventspreview: {
+    type: Boolean,
+    default: false,
+    },
+    upcomingEventsSection: {
+    type: Boolean,
+    default: true,
     }
   },
   data() {
