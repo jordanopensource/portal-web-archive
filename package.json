@@ -24,7 +24,7 @@
     "core-js": "^3.20.3",
     "leaflet": "^1.7.1",
     "leaflet-gesture-handling": "^1.2.2",
-    "nuxt": "^2.15.7",
+    "nuxt-edge": "latest",
     "nuxt-fontawesome": "^0.4.0",
     "nuxt-healthcheck": "^1.0.1",
     "nuxt-ssr-cache": "^1.5.2",
