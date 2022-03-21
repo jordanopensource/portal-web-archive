@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build --modern=server",
-    "start": "nuxt start --modern=server",
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "start": "nuxi preview",
     "generate": "nuxt generate",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
     "lint": "npm run lint:js"
