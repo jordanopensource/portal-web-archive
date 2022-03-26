@@ -58,10 +58,10 @@ export default {
   @apply object-contain bg-josa-warm-grey-light;
 }
 [dir='ltr'] .preview .thumbnail {
-  @apply pr-0 mr-6;
+  @apply pr-0 lg:mr-6;
 }
 
 [dir='rtl'] .preview .thumbnail {
-  @apply pl-0 ml-6;
+  @apply pl-0 lg:ml-6;
 }
 </style>
