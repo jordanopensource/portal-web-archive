@@ -220,6 +220,21 @@ article {
 }
 
 /* article-body */
+
+.article-body[dir='ltr'] >>> blockquote {
+  border-left: 1rem solid #eeeeee;
+  padding-left: 3rem;
+  margin-bottom: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.article-body[dir='rtl'] >>> blockquote {
+  border-right: 1rem solid #eeeeee;
+  padding-right: 3rem;
+  margin-bottom: 1.25rem;
+  margin-top: 1.25rem;
+}
+
 .article-body >>> p {
   @apply mb-4;
 }
