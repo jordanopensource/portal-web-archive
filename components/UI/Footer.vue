@@ -90,6 +90,8 @@
             <p>
               {{ $t('copyright.info') }}
               <a
+                class="licenseAnchor"
+                rel="license"
                 href="https://creativecommons.org/licenses/by-sa/3.0/"
                 target="_blank"
               >
@@ -203,6 +205,10 @@ img {
 
 /deep/ a {
   @apply block;
+}
+
+.licenseAnchor {
+  @apply inline;
 }
 
 .logo,
