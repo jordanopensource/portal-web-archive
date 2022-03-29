@@ -221,18 +221,16 @@ article {
 
 /* article-body */
 
+.article-body >>> blockquote {
+  border: 1rem;
+}
+
 .article-body[dir='ltr'] >>> blockquote {
-  border-left: 1rem solid #eeeeee;
-  padding-left: 3rem;
-  margin-bottom: 1.25rem;
-  margin-top: 1.25rem;
+  @apply pl-10 mb-5 mt-5 border-r-0 border-t-0 border-b-0 border-solid border-josa-warm-grey-light;
 }
 
 .article-body[dir='rtl'] >>> blockquote {
-  border-right: 1rem solid #eeeeee;
-  padding-right: 3rem;
-  margin-bottom: 1.25rem;
-  margin-top: 1.25rem;
+  @apply pr-10 mb-5 mt-5 border-l-0 border-t-0 border-b-0 border-solid border-josa-warm-grey-light;
 }
 
 .article-body >>> p {
