@@ -37,7 +37,7 @@ export default {
   // Footer
   copyright: {
   info: 'All the content on this website is licensed under a Creative Commons',
-  creative: 'Attribution-ShareAlike 3.0 Unported (CC-By-SA 3.0),',
+  creative: 'Attribution-ShareAlike 3.0 Unported (CC-BY-SA 3.0),',
   except: 'except where otherwise mentioned.'
 },
   // Buttons
