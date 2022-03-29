@@ -89,6 +89,13 @@
           <div>
             <p>
               {{ $t('copyright.info') }}
+              <a
+                href="https://creativecommons.org/licenses/by-sa/3.0/"
+                target="_blank"
+              >
+              {{ $t('copyright.creative') }}
+              </a>
+              {{ $t('copyright.except') }}
             </p>
           </div>
         </div>
