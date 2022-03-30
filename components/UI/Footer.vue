@@ -87,7 +87,7 @@
             loading="lazy"
           />
           <div>
-            <p>
+            <p class="text-xs">
               {{ $t('copyright.info') }}
               <a
                 class="licenseAnchor"
