@@ -79,14 +79,27 @@
         <div class="block md:hidden py-8">
           <hr />
         </div>
-        <div id="copyright-info" class="">
+        <div id="copyright-info" class="ltr:items-left rtl:items-right flex-col ltr:text-left rtl:text-right">
           <img
-            class="cc-logo ltr:pr-4 rtl:pl-4"
-            src="~/static/logo/cc.svg"
+            class="cc-logo ltr:pr-4 rtl:pl-4 w-28 pb-1"
+            src="~/static/logo/cc-by-sa.svg"
             alt="cc-logo"
             loading="lazy"
           />
-          <p>{{ $t('copyright.info') }}</p>
+          <div>
+            <p class="text-xs licenseText">
+              {{ $t('copyright.info') }}
+              <a
+                class="licenseAnchor"
+                rel="license"
+                href="https://creativecommons.org/licenses/by-sa/3.0/"
+                target="_blank"
+              >
+              {{ $t('copyright.creative') }}
+              </a>
+              {{ $t('copyright.except') }}
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -192,6 +205,14 @@ img {
 
 /deep/ a {
   @apply block;
+}
+
+.licenseText {
+  @apply text-josa-warm-grey-dark;
+}
+
+.licenseAnchor {
+  @apply inline;
 }
 
 .logo,

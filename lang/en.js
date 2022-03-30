@@ -36,8 +36,10 @@ export default {
   },
   // Footer
   copyright: {
-    info: 'All the content on this website is licensed under a Creative Commons Attribution-ShareAlike Unported license, except where otherwise mentioned.',
-  },
+  info: 'All the content on this website is licensed under a Creative Commons',
+  creative: 'Attribution-ShareAlike 3.0 Unported (CC-BY-SA 3.0),',
+  except: 'except where otherwise mentioned.'
+},
   // Buttons
   button: {
     knowMore: 'Know More',
