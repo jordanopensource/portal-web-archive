@@ -87,7 +87,7 @@
             loading="lazy"
           />
           <div>
-            <p class="text-xs">
+            <p class="text-xs licenseText">
               {{ $t('copyright.info') }}
               <a
                 class="licenseAnchor"
@@ -205,6 +205,10 @@ img {
 
 /deep/ a {
   @apply block;
+}
+
+.licenseText {
+  @apply text-josa-warm-grey-dark;
 }
 
 .licenseAnchor {
