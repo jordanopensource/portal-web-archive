@@ -3,16 +3,7 @@
     <!-- Banner -->
     <homeBanner :page-meta="homeMeta" :programs="programs" />
     <!-- Upcoming Events -->
-    <div class="container">
-      <eventList
-        :show-month="false"
-        :events-spotlight="true"
-        :no-upcoming-events="false"
-        :category="false"
-        :upcoming-events-section="false"
-        :events-preview="true"
-      />
-    </div>
+    <eventsSpotlight :category="false" />
     <!-- Latest Articles -->
     <div class="container">
       <div class="row">
@@ -62,7 +53,8 @@ export default {
     lastestPublications: () =>
       import('~/components/Publications/LastestPublications'),
     joinUs: () => import('~/components/JoinUs/JoinUs'),
-    eventList: () => import('~/components/Events/EventList')
+    eventList: () => import('~/components/Events/EventList'),
+    eventsSpotlight: () => import('@/components/Events/EventsSpotlight'),
   },
   layout: 'general',
   async asyncData({ $axios }) {
