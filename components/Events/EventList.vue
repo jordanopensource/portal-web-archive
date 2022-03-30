@@ -2,32 +2,9 @@
 <template>
   <section>
     <div v-if="ifNotEmpty()">
-      <div v-show="eventsSpotlight" class="px-6 md:px-12 mt-20">
-        <div class="flex flex-wrap md:flex-no-wrap justify-between items-baseline">
-          <h2 class="mb-8">{{ $t('events.upcoming') }}</h2>
-          <nuxt-link :to="localePath('events')">
-            <h6 class="display-more">
-              {{ $t('eventCats.all') }}
-              <font-awesome-icon
-                class="ltr:ml-2 rtl:mr-2 align-middle"
-                :icon="['fas', arrowIcon ]"
-              />
-            </h6>
-          </nuxt-link>
-        </div>
-      </div>
       <div v-for="month in months" :key="month" class="mb-20">
-        <h3 v-show="showMonth">{{ month }}</h3>
+        <h3>{{ month }}</h3>
         <eventPreview
-          v-show="upcomingEventsSection"
-          v-for="event in sortedEvents[month]"
-          :id="event.id"
-          :key="event.id"
-          :event="event"
-        />
-        <eventPreview
-          v-show="eventsPreview"
-          class="px-6 md:px-12"
           v-for="event in sortedEvents[month]"
           :id="event.id"
           :key="event.id"
@@ -61,7 +38,7 @@
       </div>
     </div>
     <div v-else>
-      <p v-show="noUpcomingEvents">{{ $t('events.noUpcoming') }}</p>
+      <p>{{ $t('events.noUpcoming') }}</p>
     </div>
   </section>
 </template>
@@ -84,26 +61,6 @@ export default {
       type: Number,
       default: 10,
     },
-    showMonth: {
-      type: Boolean,
-      default: true
-    },
-    eventsSpotlight: {
-      type: Boolean,
-      default: false
-    },
-    noUpcomingEvents: {
-      type: Boolean,
-      default: true
-    },
-    eventsPreview: {
-    type: Boolean,
-    default: false,
-    },
-    upcomingEventsSection: {
-    type: Boolean,
-    default: true,
-    }
   },
   data() {
     return {
@@ -119,13 +76,6 @@ export default {
     await this.countEvents()
   },
   computed: {
-    arrowIcon() {
-      if (this.$i18n.locale === "ar") {
-        return 'long-arrow-alt-left'
-      } else {
-        return 'long-arrow-alt-right'
-      }
-    },
     sortedEvents() {
       const data = this.loadedEvents
       const obj = {}
