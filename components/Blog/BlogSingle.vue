@@ -220,6 +220,19 @@ article {
 }
 
 /* article-body */
+
+.article-body >>> blockquote {
+  border: 1rem;
+}
+
+.article-body[dir='ltr'] >>> blockquote {
+  @apply pl-10 my-5 border-r-0 border-t-0 border-b-0 border-solid border-josa-warm-grey-light;
+}
+
+.article-body[dir='rtl'] >>> blockquote {
+  @apply pr-10 my-5 border-l-0 border-t-0 border-b-0 border-solid border-josa-warm-grey-light;
+}
+
 .article-body >>> p {
   @apply mb-4;
 }
