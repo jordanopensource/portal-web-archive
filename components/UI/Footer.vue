@@ -81,7 +81,7 @@
         </div>
         <div id="copyright-info" class="ltr:items-left rtl:items-right flex-col ltr:text-left rtl:text-right">
           <img
-            class="cc-logo ltr:pr-4 rtl:pl-4 w-40 pb-1"
+            class="cc-logo ltr:pr-4 rtl:pl-4 w-28 pb-1"
             src="~/static/logo/cc-by-sa.svg"
             alt="cc-logo"
             loading="lazy"
