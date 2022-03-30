@@ -1,7 +1,6 @@
 <!-- Show events only if there are upcoming events -->
 <template>
-  <section>
-    <div v-if="ifNotEmpty()">
+  <section v-if="ifNotEmpty()">
       <div class="container">
         <div class="px-6 md:px-12 mt-20">
           <div class="flex flex-wrap md:flex-no-wrap justify-between items-baseline">
@@ -27,7 +26,6 @@
           />
         </div>
        </div>
-      </div>
   </section>
 </template>
 
