@@ -53,7 +53,6 @@ export default {
     lastestPublications: () =>
       import('~/components/Publications/LastestPublications'),
     joinUs: () => import('~/components/JoinUs/JoinUs'),
-    eventList: () => import('~/components/Events/EventList'),
     eventsSpotlight: () => import('@/components/Events/EventsSpotlight'),
   },
   layout: 'general',
