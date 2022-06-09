@@ -40,6 +40,7 @@ export default {
     { src: '~/plugins/og-tags' },
     { src: '~/plugins/leaflet', mode: 'client' },
     { src: '~/plugins/copy' },
+    { src: '~/plugins/vue-notification', ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -133,6 +134,10 @@ export default {
       target: process.env.BUCKET_URL,
       pathRewrite: { '^/bucket/': '' },
     },
+    '/ots': {
+      target: process.env.OTS_URL,
+      pathRewrite: { '^/ots/': '' },
+    },
   },
 
   publicRuntimeConfig: {
@@ -140,6 +145,9 @@ export default {
     bucketUrl: process.env.BUCKET_URL,
     bbbAPIUrl: process.env.BBB_API_URL,
     bbbAPISecret: process.env.BBB_API_SECRET,
+    otsUrl: process.env.OTS_URL,
+    otsToken: process.env.OTS_TOKEN,
+    otsFormGroup: process.env.OTS_FORM_GROUP,
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
