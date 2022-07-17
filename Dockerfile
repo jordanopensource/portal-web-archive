@@ -1,12 +1,18 @@
 FROM node:16.13-alpine3.13
 
-RUN mkdir -p /var/www/dockerize-nuxt/portal-web
-WORKDIR /var/www/dockerize-nuxt/portal-web
+# install node_modules
+COPY package*.json /tmp/
+RUN cd /tmp && npm install
+
+WORKDIR /app
 
 COPY package*.json ./
 RUN npm install
 
 COPY . .
+
+# move node_modules into application root
+RUN mv /tmp/node_modules .
 
 EXPOSE 3000
 
