@@ -81,8 +81,7 @@ section {
 }
 
 .thumbnail {
-  @apply w-full;
-  border: 1px solid #aaa;
+  @apply w-full border border-solid border-gray-500;
 }
 
 .description >>> p,

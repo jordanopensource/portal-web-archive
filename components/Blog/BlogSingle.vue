@@ -203,9 +203,8 @@ article {
 }
 
 .thumbnail {
-  @apply w-full;
+  @apply w-full object-cover;
   max-height: 50vh;
-  object-fit: cover;
 }
 
 .content {
@@ -238,7 +237,7 @@ article {
 }
 
 .article-body >>> a {
-  text-decoration: underline;
+  @apply underline;
 }
 
 .article-body >>> a:hover {
@@ -284,11 +283,11 @@ article[dir='rtl'] >>> .copy-tooltip-text {
 
 /* Authors */
 [dir='ltr'] .written-by {
-  margin-left: 50px;
+  @apply ml-12;
 }
 
 [dir='rtl'] .written-by {
-  margin-right: 50px;
+  @apply mr-12;
 }
 
 /* Authors */

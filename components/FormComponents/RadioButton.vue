@@ -57,8 +57,7 @@ span {
 }
 
 input[type='radio'] {
-  position: absolute;
-  visibility: hidden;
+  @apply absolute invisible;
 }
 
 label {
@@ -68,11 +67,11 @@ label {
 }
 
 [dir='ltr'] label {
-  padding: 4px 0 4px 40px;
+  @apply pt-1 pr-0 pb-1 pl-10;
 }
 
 [dir='rtl'] label {
-  padding: 4px 40px 4px 0;
+  @apply pt-1 pr-10 pb-1 pl-0;
 }
 
 span:hover label {
@@ -80,22 +79,15 @@ span:hover label {
 }
 
 .check {
-  @apply border border-josa-blue border-solid rounded;
-  display: block;
-  position: absolute;
-  height: 30px;
-  width: 30px;
+  @apply border border-josa-blue border-solid rounded block absolute h-8 w-8;
   z-index: 5;
 }
 
 .check::before {
   content: '';
-  @apply rounded block absolute;
-  height: 20px;
-  width: 20px;
+  @apply rounded block absolute h-5 w-5 m-auto;
   top: 4px;
   left: 4px;
-  margin: auto;
   transition: background 0.25s linear;
   -webkit-transition: background 0.25s linear;
 }

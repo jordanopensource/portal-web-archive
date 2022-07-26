@@ -52,8 +52,8 @@ export default {
 
 <style lang="postcss" scoped>
 .bot {
+  @apply h-auto;
   width: 320px;
-  height: auto;
 }
 
 @screen lg {

@@ -93,8 +93,7 @@ export default {
 }
 
 .heart {
-  margin-left: 16px;
-  margin-right: 16px;
+  @apply ml-4 mr-4;
   color: #db4a14;
 }
 </style>

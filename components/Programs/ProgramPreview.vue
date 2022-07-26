@@ -67,6 +67,6 @@ export default {
 
 <style scoped>
 .image {
-  width: 125px;
+  @apply w-32;
 }
 </style>

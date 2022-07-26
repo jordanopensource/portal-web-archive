@@ -121,12 +121,8 @@ export default {
 
 .section-link:hover:before,
 .section-link.active:before {
+  @apply bg-blue-300 h-full w-2 block absolute; 
   content: '';
-  background-color: #a3d1e4;
-  height: 100%;
-  width: 8px;
-  display: block;
-  position: absolute;
 }
 
 [dir='ltr'] .section-link:hover:before,
@@ -140,11 +136,11 @@ export default {
 }
 
 [dir='ltr'] .section-link {
-  padding-left: 8px;
+  @apply pl-2;
 }
 
 [dir='rtl'] .section-link {
-  padding-right: 8px;
+  @apply pr-2;
 }
 
 .section-content >>> p {

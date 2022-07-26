@@ -66,6 +66,6 @@ export default {
 
 <style scoped>
 .bot {
-  width: 250px;
+  @apply w-64;
 }
 </style>

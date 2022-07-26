@@ -122,7 +122,6 @@ export default {
 
 @screen lg {
   .article-preview:first-child >>> .thumbnail {
-    width: 75%;
     height: 400px;
   }
 
@@ -131,11 +130,11 @@ export default {
   }
 
   [dir='ltr'] .article-preview:first-child >>> .thumbnail {
-    @apply pl-6 pr-0;
+    @apply pl-6 pr-0 w-9/12;
   }
 
   [dir='rtl'] .article-preview:first-child >>> .thumbnail {
-    @apply pr-6 pl-0;
+    @apply pr-6 pl-0 w-9/12;
   }
 }
 </style>
