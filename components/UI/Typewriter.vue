@@ -114,11 +114,11 @@ span.cursor.typing {
   }
 
   50% {
-    background-color: transparent;
+    @apply bg-transparent;
   }
 
   99% {
-    background-color: transparent;
+    @apply bg-transparent;
   }
 
   100% {

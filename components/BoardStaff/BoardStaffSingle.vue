@@ -38,26 +38,19 @@ export default {
 
 <style lang="postcss" scoped>
 .picture-background {
-  display: block;
+  @apply block bg-no-repeat bg-contain bg-bottom w-48 h-40;
   background-image: url('/images/icons/drop.webp');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: bottom;
-  width: 189px;
-  height: 156px;
 }
 
 .pb {
-  width: 125px;
-  height: 103px;
+  @apply w-32 h-24;
   min-width: 125px;
   min-height: 103px;
 }
 
 @screen sm {
   .pb {
-    width: 189px;
-    height: 156px;
+    @apply w-48 h-40;
     min-width: 189px;
     min-height: 156px;
   }

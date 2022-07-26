@@ -65,6 +65,6 @@ export default {
 }
 .preview .thumbnail,
 .preview .thumbnail img {
-  width: 100%;
+  @apply w-full;
 }
 </style>
