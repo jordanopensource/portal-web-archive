@@ -11,11 +11,8 @@ docker-compose.yml
 .dockerignore
 
 # Documentation
-README.md
-CHANGELOG.md
-CONTRIBUTING.md
-CODE_OF_CONDUCT.md
-SECURITY.md
+*.md
+LICENSE
 
 # macOS (optional)
 .DS_Store
@@ -26,9 +23,9 @@ SECURITY.md
 # Drone
 .drone.yml
 
-# Node Modules
-node_modules
-.nuxt
+.env
+.env.*
+
+# editot configs
+.eslintrc.*
 .prettierrc
-.editorconfig
-.eslintrc.js
