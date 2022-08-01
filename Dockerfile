@@ -39,6 +39,9 @@ COPY --from=builder --chown=${USER}:${USER} /workspace/.nuxt /app/.nuxt
 COPY --from=builder --chown=${USER}:${USER} /workspace/node_modules /app/node_modules
 COPY --from=builder --chown=${USER}:${USER} /workspace/package.json /app/
 
+# Inject the enviromental variables
+ENV API_BASE_URL=${API_BASE_URL} BUCKET_URL=${API_BASE_URL} HOST=${HOST} PORT=${PORT} BETA_RELEASE=${BETA_RELEASE}
+
 # set user context
 USER ${USER}
 
