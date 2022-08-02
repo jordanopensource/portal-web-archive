@@ -16,7 +16,7 @@ COPY . .
 RUN npm install
 
 # Inject the enviromental variables
-ENV PORTAL_API_URL=${PORTAL_API_URL} ASSETS_BUCKET_URL=${PORTAL_API_URL} HOST=${HOST} PORT=${PORT}
+ENV PORTAL_API_URL=${PORTAL_API_URL} ASSETS_BUCKET_URL=${ASSETS_BUCKET_URL} HOST=${HOST} PORT=${PORT}
 
 RUN npm run build
 
@@ -37,7 +37,7 @@ COPY --from=builder --chown=${USER}:${USER} /workspace/ /app/
 COPY --from=builder --chown=${USER}:${USER} /workspace/.nuxt /app/.nuxt
 
 # Inject the enviromental variables
-ENV PORTAL_API_URL=${PORTAL_API_URL} ASSETS_BUCKET_URL=${PORTAL_API_URL} HOST=${HOST} PORT=${PORT}
+ENV PORTAL_API_URL=${PORTAL_API_URL} ASSETS_BUCKET_URL=${ASSETS_BUCKET_URL} HOST=${HOST} PORT=${PORT}
 
 # set user context
 USER ${USER}
