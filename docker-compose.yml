@@ -7,14 +7,13 @@ services:
     container_name: portal-web
     restart: unless-stopped
     environment:
-      API_BASE_URL: #add api url
-      BUCKET_URL: #add bucket url
+      PORTAL_API_URL: #add api url
+      ASSETS_BUCKET_URL: #add bucket url
     ports:
       - 3000:3000
     command: 'npm run start'
     networks:
       - nuxt-network
-
 
   web-server:
     image: nginx:stable-alpine
@@ -30,8 +29,9 @@ services:
       - nuxt-app
     restart: unless-stopped
 
-volumes: 
+volumes:
   web-root:
+
 
 networks:
   nuxt-network:

@@ -1,12 +1,12 @@
-ARG API_BASE_URL=https://portal.api.dev.josa.ngo/ BUCKET_URL=https://josa-dev-api.fra1.digitaloceanspaces.com HOST=0.0.0.0 PORT=3000 USER=node
+ARG PORTAL_API_URL=https://portal.api.dev.josa.ngo/ ASSETS_BUCKET_URL=https://josa-dev-api.fra1.digitaloceanspaces.com HOST=0.0.0.0 PORT=3000 USER=node
 
 ###########
 # BUILDER #
 ###########
 FROM node:16-alpine3.14 as builder
 
-ARG API_BASE_URL
-ARG BUCKET_URL
+ARG PORTAL_API_URL
+ARG ASSETS_BUCKET_URL
 ARG HOST
 ARG PORT
 
@@ -16,7 +16,7 @@ COPY . .
 RUN npm install
 
 # Inject the enviromental variables
-ENV API_BASE_URL=${API_BASE_URL} BUCKET_URL=${API_BASE_URL} HOST=${HOST} PORT=${PORT}
+ENV PORTAL_API_URL=${PORTAL_API_URL} ASSETS_BUCKET_URL=${ASSETS_BUCKET_URL} HOST=${HOST} PORT=${PORT}
 
 RUN npm run build
 
@@ -25,8 +25,8 @@ RUN npm run build
 ###########
 FROM node:16-slim
 
-ARG API_BASE_URL
-ARG BUCKET_URL
+ARG PORTAL_API_URL
+ARG ASSETS_BUCKET_URL
 ARG HOST
 ARG PORT
 ARG USER
@@ -37,7 +37,7 @@ COPY --from=builder --chown=${USER}:${USER} /workspace/ /app/
 COPY --from=builder --chown=${USER}:${USER} /workspace/.nuxt /app/.nuxt
 
 # Inject the enviromental variables
-ENV API_BASE_URL=${API_BASE_URL} BUCKET_URL=${API_BASE_URL} HOST=${HOST} PORT=${PORT}
+ENV PORTAL_API_URL=${PORTAL_API_URL} ASSETS_BUCKET_URL=${ASSETS_BUCKET_URL} HOST=${HOST} PORT=${PORT}
 
 # set user context
 USER ${USER}
