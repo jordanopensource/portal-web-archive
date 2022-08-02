@@ -127,26 +127,26 @@ export default {
 
   proxy: {
     '/api': {
-      target: process.env.API_BASE_URL,
+      target: process.env.PORTAL_API_URL,
       pathRewrite: { '^/api/': '' },
     },
     '/bucket': {
-      target: process.env.BUCKET_URL,
+      target: process.env.ASSETS_BUCKET_URL,
       pathRewrite: { '^/bucket/': '' },
     },
     '/ots': {
-      target: process.env.OTS_URL,
+      target: process.env.OTS_API_URL,
       pathRewrite: { '^/ots/': '' },
     },
   },
 
   publicRuntimeConfig: {
-    baseUrl: process.env.API_BASE_URL,
-    bucketUrl: process.env.BUCKET_URL,
+    baseUrl: process.env.PORTAL_API_URL,
+    bucketUrl: process.env.ASSETS_BUCKET_URL,
     bbbAPIUrl: process.env.BBB_API_URL,
     bbbAPISecret: process.env.BBB_API_SECRET,
-    otsUrl: process.env.OTS_URL,
-    otsToken: process.env.OTS_TOKEN,
+    otsUrl: process.env.OTS_API_URL,
+    otsToken: process.env.OTS_API_TOKEN,
     otsFormGroup: process.env.OTS_FORM_GROUP,
   },
 
