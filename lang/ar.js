@@ -114,6 +114,7 @@ export default {
     publishDate: 'تاريخ النشر',
     type: 'نوع الوظيفة',
     team: 'الفريق',
+    applyNow: 'تقدم لهذه الوظيفة'
   },
   // Meta
   meta: {

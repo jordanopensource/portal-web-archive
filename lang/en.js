@@ -262,6 +262,7 @@ export default {
     publishDate: 'Publish Date',
     type: 'Type',
     team: 'Team',
+    applyNow: 'Apply to this job'
   },
   // Partners
   partners: {
