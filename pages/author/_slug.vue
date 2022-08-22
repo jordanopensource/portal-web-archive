@@ -11,7 +11,7 @@ export default {
     },
     async asyncData({ $axios, error, params }) {
     const response = await $axios.get(`/api/authors/?id=${params.slug}`);
-    if (response) {
+    if (response.data[0]) {
       return {
         author: response.data[0],
       }
