@@ -21,7 +21,7 @@
       <p v-if="article.excerpt">{{ article.excerpt }}</p>
       <p v-else>{{ article.body | truncate(200) }}</p>
       <div
-        v-if="article.authors.length || article.translators.length"
+        v-if="article.authors || article.translators"
         class="flex flex-wrap items-center flex-row mb-t mb-2 mt-4"
       >
         <p class="text-sm opacity-80 ltr:mr-4 rtl:ml-4 mb-2">
