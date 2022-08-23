@@ -1,7 +1,9 @@
 <template>
   <div class="author-page">
     <authorProfile :author="author" />
-    <articlesList :articles="author.articles" />
+    <articlesList 
+      class="blog-list"
+      :articles="author.articles" />
   </div>
 </template>
 
@@ -24,6 +26,14 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
+.blog-list {
+  @apply px-6 mt-20;
+}
 
+@screen md {
+  .blog-list {
+    @apply px-12;
+  }
+}
 </style>
