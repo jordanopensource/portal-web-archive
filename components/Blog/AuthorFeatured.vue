@@ -16,7 +16,14 @@
       <p v-if="translatedBy" class="ltr:mr-1 rtl:ml-1 text-xs uppercase">
         {{ $t('meta.translatedBy') }}
       </p>
-      <p class="text-sm">{{ name }}</p>
+      <nuxt-link 
+        v-if="authorId"
+        :to="authorLink">
+        <p class="text-sm">{{ name }}</p>
+      </nuxt-link>
+      <p
+        v-else
+        class="text-sm">{{ name }}</p>
       <p v-if="bio">{{ bio }}</p>
     </div>
   </div>
@@ -50,6 +57,15 @@ export default {
     translatedBy: {
       type: Boolean,
       default: false,
+    },
+    authorId: {
+      type: Number,
+      default: 0,
+    },
+  },
+  computed: {
+     authorLink() {
+      return this.localePath('/author/' + this.authorId);
     },
   },
 }

@@ -22,7 +22,12 @@
       >
         {{ $t('meta.translatedBy') }}
       </p>
-      <h4>{{ name }}</h4>
+      <nuxt-link
+        v-if="authorId"
+        :to="authorLink"
+      >
+        <h4>{{ name }}</h4>
+      </nuxt-link>
       <p v-if="bio">{{ bio }}</p>
     </div>
   </div>
@@ -56,6 +61,15 @@ export default {
     translatedBy: {
       type: Boolean,
       default: false,
+    },
+    authorId: {
+      type: Number,
+      default: 0,
+    },
+  },
+  computed: {
+     authorLink() {
+      return this.localePath('/author/' + this.authorId);
     },
   },
 }
