@@ -19,11 +19,11 @@
       <nuxt-link 
         v-if="authorId"
         :to="authorLink">
-        <p class="text-sm">{{ name }}</p>
+        <p class="text-sm author-name">{{ name }}</p>
       </nuxt-link>
       <p
         v-else
-        class="text-sm">{{ name }}</p>
+        class="text-sm author-name">{{ name }}</p>
       <p v-if="bio">{{ bio }}</p>
     </div>
   </div>
@@ -76,5 +76,13 @@ export default {
 }
 :dir(rtl).profilePicture {
   @apply w-5 ml-1;
+}
+.author-name {
+  @apply text-josa-black;
+  transition: color 0.25s linear;
+  -webkit-transition: color 0.25s linear;
+}
+.author-name:hover{
+  @apply text-josa-blue;
 }
 </style>
