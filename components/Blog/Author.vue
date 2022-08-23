@@ -1,17 +1,19 @@
 <template>
   <div class="flex flex-nowrap items-center">
-    <appImage
-      v-if="picture"
-      :image="picture"
-      size="small"
-      class="profilePicture"
-    />
-    <img
-      v-else
-      size="small"
-      class="profilePicture"
-      src="~/static/images/icons/authorimage_default.webp"
-    />
+    <nuxt-link :to="authorLink">
+      <appImage
+        v-if="picture"
+        :image="picture"
+        size="small"
+        class="profilePicture"
+      />
+      <img
+        v-else
+        size="small"
+        class="profilePicture"
+        src="~/static/images/icons/authorimage_default.webp"
+      />
+    </nuxt-link>
     <div class="opacity-90">
       <p v-if="writtenBy" class="block ltr:text-xs rtl:text-sm uppercase">
         {{ $t('meta.writtenBy') }}
