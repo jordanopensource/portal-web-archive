@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-nowrap items-center">
-    <nuxt-link :to="authorLink">
+    <nuxt-link :to="authorId">
       <appImage
         v-if="picture"
         :image="picture"
