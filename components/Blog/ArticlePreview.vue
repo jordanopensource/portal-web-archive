@@ -38,6 +38,7 @@
             class="ltr:mr-4 rtl:ml-4 flex-shrink-0"
             :name="author['name_' + $i18n.locale]"
             :picture="author.picture"
+            :author-id="author.id"
           />
         </template>
         <template v-if="article.translators.length">
@@ -49,6 +50,7 @@
             :picture="translator.picture"
             :translated-by="true"
             :written-by="false"
+            :author-id="author.id"
           />
         </template>
       </div>
