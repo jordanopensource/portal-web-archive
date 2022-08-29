@@ -1,9 +1,12 @@
 <template>
   <div class="author-page">
     <authorProfile :author="author" />
-    <articlesList 
-      class="blog-list"
-      :articles="author.articles" />
+      <blogList
+        class="blog-list"
+        :category="'all'"
+        :language="$i18n.locale"
+        :author-id="author.id"
+      />
   </div>
 </template>
 
@@ -11,7 +14,6 @@
 export default {
     components: {
       authorProfile: () => import("@/components/Author/AuthorProfile.vue"),
-      articlesList: () => import("@/components/Author/ArticlesList.vue"),
     },
     async asyncData({ $axios, error, params }) {
     const response = await $axios.get(`/api/authors/?id=${params.slug}`);
