@@ -71,7 +71,7 @@ export default {
   },
   computed: {
      authorLink() {
-      return this.localePath('/author/' + this.authorId);
+      return this.localePath('/authors/' + this.authorId);
     },
   },
 }
