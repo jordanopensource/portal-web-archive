@@ -2,7 +2,7 @@
   <div class="author-page">
     <authorProfile :author="author" />
       <blogList
-        class="blog-list"
+        class="blog-list pb-20"
         :category="'all'"
         :language="$i18n.locale"
         :author-id="author.id"
