@@ -24,10 +24,7 @@
       >
         {{ $t('meta.translatedBy') }}
       </p>
-      <nuxt-link
-        v-if="authorId"
-        :to="authorLink"
-      >
+      <nuxt-link :to="authorLink">
         <h4>{{ name }}</h4>
       </nuxt-link>
       <p v-if="bio">{{ bio }}</p>

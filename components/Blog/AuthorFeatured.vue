@@ -18,14 +18,9 @@
       <p v-if="translatedBy" class="ltr:mr-1 rtl:ml-1 text-xs uppercase">
         {{ $t('meta.translatedBy') }}
       </p>
-      <nuxt-link 
-        v-if="authorId"
-        :to="authorLink">
+      <nuxt-link :to="authorLink">
         <p class="text-sm author-name">{{ name }}</p>
       </nuxt-link>
-      <p
-        v-else
-        class="text-sm author-name">{{ name }}</p>
       <p v-if="bio">{{ bio }}</p>
     </div>
   </div>
