@@ -124,7 +124,7 @@
             :picture="translator.picture"
             :bio="translator['bio_' + $i18n.locale]"
             :written-by="false"
-            :author-id="author.id"
+            :author-id="translator.id"
           />
         </template>
       </div>

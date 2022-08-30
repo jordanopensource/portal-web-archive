@@ -50,7 +50,7 @@
             :picture="translator.picture"
             :translated-by="true"
             :written-by="false"
-            :author-id="author.id"
+            :author-id="translator.id"
           />
         </template>
       </div>
