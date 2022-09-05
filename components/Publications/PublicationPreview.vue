@@ -110,17 +110,14 @@ export default {
   [dir='rtl'] .preview .thumbnail {
     @apply ml-6;
   }
-
-  .preview .thumbnail,
-  .preview .thumbnail img {
-    height: 275px;
-  }
 }
 
-@screen lg {
+@screen md {
   .preview .thumbnail,
   .preview .thumbnail img {
     @apply h-full w-64;
+    @apply mb-0;
+    flex-shrink: 0;
   }
 }
 </style>
