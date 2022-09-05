@@ -110,9 +110,7 @@ export default {
   [dir='rtl'] .preview .thumbnail {
     @apply ml-6;
   }
-}
 
-@screen md {
   .preview .thumbnail,
   .preview .thumbnail img {
     @apply h-full w-64;
@@ -120,4 +118,5 @@ export default {
     flex-shrink: 0;
   }
 }
+
 </style>
