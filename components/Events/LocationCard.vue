@@ -23,12 +23,15 @@
         <p v-if="address['addressTwo_' + $i18n.locale]" class="pt-1">
           {{ address['addressTwo_' + $i18n.locale] }}
         </p>
-        <p v-if="address['street_' + $i18n.locale]" class="pt-2">
-          {{ address['street_' + $i18n.locale]
-          }}<span v-if="address['city_' + $i18n.locale]"
-            >, {{ address['city_' + $i18n.locale] }}</span
-          ><span v-else>, {{ address['city_en'] }}</span>
-        </p>
+        <div class="block mt-2">
+          <p v-if="address['street_' + $i18n.locale]" class="pt-2 inline">
+            {{ address['street_' + $i18n.locale]
+            }}, 
+          </p>
+          <p v-if="address['city_' + $i18n.locale]" class="pt-2 inline">
+            {{ address['city_' + $i18n.locale] }}</p
+            ><p v-else>, {{ address['city_en'] }}</p>
+        </div>
       </div>
     </div>
   </div>
