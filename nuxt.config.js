@@ -9,7 +9,6 @@ export default {
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
-    script: [{ src: '/js/matomo.js' }],
   },
 
   server: {
@@ -59,6 +58,13 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
+    [
+      '@zecar/nuxt-matomo',
+      {
+        matomoUrl: '//track.josa.ngo/',
+        siteId: process.env.MATOMO_SITE_ID,
+      },
+    ],
     '@nuxtjs/axios',
     'nuxt-ssr-cache',
     '@nuxtjs/moment',
@@ -137,6 +143,12 @@ export default {
     '/ots': {
       target: process.env.OTS_API_URL,
       pathRewrite: { '^/ots/': '' },
+    },
+  },
+
+  runtimeConfig: {
+    matomo: {
+      siteId: process.env.MATOMO_SITE_ID || 1,
     },
   },
 

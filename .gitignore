@@ -142,3 +142,4 @@ dist
 # Other
 assets/data
 **.adminjs
+/static/sw.js
