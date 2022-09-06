@@ -13,14 +13,19 @@
           <div
             v-for="section in pageContent.section"
             :key="section.sectionId"
-            :class="activeSection == section.sectionId ? 'active' : ''"
-            class="section-link"
             @click="setActiveSection(section.sectionId)"
           >
-            <span v-if="section['title_' + $i18n.locale]">{{
-              section['title_' + $i18n.locale]
-            }}</span>
-            <span v-else></span>
+            <nuxt-link
+              event=""
+              :to="'#' + section.sectionId"
+              class="section-link"
+              :class="activeSection == section.sectionId ? 'active' : ''"
+            >
+              <span v-if="section['title_' + $i18n.locale]">{{
+                section['title_' + $i18n.locale]
+              }}</span>
+              <span v-else></span>
+            </nuxt-link>
           </div>
         </div>
         <!-- Section Content -->
@@ -59,6 +64,7 @@ export default {
       return {
         pageContent: response.data[0],
         activeSection: activeSec,
+        sectionDepth: 0,
       }
     } else {
       error({ statusCode: 404, message: 'Not found' })
@@ -93,9 +99,24 @@ export default {
       ],
     }
   },
+  mounted() {
+    this.getSection();
+    window.onpopstate = (event) => {
+      this.getSection(event);
+    }
+  },
   methods: {
-    setActiveSection(section) {
-      this.activeSection = section
+    setActiveSection(section, isBack) {
+      // this makes sure that clicking on the browser's back
+      // button won't create another history entry
+      if (!isBack) {
+        if (!this.$route.hash && this.sectionDepth === 0) {
+          window.history.replaceState({}, window.title, this.$route.path + '#' + section);
+        } else {
+          window.history.pushState({}, window.title, this.$route.path + '#' + section);
+        }
+      }
+      this.activeSection = section;
     },
     ifNotEmpty() {
       if (
@@ -105,6 +126,17 @@ export default {
         return true
       else return false
     },
+    getSection(event) {
+      const urlFragmentId = this.$route.hash;
+      if (urlFragmentId !== '') {
+        this.sectionDepth++;
+        this.setActiveSection(urlFragmentId.replace('#', ''), event);
+      }
+      else {
+        this.sectionDepth = 0;
+        this.setActiveSection(this.activeSection, event);
+      }
+    }
   },
 }
 </script>
