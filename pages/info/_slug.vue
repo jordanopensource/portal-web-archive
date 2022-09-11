@@ -13,7 +13,7 @@
           <div
             v-for="section in pageContent.section"
             :key="section.sectionId"
-            @click="setActiveSection(section.sectionId)"
+            @click="setActiveSection(section.sectionId);sectionDepth++;"
           >
             <nuxt-link
               event=""
@@ -64,11 +64,15 @@ export default {
       return {
         pageContent: response.data[0],
         activeSection: activeSec,
-        sectionDepth: 0,
       }
     } else {
       error({ statusCode: 404, message: 'Not found' })
     }
+  },
+  data() {
+    return {
+      sectionDepth: 0,
+    };
   },
   head() {
     const i18nSeo = this.$nuxtI18nHead({
@@ -110,13 +114,23 @@ export default {
       // this makes sure that clicking on the browser's back
       // button won't create another history entry
       if (!isBack) {
-        if (!this.$route.hash && this.sectionDepth === 0) {
-          window.history.replaceState({}, window.title, this.$route.path + '#' + section);
-        } else {
+        if (this.sectionDepth !== 0){
           window.history.pushState({}, window.title, this.$route.path + '#' + section);
+        } else {
+          window.history.replaceState({}, window.title, this.$route.path + '#' + section);
+          this.sectionDepth++;
         }
       }
       this.activeSection = section;
+    },
+    getSection(event) {
+      const urlFragmentId = this.$route.hash;
+      if (urlFragmentId !== '') {
+        this.setActiveSection(urlFragmentId.replace('#', ''), event);
+      }
+      else {
+        this.setActiveSection(this.activeSection, event);
+      }
     },
     ifNotEmpty() {
       if (
@@ -126,17 +140,6 @@ export default {
         return true
       else return false
     },
-    getSection(event) {
-      const urlFragmentId = this.$route.hash;
-      if (urlFragmentId !== '') {
-        this.sectionDepth++;
-        this.setActiveSection(urlFragmentId.replace('#', ''), event);
-      }
-      else {
-        this.sectionDepth = 0;
-        this.setActiveSection(this.activeSection, event);
-      }
-    }
   },
 }
 </script>
