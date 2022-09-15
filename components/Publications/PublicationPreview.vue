@@ -113,14 +113,10 @@ export default {
 
   .preview .thumbnail,
   .preview .thumbnail img {
-    height: 275px;
+    @apply h-full w-64;
+    @apply mb-0;
+    flex-shrink: 0;
   }
 }
 
-@screen lg {
-  .preview .thumbnail,
-  .preview .thumbnail img {
-    @apply h-full w-64;
-  }
-}
 </style>
