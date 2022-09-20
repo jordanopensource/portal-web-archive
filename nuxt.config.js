@@ -146,12 +146,6 @@ export default {
     },
   },
 
-  runtimeConfig: {
-    matomo: {
-      siteId: process.env.MATOMO_SITE_ID || 1,
-    },
-  },
-
   publicRuntimeConfig: {
     baseUrl: process.env.PORTAL_API_URL,
     bucketUrl: process.env.ASSETS_BUCKET_URL,
@@ -160,6 +154,7 @@ export default {
     otsUrl: process.env.OTS_API_URL,
     otsToken: process.env.OTS_API_TOKEN,
     otsFormGroup: process.env.OTS_FORM_GROUP,
+    siteId: process.env.MATOMO_SITE_ID || 1,
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
