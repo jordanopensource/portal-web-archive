@@ -99,8 +99,7 @@ export default {
 .preview .thumbnail,
 .preview .thumbnail img {
   object-position: 0 0;
-  border: 1px solid #eee;
-  @apply px-0;
+  @apply px-0 border border-solid border-gray-200;
 }
 
 @screen md {
@@ -114,15 +113,10 @@ export default {
 
   .preview .thumbnail,
   .preview .thumbnail img {
-    height: 275px;
+    @apply h-full w-64;
+    @apply mb-0;
+    flex-shrink: 0;
   }
 }
 
-@screen lg {
-  .preview .thumbnail,
-  .preview .thumbnail img {
-    height: 100%;
-    width: 250px;
-  }
-}
 </style>

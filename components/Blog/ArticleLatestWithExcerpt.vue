@@ -54,6 +54,6 @@ export default {
 <style scoped>
 .preview .thumbnail,
 .preview .thumbnail img {
-  width: 100%;
+  @apply w-full; 
 }
 </style>

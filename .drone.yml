@@ -5,26 +5,35 @@ type: kubernetes
 name: default
 
 metadata:
-  namespace: josa-builds
+  namespace: builds
 
 node_selector:
   doks.digitalocean.com/node-pool: josa-cloud-np
 
 steps:
-  - name: build and release portal-web
+  - name: build
     image: plugins/docker
     settings:
       repo: josaorg/portal-web
-      auto_tag: true
+      build_args:
+        [
+          PORTAL_API_URL=https://portal.api.dev.josa.ngo/,
+          ASSETS_BUCKET_URL=https://josa-dev-api.fra1.digitaloceanspaces.com,
+          OTS_API_URL=https://ots.josa.ngo/api/v1/,
+          MATOMO_SITE_ID=9,
+        ]
+      tags:
+        - ${DRONE_COMMIT_SHA}
+        - latest
       username:
         from_secret: docker_username
       password:
         from_secret: docker_password
-  - name: notify on Slack
+  - name: notify
     image: plugins/slack
     settings:
       webhook:
         from_secret: slack_webhook
       channel: heartbeat
     depends_on:
-      - build and release portal-web
+      - build

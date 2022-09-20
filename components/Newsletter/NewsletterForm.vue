@@ -84,10 +84,7 @@ export default {
 
 <style scoped>
 ul {
-  width: 100%;
+  @apply w-full m-0 p-0 overflow-auto;
   list-style: none;
-  margin: 0;
-  padding: 0;
-  overflow: auto;
 }
 </style>

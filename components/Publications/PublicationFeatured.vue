@@ -74,7 +74,6 @@ export default {
 }
 
 .preview-image {
-  @apply w-full object-cover object-center;
-  height: 200px;
+  @apply w-full object-cover object-center h-48;
 }
 </style>

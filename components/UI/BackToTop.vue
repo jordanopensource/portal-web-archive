@@ -87,15 +87,13 @@ export default {
 
 .back-to-top-fade-enter,
 .back-to-top-fade-leave-to {
-  opacity: 0;
+  @apply opacity-0;
 }
 
 .back-to-top {
-  cursor: pointer;
-  position: fixed;
+  @apply cursor-pointer fixed text-center;
   z-index: 1000;
   bottom: 2rem;
-  text-align: center;
 }
 
 [dir='ltr'] .back-to-top {
@@ -107,7 +105,7 @@ export default {
 }
 
 .back-to-top .default {
-  fill: currentColor;
+  @apply fill-current;
   color: #3897c0;
 }
 
@@ -116,9 +114,7 @@ export default {
 }
 
 .back-to-top .icon {
-  width: 3.5rem;
-  height: 3.5rem;
-  font-size: 3.5rem;
+  @apply w-12 h-12 text-5xl;
   border-radius: 50%;
 }
 </style>

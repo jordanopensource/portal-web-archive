@@ -13,14 +13,19 @@
           <div
             v-for="section in pageContent.section"
             :key="section.sectionId"
-            :class="activeSection == section.sectionId ? 'active' : ''"
-            class="section-link"
-            @click="setActiveSection(section.sectionId)"
+            @click="setActiveSection(section.sectionId);sectionDepth++;"
           >
-            <span v-if="section['title_' + $i18n.locale]">{{
-              section['title_' + $i18n.locale]
-            }}</span>
-            <span v-else></span>
+            <nuxt-link
+              event=""
+              :to="'#' + section.sectionId"
+              class="section-link"
+              :class="activeSection == section.sectionId ? 'active' : ''"
+            >
+              <span v-if="section['title_' + $i18n.locale]">{{
+                section['title_' + $i18n.locale]
+              }}</span>
+              <span v-else></span>
+            </nuxt-link>
           </div>
         </div>
         <!-- Section Content -->
@@ -64,6 +69,11 @@ export default {
       error({ statusCode: 404, message: 'Not found' })
     }
   },
+  data() {
+    return {
+      sectionDepth: 0,
+    };
+  },
   head() {
     const i18nSeo = this.$nuxtI18nHead({
       addDirAttribute: true,
@@ -93,9 +103,34 @@ export default {
       ],
     }
   },
+  mounted() {
+    this.getSection();
+    window.onpopstate = (event) => {
+      this.getSection(event);
+    }
+  },
   methods: {
-    setActiveSection(section) {
-      this.activeSection = section
+    setActiveSection(section, isBack) {
+      // this makes sure that clicking on the browser's back
+      // button won't create another history entry
+      if (!isBack) {
+        if (this.sectionDepth !== 0){
+          window.history.pushState({}, window.title, this.$route.path + '#' + section);
+        } else {
+          window.history.replaceState({}, window.title, this.$route.path + '#' + section);
+          this.sectionDepth++;
+        }
+      }
+      this.activeSection = section;
+    },
+    getSection(event) {
+      const urlFragmentId = this.$route.hash;
+      if (urlFragmentId !== '') {
+        this.setActiveSection(urlFragmentId.replace('#', ''), event);
+      }
+      else {
+        this.setActiveSection(this.activeSection, event);
+      }
     },
     ifNotEmpty() {
       if (
@@ -121,12 +156,8 @@ export default {
 
 .section-link:hover:before,
 .section-link.active:before {
+  @apply bg-blue-300 h-full w-2 block absolute; 
   content: '';
-  background-color: #a3d1e4;
-  height: 100%;
-  width: 8px;
-  display: block;
-  position: absolute;
 }
 
 [dir='ltr'] .section-link:hover:before,
@@ -140,11 +171,11 @@ export default {
 }
 
 [dir='ltr'] .section-link {
-  padding-left: 8px;
+  @apply pl-2;
 }
 
 [dir='rtl'] .section-link {
-  padding-right: 8px;
+  @apply pr-2;
 }
 
 .section-content >>> p {

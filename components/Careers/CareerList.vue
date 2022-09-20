@@ -97,7 +97,7 @@ export default {
         args.push(q)
       }
       if (this.careerType && this.careerType !== 'all') {
-        const q = 'careerType.name=' + this.careerType
+        const q = 'career_types.name=' + this.careerType
         args.push(q)
       }
       query = args.join('&')
@@ -105,7 +105,7 @@ export default {
     },
     async fetchCareers() {
       const query = this.query()
-      const response = await this.$axios.get(`/api//careers?${query}`)
+      const response = await this.$axios.get(`/api/careers?${query}`)
 
       const careersArray = []
       for (const key in response.data) {
@@ -119,7 +119,7 @@ export default {
       const args = []
       let query = ''
       if (this.careerType && this.careerType !== 'all') {
-        const q = 'careerType.name=' + this.careerType
+        const q = 'career_types.name=' + this.careerType
         args.push(q)
       }
       query = args.join('&')

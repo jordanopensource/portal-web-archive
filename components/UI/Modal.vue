@@ -19,39 +19,24 @@
 
 <style scoped>
 .modal-mask {
-  position: fixed;
+  @apply fixed top-0 left-0 w-full h-full bg-black table py-0 px-12;
   z-index: 9998;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: table;
   transition: opacity 0.3s ease;
-  padding: 0 3rem;
 }
 
 .modal-wrapper {
-  display: table-cell;
-  vertical-align: middle;
-  position: relative;
+  @apply table-cell align-middle relative;
 }
 
 .modal-container {
-  margin: 0px auto;
-  background-color: #fff;
+  @apply bg-white max-h-full overflow-y-auto my-0 mx-auto;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
-  max-height: 100%;
-  overflow-y: auto;
 }
 
-.modal-enter {
-  opacity: 0;
-}
-
+.modal-enter, 
 .modal-leave-active {
-  opacity: 0;
+  @apply opacity-0;
 }
 
 .modal-enter .modal-container,

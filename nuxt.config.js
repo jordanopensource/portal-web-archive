@@ -9,7 +9,6 @@ export default {
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
-    script: [{ src: '/js/matomo.js' }],
   },
 
   server: {
@@ -40,6 +39,7 @@ export default {
     { src: '~/plugins/og-tags' },
     { src: '~/plugins/leaflet', mode: 'client' },
     { src: '~/plugins/copy' },
+    { src: '~/plugins/vue-notification', ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -58,6 +58,13 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
+    [
+      '@zecar/nuxt-matomo',
+      {
+        matomoUrl: '//track.josa.ngo/',
+        siteId: process.env.MATOMO_SITE_ID,
+      },
+    ],
     '@nuxtjs/axios',
     'nuxt-ssr-cache',
     '@nuxtjs/moment',
@@ -126,20 +133,31 @@ export default {
 
   proxy: {
     '/api': {
-      target: process.env.API_BASE_URL,
+      target: process.env.PORTAL_API_URL,
       pathRewrite: { '^/api/': '' },
     },
     '/bucket': {
-      target: process.env.BUCKET_URL,
+      target: process.env.ASSETS_BUCKET_URL,
       pathRewrite: { '^/bucket/': '' },
+    },
+    '/ots': {
+      target: process.env.OTS_API_URL,
+      pathRewrite: { '^/ots/': '' },
     },
   },
 
   publicRuntimeConfig: {
-    baseUrl: process.env.API_BASE_URL,
-    bucketUrl: process.env.BUCKET_URL,
+    baseUrl: process.env.PORTAL_API_URL,
+    bucketUrl: process.env.ASSETS_BUCKET_URL,
     bbbAPIUrl: process.env.BBB_API_URL,
     bbbAPISecret: process.env.BBB_API_SECRET,
+    otsUrl: process.env.OTS_API_URL,
+    otsToken: process.env.OTS_API_TOKEN,
+    otsFormGroup: process.env.OTS_FORM_GROUP,
+    siteId: process.env.MATOMO_SITE_ID || 1,
+    buildBranch: process.env.DRONE_BRANCH,
+    buildID: process.env.DRONE_BUILD_PARENT,
+    buildCommitSHA: process.env.DRONE_COMMIT_SHA,
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa

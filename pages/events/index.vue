@@ -5,7 +5,7 @@
     <!-- Menu -->
     <div class="bg-josa-black py-8">
       <div class="container">
-        <div class="px-6 md:px-12 flex flex-col sm:flex-row">
+        <div class="px-6 md:px-12 flex flex-col sm:flex-row flex-wrap">
           <span
             :class="activeCat == 'all' ? 'active' : ''"
             class="cat-link"

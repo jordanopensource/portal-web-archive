@@ -129,7 +129,7 @@ hr {
 
 @keyframes live {
   0% {
-    background-color: #f8c0ac;
+    @apply bg-red-300;
   }
 
   100% {
@@ -138,13 +138,9 @@ hr {
 }
 
 .live::before {
+  @apply h-3 w-3 inline-block mr-1 ml-0;
   content: '';
-  height: 14px;
-  width: 14px;
   border-radius: 50%;
-  display: inline-block;
-  margin-right: 6px;
-  margin-left: 0px;
   vertical-align: sub;
   animation-name: live;
   animation-duration: 1s;
@@ -157,7 +153,6 @@ hr {
 }
 
 [dir='rtl'] .live::before {
-  margin-left: 6px;
-  margin-right: 0;
+  @apply ml-1 mr-0;
 }
 </style>

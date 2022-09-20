@@ -76,24 +76,18 @@ textarea::placeholder {
 }
 
 .input-control label {
-  display: block;
-  margin-bottom: 0.5rem;
+  @apply block mb-2;
 }
 
 .input-control input,
 .input-control textarea {
-  display: block;
-  width: 100%;
-  box-sizing: border-box;
+  @apply block w-full box-border p-2 mb-4 border-gray-400 border border-solid;
   font: inherit;
-  border: 1px solid #e0dddb;
-  padding: 10px;
-  margin-bottom: 1rem;
 }
 
 .input-control input:focus,
 .input-control textarea:focus {
-  background-color: #f7f6f5;
+  @apply bg-gray-100;
   outline: none;
 }
 </style>
