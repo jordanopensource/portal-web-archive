@@ -155,6 +155,9 @@ export default {
     otsToken: process.env.OTS_API_TOKEN,
     otsFormGroup: process.env.OTS_FORM_GROUP,
     siteId: process.env.MATOMO_SITE_ID || 1,
+    buildBranch: process.env.DRONE_BRANCH,
+    buildID: process.env.DRONE_BUILD_PARENT,
+    buildCommitSHA: process.env.DRONE_COMMIT_SHA,
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
