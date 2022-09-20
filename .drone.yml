@@ -20,7 +20,7 @@ steps:
           PORTAL_API_URL=https://portal.api.dev.josa.ngo/,
           ASSETS_BUCKET_URL=https://josa-dev-api.fra1.digitaloceanspaces.com,
           OTS_API_URL=https://ots.josa.ngo/api/v1/,
-          MATOMO_SITE_ID=9,
+          MATOMO_SITE_ID=8,
         ]
       tags:
         - ${DRONE_COMMIT_SHA}
