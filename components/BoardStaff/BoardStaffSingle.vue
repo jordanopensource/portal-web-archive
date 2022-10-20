@@ -43,16 +43,14 @@ export default {
 }
 
 .pb {
-  @apply w-32 h-24;
-  min-width: 125px;
-  min-height: 103px;
+  width: 125px;
+  height: 103px;
 }
 
 @screen sm {
   .pb {
-    @apply w-48 h-40;
-    min-width: 189px;
-    min-height: 156px;
+    width: 189px;
+    height: 156px;
   }
 }
 </style>
