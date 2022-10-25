@@ -33,9 +33,7 @@
       </div>
       <div class="ltr:ml-3 rtl:mr-3">
         <h5 class="leading-none mb-1">{{ $t('careers.type') }}</h5>
-        <p v-for="type in career.career_types" :key="type.id">
-          {{ type['title_' + $i18n.locale] }}
-        </p>
+        <p>{{ career.careerType['title_' + $i18n.locale] }}</p>
         <p>{{ career['period_' + $i18n.locale] }}</p>
       </div>
     </div>

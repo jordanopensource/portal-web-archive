@@ -97,7 +97,7 @@ export default {
         args.push(q)
       }
       if (this.careerType && this.careerType !== 'all') {
-        const q = 'career_types.name=' + this.careerType
+        const q = 'careerType.name_contains=' + this.careerType
         args.push(q)
       }
       query = args.join('&')
@@ -119,7 +119,7 @@ export default {
       const args = []
       let query = ''
       if (this.careerType && this.careerType !== 'all') {
-        const q = 'career_types.name=' + this.careerType
+        const q = 'careerType.name_contains=' + this.careerType
         args.push(q)
       }
       query = args.join('&')
