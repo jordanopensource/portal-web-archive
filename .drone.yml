@@ -17,8 +17,8 @@ steps:
       repo: josaorg/portal-web
       build_args:
         [
-          PORTAL_API_URL=https://portal.api.dev.josa.ngo/,
-          ASSETS_BUCKET_URL=https://josa-dev-api.fra1.digitaloceanspaces.com,
+          PORTAL_API_URL=https://portal.api.prod.josa.ngo/,
+          ASSETS_BUCKET_URL=https://josa-api.fra1.digitaloceanspaces.com/portal,
           OTS_API_URL=https://ots.josa.ngo/api/v1/,
           MATOMO_SITE_ID=8,
         ]
