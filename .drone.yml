@@ -20,11 +20,11 @@ steps:
           PORTAL_API_URL=https://portal.api.prod.josa.ngo/,
           ASSETS_BUCKET_URL=https://josa-api.fra1.digitaloceanspaces.com/portal,
           OTS_API_URL=https://ots.josa.ngo/api/v1/,
-          MATOMO_SITE_ID=2,
+          MATOMO_SITE_ID=8,
         ]
       tags:
         - ${DRONE_COMMIT_SHA}
-        - stable
+        - latest
       username:
         from_secret: docker_username
       password:
