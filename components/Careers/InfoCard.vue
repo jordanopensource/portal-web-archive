@@ -51,12 +51,18 @@
         <p>{{ career.team['title_' + $i18n.locale] }}</p>
       </div>
     </div>
+    <div class="info-card">
+      <AppButton btn-style="button-flat"><p class="text">Apply</p></AppButton>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'InfoCard',
+  components: {
+    AppButton: () => import('@/components/FormComponents/AppButton'),
+  },
   props: {
     career: {
       type: Object,
@@ -73,5 +79,9 @@ export default {
 
 .icon {
   @apply text-josa-warm-grey-dark text-2xl;
+}
+
+.text {
+  @apply text-lg text-center;
 }
 </style>
