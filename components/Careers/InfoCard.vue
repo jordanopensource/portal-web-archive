@@ -51,7 +51,7 @@
         <p>{{ career.team['title_' + $i18n.locale] }}</p>
       </div>
     </div>
-    <div class="info-card">
+    <div v-if="withButton" class="info-card">
       <AppButton btn-style="button-flat"><p class="text">Apply</p></AppButton>
     </div>
   </div>
@@ -67,6 +67,10 @@ export default {
     career: {
       type: Object,
       required: true,
+    },
+    withButton: {
+      type: Boolean,
+      default: true,
     },
   },
 }
