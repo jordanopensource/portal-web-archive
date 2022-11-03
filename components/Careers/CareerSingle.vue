@@ -2,9 +2,19 @@
   <section>
     <div class="container">
       <div class="py-12 px-6 md:px-12">
-        <h4 class="text-josa-blue mb-2">
-          {{ career.careerType['title_' + $i18n.locale] }}
-        </h4>
+        <div class="">
+          <span
+            v-for="type in career.career_types"
+            :key="type.id"
+            class="text-josa-blue mb-2"
+          >
+            {{
+              type.id === lastCareerType[0].id
+                ? `${type['title_' + $i18n.locale]}`
+                : `${type['title_' + $i18n.locale]} / `
+            }}
+          </span>
+        </div>
         <div>
           <h2>{{ career['title_' + $i18n.locale] }}</h2>
           <p v-if="career.status == false" class="closed">
@@ -55,6 +65,7 @@ export default {
   data({ $config: { bucketUrl } }) {
     return {
       placeholderImage: `${bucketUrl}/josabots_88f0a93786.jpeg`,
+      lastCareerType: this.career.career_types.slice(-1),
     }
   },
 }
