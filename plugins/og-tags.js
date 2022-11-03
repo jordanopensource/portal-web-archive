@@ -29,7 +29,10 @@ function ogData(type, content, path, lang) {
   }
   // Set category
   if (type === 'career') {
-    category = content.careerType['title_' + lang]
+    category = []
+    content.career_types.forEach((type) => {
+      category.push(type['title_' + lang])
+    })
   } else if (content.category) {
     category = content.category['title_' + lang]
   } else {
