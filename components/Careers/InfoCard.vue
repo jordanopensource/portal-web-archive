@@ -36,6 +36,17 @@
         <p v-for="type in career.career_types" :key="type.id">
           {{ type['title_' + $i18n.locale] }}
         </p>
+      </div>
+    </div>
+    <div v-if="career['period_' + $i18n.locale]" class="info-card">
+      <div class="w-8">
+        <font-awesome-icon
+          class="fa-fw icon ltr:mr-3 rtl:ml-3"
+          :icon="['fas', 'clock']"
+        />
+      </div>
+      <div class="ltr:ml-3 rtl:mr-3">
+        <h5 class="leading-none mb-1">{{ $t('careers.period') }}</h5>
         <p>{{ career['period_' + $i18n.locale] }}</p>
       </div>
     </div>
