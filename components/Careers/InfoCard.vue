@@ -52,7 +52,9 @@
       </div>
     </div>
     <div v-if="withButton" class="info-card">
-      <AppButton btn-style="button-flat"><p class="text">Apply</p></AppButton>
+      <NuxtLink :to="`/apply/${career.id}`">
+        <AppButton btn-style="button-flat"><p class="text">Apply</p></AppButton>
+      </NuxtLink>
     </div>
   </div>
 </template>

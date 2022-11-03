@@ -200,7 +200,7 @@
         </p>
         <input
           id="consent_yes"
-          v-model="questions.consent"
+          v-model="consent"
           type="radio"
           name="consent"
           :value="true"
@@ -208,7 +208,7 @@
         <label for="consent_yes">Yes</label>
         <input
           id="consent_no"
-          v-model="questions.consent"
+          v-model="consent"
           type="radio"
           name="consent"
           :value="false"
@@ -268,6 +268,13 @@ export default {
   },
   methods: {
     submitForm() {
+      console.log({
+        personal_information: this.personal_information,
+        professional_information: this.professional_information,
+        questions: this.questions,
+        career: this.career,
+        consent: this.consent,
+      })
       if (this.consent === true) {
         try {
           this.$axios({
@@ -280,6 +287,7 @@ export default {
               career: this.career,
             },
           })
+          console.log(`applied to job!!`)
         } catch (err) {
           console.log(err)
         }
