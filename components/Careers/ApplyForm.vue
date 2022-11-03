@@ -9,7 +9,7 @@
         <label for="firstName">First Name*:</label>
         <input
           id="firstName"
-          v-model="form.personal_information.first_name"
+          v-model="personal_information.first_name"
           type="text"
           name="firstName"
           value="John"
@@ -20,7 +20,7 @@
         <label for="lastName">Last name*:</label>
         <input
           id="lastName"
-          v-model="form.personal_information.last_name"
+          v-model="personal_information.last_name"
           type="text"
           name="lastName"
           value="John"
@@ -31,7 +31,7 @@
         <label for="email">Email*:</label>
         <input
           id="email"
-          v-model="form.personal_information.email"
+          v-model="personal_information.email"
           type="email"
           name="email"
           value="John@example.com"
@@ -42,7 +42,7 @@
         <label for="phone">Phone:</label>
         <input
           id="phone"
-          v-model="form.personal_information.phone"
+          v-model="personal_information.phone"
           type="tel"
           name="phone"
           value="00962"
@@ -56,7 +56,7 @@
         <label for="coverLetter">Cover Letter*:</label>
         <textarea
           id="coverLetter"
-          v-model="form.professional_information.cover_letter"
+          v-model="professional_information.cover_letter"
           name="coverLetter"
           cols="30"
           rows="10"
@@ -67,7 +67,7 @@
         <label for="linkedInProfile">LinkedIn Profile:</label>
         <input
           id="linkedInProfile"
-          v-model="form.professional_information.linkedin_profile"
+          v-model="professional_information.linkedin_profile"
           type="url"
           name="linkedInProfile"
           value=""
@@ -77,7 +77,7 @@
         <label for="website">Website:</label>
         <input
           id="website"
-          v-model="form.professional_information.website"
+          v-model="professional_information.website"
           type="url"
           name="website"
           value=""
@@ -87,7 +87,7 @@
         <label for="whenCanStart">When can you start?</label>
         <input
           id="whenCanStart"
-          v-model="form.questions.when_can_start"
+          v-model="questions.when_can_start"
           type="Date"
           name="whenCanStart"
         />
@@ -96,7 +96,7 @@
         <label for="salaryDesired">Salary Desired:</label>
         <input
           id="salaryDesired"
-          v-model="form.questions.salary_desired"
+          v-model="questions.salary_desired"
           type="text"
           name="salaryDesired"
         />
@@ -105,7 +105,7 @@
         <p>Are you currently employed?</p>
         <input
           id="currentlyEmployed_yes"
-          v-model="form.questions.currently_employed"
+          v-model="questions.currently_employed"
           type="radio"
           name="currentlyEmployed"
           :value="true"
@@ -113,7 +113,7 @@
         <label for="currentlyEmployed_yes">Yes</label>
         <input
           id="currentlyEmployed_no"
-          v-model="form.questions.currently_employed"
+          v-model="questions.currently_employed"
           type="radio"
           name="currentlyEmployed"
           :value="false"
@@ -124,7 +124,7 @@
         <p>If so, can we inquire your current employer?</p>
         <input
           id="inquire_yes"
-          v-model="form.questions.inquire_current_employer"
+          v-model="questions.inquire_current_employer"
           type="radio"
           name="inquire"
           :value="true"
@@ -132,7 +132,7 @@
         <label for="inquire_yes">Yes</label>
         <input
           id="inquire_no"
-          v-model="form.questions.inquire_current_employer"
+          v-model="questions.inquire_current_employer"
           type="radio"
           name="inquire"
           :value="false"
@@ -143,7 +143,7 @@
         <p>Have you ever applied to JOSA before?</p>
         <input
           id="appliedBefore_yes"
-          v-model="form.questions.applied_to_josa_before"
+          v-model="questions.applied_to_josa_before"
           type="radio"
           name="appliedBefore"
           :value="true"
@@ -151,7 +151,7 @@
         <label for="appliedBefore_yes">Yes</label>
         <input
           id="appliedBefore_no"
-          v-model="form.questions.applied_to_josa_before"
+          v-model="questions.applied_to_josa_before"
           type="radio"
           name="appliedBefore"
           :value="false"
@@ -162,7 +162,7 @@
         <p>Are you a JOSA Member?</p>
         <input
           id="josaMember_yes"
-          v-model="form.questions.josa_member"
+          v-model="questions.josa_member"
           type="radio"
           name="josaMember"
           :value="true"
@@ -170,7 +170,7 @@
         <label for="josaMember_yes">Yes</label>
         <input
           id="josaMember_no"
-          v-model="form.questions.josa_member"
+          v-model="questions.josa_member"
           type="radio"
           name="josaMember"
           :value="false"
@@ -183,7 +183,7 @@
         >
         <input
           id="referredBy"
-          v-model="form.questions.referred_by"
+          v-model="questions.referred_by"
           type="text"
           name="referredBy"
         />
@@ -200,7 +200,7 @@
         </p>
         <input
           id="consent_yes"
-          v-model="form.questions.consent"
+          v-model="questions.consent"
           type="radio"
           name="consent"
           :value="true"
@@ -208,7 +208,7 @@
         <label for="consent_yes">Yes</label>
         <input
           id="consent_no"
-          v-model="form.questions.consent"
+          v-model="questions.consent"
           type="radio"
           name="consent"
           :value="false"
@@ -241,36 +241,49 @@ export default {
       selectedFile: null,
       setSelectedFile: null,
       consent: null,
-      form: {
-        personal_information: {
-          first_name: null,
-          last_name: null,
-          email: null,
-          phone: null,
-        },
-        professional_information: {
-          cover_letter: null,
-          linkedin_profile: null,
-          website: null,
-          resume: null,
-        },
-        questions: {
-          career_types: [],
-          when_can_start: null,
-          salary_desired: null,
-          currently_employed: null,
-          inquire_current_employer: null,
-          applied_to_josa_before: null,
-          josa_member: null,
-          referred_by: null,
-        },
-        career: this.careerObject.id,
+      personal_information: {
+        first_name: null,
+        last_name: null,
+        email: null,
+        phone: null,
       },
+      professional_information: {
+        cover_letter: null,
+        linkedin_profile: null,
+        website: null,
+        resume: null,
+      },
+      questions: {
+        career_types: [],
+        when_can_start: null,
+        salary_desired: null,
+        currently_employed: null,
+        inquire_current_employer: null,
+        applied_to_josa_before: null,
+        josa_member: null,
+        referred_by: null,
+      },
+      career: this.careerObject.id,
     }
   },
   methods: {
     submitForm() {
-      console.log(this.form)
+      if (this.consent === true) {
+        try {
+          this.$axios({
+            method: 'post',
+            url: 'http://localhost:1337/job-applications',
+            data: {
+              personal_information: this.personal_information,
+              professional_information: this.professional_information,
+              questions: this.questions,
+              career: this.career,
+            },
+          })
+        } catch (err) {
+          console.log(err)
+        }
+      }
     },
   },
 }
