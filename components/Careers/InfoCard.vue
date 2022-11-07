@@ -62,16 +62,28 @@
         <p>{{ career.team['title_' + $i18n.locale] }}</p>
       </div>
     </div>
+    <div v-if="withButton" class="info-card">
+      <NuxtLink :to="`/apply/${career.id}`">
+        <AppButton btn-style="button-flat"><p class="text">Apply</p></AppButton>
+      </NuxtLink>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'InfoCard',
+  components: {
+    AppButton: () => import('@/components/FormComponents/AppButton'),
+  },
   props: {
     career: {
       type: Object,
       required: true,
+    },
+    withButton: {
+      type: Boolean,
+      default: true,
     },
   },
 }
@@ -84,5 +96,9 @@ export default {
 
 .icon {
   @apply text-josa-warm-grey-dark text-2xl;
+}
+
+.text {
+  @apply text-lg text-center;
 }
 </style>
