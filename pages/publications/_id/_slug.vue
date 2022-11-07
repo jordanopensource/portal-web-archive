@@ -9,11 +9,14 @@ export default {
       import('~/components/Publications/PublicationSingle'),
   },
   layout: 'default',
-  async asyncData({ params, $axios }) {
-    const response = await $axios.get(`/api/publications/${params.id}`)
-
-    return {
-      publication: response.data,
+  async asyncData({ params, $axios, error }) {
+    try {
+      const response = await $axios.get(`/api/publications/${params.id}`)
+      return {
+        publication: response.data,
+      }
+    } catch (err) {
+      error({ statusCode: 404, message: 'Not found' })
     }
   },
   head() {

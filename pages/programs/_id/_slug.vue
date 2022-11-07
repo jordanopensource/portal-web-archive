@@ -8,10 +8,14 @@ export default {
     programSingle: () => import('~/components/Programs/ProgramSingle'),
   },
   layout: 'default',
-  async asyncData({ params, $axios }) {
-    const response = await $axios.get(`/api/programs/${params.id}`)
-    return {
-      program: response.data,
+  async asyncData({ params, $axios, error }) {
+    try {
+      const response = await $axios.get(`/api/programs/${params.id}`)
+      return {
+        program: response.data,
+      }
+    } catch (err) {
+      error({ statusCode: 404, message: 'Not found' })
     }
   },
   head() {

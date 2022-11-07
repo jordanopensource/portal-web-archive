@@ -13,7 +13,10 @@
           <div
             v-for="section in pageContent.section"
             :key="section.sectionId"
-            @click="setActiveSection(section.sectionId);sectionDepth++;"
+            @click="
+              setActiveSection(section.sectionId)
+              sectionDepth++
+            "
           >
             <nuxt-link
               event=""
@@ -54,8 +57,9 @@ export default {
   },
   layout: 'default',
   async asyncData({ params, error, $axios }) {
-    const response = await $axios.get(`/api/info-pages?pageId=${params.slug}`)
-    if (response.data[0]) {
+    try {
+      const response = await $axios.get(`/api/info-pages?pageId=${params.slug}`)
+
       const ifSections = !!(
         Array.isArray(response.data[0].section) &&
         response.data[0].section.length
@@ -65,14 +69,14 @@ export default {
         pageContent: response.data[0],
         activeSection: activeSec,
       }
-    } else {
+    } catch (err) {
       error({ statusCode: 404, message: 'Not found' })
     }
   },
   data() {
     return {
       sectionDepth: 0,
-    };
+    }
   },
   head() {
     const i18nSeo = this.$nuxtI18nHead({
@@ -104,9 +108,9 @@ export default {
     }
   },
   mounted() {
-    this.getSection();
+    this.getSection()
     window.onpopstate = (event) => {
-      this.getSection(event);
+      this.getSection(event)
     }
   },
   methods: {
@@ -114,22 +118,29 @@ export default {
       // this makes sure that clicking on the browser's back
       // button won't create another history entry
       if (!isBack) {
-        if (this.sectionDepth !== 0){
-          window.history.pushState({}, window.title, this.$route.path + '#' + section);
+        if (this.sectionDepth !== 0) {
+          window.history.pushState(
+            {},
+            window.title,
+            this.$route.path + '#' + section
+          )
         } else {
-          window.history.replaceState({}, window.title, this.$route.path + '#' + section);
-          this.sectionDepth++;
+          window.history.replaceState(
+            {},
+            window.title,
+            this.$route.path + '#' + section
+          )
+          this.sectionDepth++
         }
       }
-      this.activeSection = section;
+      this.activeSection = section
     },
     getSection(event) {
-      const urlFragmentId = this.$route.hash;
+      const urlFragmentId = this.$route.hash
       if (urlFragmentId !== '') {
-        this.setActiveSection(urlFragmentId.replace('#', ''), event);
-      }
-      else {
-        this.setActiveSection(this.activeSection, event);
+        this.setActiveSection(urlFragmentId.replace('#', ''), event)
+      } else {
+        this.setActiveSection(this.activeSection, event)
       }
     },
     ifNotEmpty() {
@@ -156,7 +167,7 @@ export default {
 
 .section-link:hover:before,
 .section-link.active:before {
-  @apply bg-blue-300 h-full w-2 block absolute; 
+  @apply bg-blue-300 h-full w-2 block absolute;
   content: '';
 }
 

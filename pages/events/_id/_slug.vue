@@ -9,12 +9,12 @@ export default {
   },
   layout: 'default',
   async asyncData({ params, $axios, error }) {
-    const response = await $axios.get(`/api/events/${params.id}`)
-    if (response.data) {
+    try {
+      const response = await $axios.get(`/api/events/${params.id}`)
       return {
         event: response.data,
       }
-    } else {
+    } catch (err) {
       error({ statusCode: 404, message: 'Not found' })
     }
   },
