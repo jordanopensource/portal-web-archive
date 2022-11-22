@@ -1,5 +1,6 @@
 <template>
   <div :dir="$dir()">
+    <buildInfoBanner v-if="this.$config.TARGET_ENV==='development'"/>
     <mainHeader />
     <nuxt class="content-wrapper md:px-0 bg-white" />
     <back-to-top />
