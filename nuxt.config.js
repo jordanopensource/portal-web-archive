@@ -57,6 +57,7 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@josango/nuxt-build-banner',
     // https://go.nuxtjs.dev/axios
     [
       '@zecar/nuxt-matomo',
@@ -158,6 +159,13 @@ export default {
     buildBranch: process.env.DRONE_BRANCH,
     buildID: process.env.DRONE_BUILD_PARENT,
     buildCommitSHA: process.env.DRONE_COMMIT_SHA,
+    DRONE_COMMIT_SHA: process.env.DRONE_COMMIT_SHA,
+    DRONE_COMMIT_LINK: process.env.DRONE_COMMIT_LINK,
+    DRONE_BUILD_NUMBER: process.env.DRONE_BUILD_NUMBER,
+    DRONE_BUILD_LINK: process.env.DRONE_BUILD_LINK,
+    DRONE_REPO_LINK: process.env.DRONE_REPO_LINK,
+    DRONE_BUILD_FINISHED: process.env.DRONE_BUILD_FINISHED,
+    TARGET_ENV: process.env.TARGET_ENV
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
