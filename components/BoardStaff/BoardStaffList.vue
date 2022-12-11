@@ -41,10 +41,13 @@ export default {
       type: Boolean,
       default: false,
     },
+    sortBy: {
+      type: String,
+      default: null,
+    },
   },
   data() {
     return {
-      sortBy: 'created_at:ASC',
       loadedPersonnels: [],
     }
   },
