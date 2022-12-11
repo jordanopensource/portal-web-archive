@@ -7,11 +7,13 @@
       <boardStaffList
         class="board-staff-list"
         role="board"
+        sort-by="weight:ASC"
         :title="$t('boardStaff.board')"
       />
       <boardStaffList
         class="board-staff-list"
         role="staff"
+        sort-by="weight:ASC"
         :title="$t('boardStaff.staff')"
       />
     </div>
