@@ -115,7 +115,7 @@ export default {
         args.push(q)
       }
       if (this.category && this.category !== 'all') {
-        const q = 'category.name=' + this.category
+        const q = 'category.title_' + this.$i18n.locale + '=' + this.category
         args.push(q)
       }
       if (this.featured) {
@@ -140,7 +140,7 @@ export default {
       const args = []
       let query = ''
       if (this.category && this.category !== 'all') {
-        const q = 'category.name=' + this.category
+        const q = 'category.title_' + this.$i18n.locale + '=' + this.category
         args.push(q)
       }
       query = args.join('&')

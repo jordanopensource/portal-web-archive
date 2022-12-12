@@ -12,14 +12,15 @@
             @click="setActiveCat('all')"
             >{{ $t('publicationCats.title.all') }}</span
           >
-          <span
-            v-for="cat in publicationCategories"
-            :key="cat.id"
-            :class="activeCat == cat.name ? 'active' : ''"
-            class="cat-link"
-            @click="setActiveCat(cat.name)"
-            >{{ cat['title_' + $i18n.locale] }}</span
-          >
+          <div v-for="cat in publicationCategories" :key="cat.id" class="flex">
+            <span
+              v-if="cat.publications.length"
+              :class="activeCat == cat['title_' + $i18n.locale] ? 'active' : ''"
+              class="cat-link"
+              @click="setActiveCat(cat['title_' + $i18n.locale])"
+              >{{ cat['title_' + $i18n.locale] }}</span
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -27,9 +28,9 @@
     <div class="container pb-20">
       <div v-for="cat in publicationCategories" :key="cat.id">
         <publicationList
-          v-if="activeCat == 'all' || activeCat == cat.name"
+          v-if="activeCat == 'all' || activeCat == cat['title_' + $i18n.locale]"
           class="publication-list"
-          :category="cat.name"
+          :category="cat['title_' + $i18n.locale]"
           :title="cat['title_' + $i18n.locale]"
         />
       </div>
