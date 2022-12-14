@@ -21,7 +21,8 @@ steps:
           ASSETS_BUCKET_URL=https://josa-api.fra1.digitaloceanspaces.com/portal,
           OTS_API_URL=https://ots.josa.ngo/api/v1/,
           MATOMO_SITE_ID=8,
-          TARGET_ENV=development
+          TARGET_ENV=development,
+          ONION_ADDRESS=http://pqkxrgh4cngoearb3fbr5sfpoouapjap3qm7mnhk6oa3dv6expxbreqd.onion,
         ]
       build_args_from_env:
         [
