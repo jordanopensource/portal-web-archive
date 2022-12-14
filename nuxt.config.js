@@ -54,7 +54,10 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
   ],
-
+  // nuxt router
+  router: {
+    middleware: ['onion-service']
+  },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@josango/nuxt-build-banner',
