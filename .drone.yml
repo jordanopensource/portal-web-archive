@@ -22,7 +22,7 @@ steps:
           OTS_API_URL=https://ots.josa.ngo/api/v1/,
           MATOMO_SITE_ID=8,
           TARGET_ENV=development,
-          ONION_ADDRESS=http://pqkxrgh4cngoearb3fbr5sfpoouapjap3qm7mnhk6oa3dv6expxbreqd.onion,
+          ONION_ADDRESS=http://jq6pbit3yrnvwvozpn27nepjkhmbsoiawoa363w77njgsntznhq4ulid.onion,
         ]
       build_args_from_env:
         [
