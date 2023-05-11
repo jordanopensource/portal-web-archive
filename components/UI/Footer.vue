@@ -137,6 +137,11 @@ export default {
           path: 'https://github.com/jordanopensource',
           id: '/jordanopensource',
         },
+        {
+          icon: 'mastodon',
+          path: 'https://josa.social/@josa',
+          id: '/@josa',
+        },
       ],
     }
   },
