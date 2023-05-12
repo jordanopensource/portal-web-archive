@@ -1,17 +1,19 @@
 <template>
   <div class="flex flex-nowrap items-center">
-    <appImage
-      v-if="picture"
-      :image="picture"
-      size="small"
-      class="profilePicture"
-    />
-    <img
-      v-else
-      size="small"
-      class="profilePicture"
-      src="~/static/images/icons/authorimage_default.webp"
-    />
+    <nuxt-link :to="authorLink">
+      <appImage
+        v-if="picture"
+        :image="picture"
+        size="small"
+        class="profilePicture"
+      />
+      <img
+        v-else
+        size="small"
+        class="profilePicture"
+        src="~/static/images/icons/authorimage_default.webp"
+      />
+    </nuxt-link>
     <div class="opacity-90">
       <p v-if="writtenBy" class="block ltr:text-xs rtl:text-sm uppercase">
         {{ $t('meta.writtenBy') }}
@@ -22,7 +24,9 @@
       >
         {{ $t('meta.translatedBy') }}
       </p>
-      <h4>{{ name }}</h4>
+      <nuxt-link :to="authorLink">
+        <h4>{{ name }}</h4>
+      </nuxt-link>
       <p v-if="bio">{{ bio }}</p>
     </div>
   </div>
@@ -56,6 +60,15 @@ export default {
     translatedBy: {
       type: Boolean,
       default: false,
+    },
+    authorId: {
+      type: Number,
+      default: 0,
+    },
+  },
+  computed: {
+     authorLink() {
+      return this.localePath('/authors/' + this.authorId);
     },
   },
 }

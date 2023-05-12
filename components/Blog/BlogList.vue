@@ -100,6 +100,10 @@ export default {
       type: String,
       required: true,
     },
+    authorId: {
+      type: Number,
+      default: 0,
+    },
   },
   data() {
     return {
@@ -132,6 +136,10 @@ export default {
     query() {
       const args = []
       let query = ''
+      if (this.authorId) {
+        const q = 'authors[0].id=' + this.authorId;
+        args.push(q);
+      }
       if (this.start) {
         const q = '_start=' + this.start
         args.push(q)
@@ -175,6 +183,10 @@ export default {
     async countArticles() {
       const args = []
       let query = ''
+      if (this.authorId) {
+        const q = 'authors[0].id=' + this.authorId;
+        args.push(q);
+      }
       if (this.category && this.category !== 'all') {
         const q = 'category.name=' + this.category
         args.push(q)

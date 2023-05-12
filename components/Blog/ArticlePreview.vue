@@ -21,7 +21,7 @@
       <p v-if="article.excerpt">{{ article.excerpt }}</p>
       <p v-else>{{ article.body | truncate(200) }}</p>
       <div
-        v-if="article.authors.length || article.translators.length"
+        v-if="article.authors || article.translators"
         class="flex flex-wrap items-center flex-row mb-t mb-2 mt-4"
       >
         <p class="text-sm opacity-80 ltr:mr-4 rtl:ml-4 mb-2">
@@ -38,6 +38,7 @@
             class="ltr:mr-4 rtl:ml-4 flex-shrink-0"
             :name="author['name_' + $i18n.locale]"
             :picture="author.picture"
+            :author-id="author.id"
           />
         </template>
         <template v-if="article.translators.length">
@@ -49,6 +50,7 @@
             :picture="translator.picture"
             :translated-by="true"
             :written-by="false"
+            :author-id="translator.id"
           />
         </template>
       </div>
