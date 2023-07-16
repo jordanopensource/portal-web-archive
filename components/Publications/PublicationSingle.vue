@@ -29,8 +29,8 @@
           </div>
           <div class="w-full md:w-2/5 mb-8">
             <publishDateCard class="mb-8" :date="publication.publishDate" />
-            <downloadCard class="mb-8" :file-link="publication.report.url" />
-            <a :href="publication.report.url" target="_blank"><appImage
+            <downloadCard class="mb-8" :file-link="fileUrl" />
+            <a :href="fileUrl" target="_blank"><appImage
               v-if="publication.thumbnail"
               :image="publication.thumbnail"
               size="large"
@@ -71,6 +71,11 @@ export default {
   },
   mounted() {
     this.url = window.location.href
+  },
+  computed: {
+    fileUrl() {
+      return /^https/.test(this.publication.report.url) ? this.publication.report.url : `https://${this.publication.report.url}`
+    },
   },
 }
 </script>
