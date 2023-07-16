@@ -6,7 +6,7 @@
     />
     <div>
       <h5 class="leading-none mb-1">{{ $t('meta.readTheReport') }}</h5>
-      <a :href="fileUrl" target="_blank">{{ $t('meta.download') }}</a>
+      <a :href="fileLink" target="_blank">{{ $t('meta.download') }}</a>
     </div>
   </div>
 </template>
@@ -18,11 +18,6 @@ export default {
     fileLink: {
       type: String,
       required: true,
-    },
-  },
-  computed: {
-    fileUrl() {
-      return /^https/.test(this.fileLink) ? this.fileLink : `https://${this.fileLink}`
     },
   },
 }
