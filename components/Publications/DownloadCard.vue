@@ -22,7 +22,7 @@ export default {
   },
   computed: {
     fileUrl() {
-      return this.fileLink
+      return /^https/.test(this.fileLink) ? this.fileLink : `https://${this.fileLink}`
     },
   },
 }
